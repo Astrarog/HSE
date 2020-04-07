@@ -1,0 +1,6 @@
+Function      power      SUCCEED on arguments: () {'b': 2, 'a': 3}. 
+Function      power      FAILED on arguments: (0, 0) {}.  ValueError: 0 to the power of 0 is undefined
+Function      power      SUCCEED on arguments: (0, 1) {}. 
+Function  print_string   SUCCEED on arguments: () {'s': ''}. 
+Function  print_string   SUCCEED on arguments: ('test',) {}. 
+Function  print_string   FAILED on arguments: (2,) {}.  ValueError: Only string can pe printed
