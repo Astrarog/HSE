@@ -127,10 +127,10 @@ std::vector<double> generate_and_test_multimap( std::vector<size_t> lengs, size_
 int main()
 {
     size_t seed = 0;
-    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
 
+    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
     flower::flower a = flower::random_flower(seed);
-    flower::flower_hash_position t = ;
+    flower::flower_hash_position t<ral::smart_hash>(a);
 //    using Iterator = std::vector<flower::flower>::iterator;
 
 //    std::map<std::string, std::vector<double>> times;

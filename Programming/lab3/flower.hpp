@@ -28,16 +28,6 @@ namespace flower {
     };
 
 
-    template<typename Function>
-    struct Hasher
-    {
-        Function operator()()
-        {
-
-        }
-    };
-
-
     class flower
     {
         std::string name;
@@ -61,16 +51,17 @@ namespace flower {
         friend std::istream& operator>>(std::istream& in, flower& flwr);
     };
 
-    template <typename T, template<typename, typename> typename Hasher>
+    template <template<typename, typename> typename Hasher>
     struct flower_hash_position
     {
+        using Unsigned = uint32_t;
         flower fl;
-        T hash;
-        T position;
+        Unsigned hash;
+        Unsigned position;
         flower_hash_position(const flower& flw): fl(flw)
         {
-            hash = Hasher<std::string, T>(flw.GetName());
-            position = hash;
+//            hash = Hasher<std::string, Unsigned>(flw.GetName());
+//            position = hash;
         }
     };
 
