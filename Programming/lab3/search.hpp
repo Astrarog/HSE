@@ -4,6 +4,24 @@
 
 namespace ral {
 
+/*====================================================================================
+ *Interfaces
+ *====================================================================================*/
+template <typename ForwardIt>
+ForwardIt linear_search(ForwardIt first,
+                        ForwardIt last,
+                        const typename ForwardIt::value_type& value);
+
+template <typename RandomIt>
+RandomIt binary_search(RandomIt first,
+                       RandomIt last,
+                       const typename RandomIt::value_type& value);
+
+
+
+/*====================================================================================
+ *Implementation
+ *====================================================================================*/
 
 template <typename ForwardIt>
 ForwardIt linear_search(ForwardIt first, ForwardIt last, const typename ForwardIt::value_type& value)

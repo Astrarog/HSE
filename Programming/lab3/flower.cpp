@@ -235,17 +235,6 @@ namespace flower {
 
     }
 
-    std::vector<flower> generate_flowers(size_t lenght, size_t& seed)
-    {
-        std::vector<flower> answ;
-        answ.reserve(lenght);
 
-        while(lenght--)
-        {
-            answ.push_back(random_flower(seed));
-        }
-
-        return answ;
-    }
 
 }

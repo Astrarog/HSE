@@ -30,6 +30,17 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& data)
     return out;
 }
 
+int main()
+{
+    size_t seed = 0;
+
+    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
+    flower::flower a = flower::random_flower(seed);
+    flower::flower_hash_position<ral::dummy_hash> t(a);
+    std::cout << std::endl;
+    return 0;
+}
+
 
 template <typename ForfardIt>
 void eval_linear_search(ForfardIt begin, ForfardIt end)
@@ -42,6 +53,7 @@ void eval_linear_search(ForfardIt begin, ForfardIt end)
 
     ral::linear_search(begin, end, value_to_search);
 }
+
 
 template <typename ForfardIt>
 void eval_binary_search(ForfardIt begin, ForfardIt end)
@@ -95,63 +107,32 @@ double mulimap_measure(const std::multimap<std::string, flower::flower>& data)
 }
 
 //template <typename FunctionEval>
-std::vector<double> generate_and_test_multimap( std::vector<size_t> lengs, size_t& seed)
-{
-    ++seed;
-    std::vector<double> average_times;
-    average_times.reserve(lengs.size());
-    for (auto l:lengs)
-    {
-        std::vector<double> times;
-        times.reserve(10);
-        for(int i=0;i<10;++i){
-            std::vector<flower::flower> data_raw = flower::generate_flowers(l, seed);
-            std::multimap<std::string, flower::flower> data;
-
-            for(const auto& elem: data_raw)
-            {
-                data.insert({elem.GetName(), elem});
-            }
-            times.push_back(mulimap_measure(data));
-        }
-        //may be meadian is better
-        double sum = std::accumulate(times.begin(), times.end(), 0.0);
-        double mean = sum / times.size();
-        average_times.push_back(mean / 1'000'000'000);
-    }
-    return average_times;
-}
-
-
-
-int main()
-{
-    size_t seed = 0;
-
-    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000};
-    flower::flower a = flower::random_flower(seed);
-    flower::flower_hash_position t<ral::smart_hash>(a);
-//    using Iterator = std::vector<flower::flower>::iterator;
-
-//    std::map<std::string, std::vector<double>> times;
-//    size_t seed = 0;
-
-//    times["Linear"] = ral::generate_and_test(eval_linear_search<Iterator>, lengs, seed);
-//    std::cout << "Linear is done" << std::endl;
-
-//    times["Binary"] = ral::generate_and_test(eval_binary_search<Iterator>, lengs, seed);
-//    std::cout<< "Binary is done" << std::endl;
-
-//    times["Quic sort and Binary Search"] = ral::generate_and_test(sort_and_search<Iterator>, lengs, seed);
-//    std::cout<< "Quic sort and Binary Search is done" << std::endl;
-
-//    times["multimap"] = generate_and_test_multimap(lengs, seed);
-
-//    std::ofstream file("data.csv", std::ios::out);
-//    for (auto& e: times)
+//std::vector<double> generate_and_test_multimap( std::vector<size_t> lengs, size_t& seed)
+//{
+//    ++seed;
+//    std::vector<double> average_times;
+//    average_times.reserve(lengs.size());
+//    for (auto l:lengs)
 //    {
-//       file << e.first << ';' << e.second << '\n';
+//        std::vector<double> times;
+//        times.reserve(10);
+//        for(int i=0;i<10;++i){
+//            std::vector<flower::flower> data_raw = flower::generate_flowers(l, seed);
+//            std::multimap<std::string, flower::flower> data;
+
+//            for(const auto& elem: data_raw)
+//            {
+//                data.insert({elem.GetName(), elem});
+//            }
+//            times.push_back(mulimap_measure(data));
+//        }
+//        //may be meadian is better
+//        double sum = std::accumulate(times.begin(), times.end(), 0.0);
+//        double mean = sum / times.size();
+//        average_times.push_back(mean / 1'000'000'000);
 //    }
-//    file << "Size" << ';' << lengs;
-    return 0;
-}
+//    return average_times;
+//}
+
+
+

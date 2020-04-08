@@ -7,6 +7,37 @@
 
 namespace ral {
 
+
+/*====================================================================================
+ *Interfaces
+ *====================================================================================*/
+template<class ForwardIt >
+ForwardIt find_min_element(ForwardIt first, ForwardIt last);
+
+template<typename RandomIt>
+void SelectionSort(RandomIt first,  RandomIt last);
+
+template <typename RandomIt>
+RandomIt partition(RandomIt first, RandomIt last);
+
+template<typename RandomIt>
+void QuickSort(RandomIt first,  RandomIt last);
+
+template<typename RandomIt>
+void ShiftUp(RandomIt first,  RandomIt last, RandomIt current);
+
+template<typename RandomIt>
+void ShiftDown(RandomIt first,  RandomIt last, RandomIt current);
+
+template<typename RandomIt>
+void BuildHeap(RandomIt first,  RandomIt last);
+
+template<typename RandomIt>
+void HeapSort(RandomIt first,  RandomIt last);
+/*====================================================================================
+ *Implementation
+ *====================================================================================*/
+
 template<class ForwardIt >
 ForwardIt find_min_element(ForwardIt first, ForwardIt last)
 {
@@ -55,8 +86,6 @@ RandomIt partition(RandomIt first, RandomIt last){
     return last+1;
 }
 
-
-
 template<typename RandomIt>
 void QuickSort(RandomIt first,  RandomIt last)
 {
@@ -67,7 +96,6 @@ void QuickSort(RandomIt first,  RandomIt last)
         QuickSort(pivot, last);
     }
 }
-
 
 template<typename RandomIt>
 void ShiftUp(RandomIt first,  RandomIt last, RandomIt current)
@@ -85,7 +113,6 @@ void ShiftUp(RandomIt first,  RandomIt last, RandomIt current)
         parent = current + (current-first - 1)/2;
     }
 }
-
 
 template<typename RandomIt>
 void ShiftDown(RandomIt first,  RandomIt last, RandomIt current){
@@ -112,7 +139,6 @@ void ShiftDown(RandomIt first,  RandomIt last, RandomIt current){
         current = max_child;
     }
 }
-
 
 template<typename RandomIt>
 void BuildHeap(RandomIt first,  RandomIt last)

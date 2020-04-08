@@ -51,20 +51,6 @@ namespace flower {
         friend std::istream& operator>>(std::istream& in, flower& flwr);
     };
 
-    template <template<typename, typename> typename Hasher>
-    struct flower_hash_position
-    {
-        using Unsigned = uint32_t;
-        flower fl;
-        Unsigned hash;
-        Unsigned position;
-        flower_hash_position(const flower& flw): fl(flw)
-        {
-//            hash = Hasher<std::string, Unsigned>(flw.GetName());
-//            position = hash;
-        }
-    };
-
     bool operator<(const color& firts, const color& second);
     bool operator==(const color& firts, const color& second);
     bool operator<=(const color& firts, const color& second);
@@ -85,7 +71,48 @@ namespace flower {
     color random_color(size_t& seed);
     aroma random_aroma(size_t& seed);
     flower random_flower(size_t& seed);
-    std::vector<flower> generate_flowers(size_t lenght, size_t& seed);
+
+    template <template<typename ...> typename Collection>
+    struct generate_flowers
+    {
+        using elem_type = flower;
+        using val_type = Collection<flower>;
+        val_type value;
+        generate_flowers(size_t lenght, size_t& seed): value((*this)(lenght, seed)) {}
+
+        operator val_type()
+        {
+            return value;
+        }
+
+        val_type operator()(size_t lenght, size_t& seed)
+        {
+            val_type answ;
+            answ.reserve(lenght);
+
+            while(lenght--)
+            {
+                answ.push_back(random_flower(seed));
+            }
+
+            return answ;
+        }
+    };
+
+    template <template<typename, typename> typename Hasher>
+    struct flower_hash_position
+    {
+        using Unsigned = uint32_t;
+        flower fl;
+        Unsigned hash;
+        Unsigned position;
+        flower_hash_position(const flower& flw): fl(flw)
+        {
+//            hash = Hasher<std::string, Unsigned>(flw.GetName());
+//            position = hash;
+        }
+    };
+
 
 }
 

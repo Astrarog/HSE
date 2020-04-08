@@ -1,15 +1,31 @@
 #ifndef TMEASURE_HPP
 #define TMEASURE_HPP
-
-#include <vector>
+#include <iterator>
 #include <chrono>
 #include <numeric>
 #include <map>
 #include <functional>
-
 #include "flower.hpp"
 
 namespace ral {
+
+/*====================================================================================
+ *Interfaces
+ *====================================================================================*/
+template <typename Collection, typename Function>
+double measure_time(Collection& data, Function evaluator);
+
+
+//template <typename FunctionEval,
+//          typename Generator=flower::generate_flowers<std::vector>>
+//std::vector<double> generate_and_test(FunctionEval evaluator,
+//                                      std::vector<size_t> lengs,
+//                                      size_t& seed,
+//                                      size_t count_samples = 10);
+
+/*====================================================================================
+ *Implementation
+ *====================================================================================*/
 
 
 template <typename Collection, typename Function>
@@ -22,21 +38,26 @@ double measure_time(Collection& data, Function evaluator)
     return (end - start).count();
 }
 
-template <typename FunctionEval, typename Collection>
+
+
+template <typename FunctionEval,
+          typename Generator=flower::generate_flowers<std::vector>>
 std::vector<double> generate_and_test(FunctionEval evaluator,
                                       std::vector<size_t> lengs,
                                       size_t& seed,
-                                      typename std::function<Collection(size_t, size_t&)> generator=flower::generate_flowers)
+                                      size_t count_samples = 10)
 {
     ++seed;
+    using val_type = typename Generator::val_type;
     std::vector<double> average_times;
     average_times.reserve(lengs.size());
     for (auto l:lengs)
     {
         std::vector<double> times;
         times.reserve(10);
-        for(int i=0;i<10;++i){
-            Collection data = generator(l, seed);
+        for(size_t i=0;i<count_samples;++i)
+        {
+            val_type data = Generator(l, seed);
             times.push_back(measure_time(data, evaluator));
         }
 
@@ -47,7 +68,6 @@ std::vector<double> generate_and_test(FunctionEval evaluator,
     }
     return average_times;
 }
-
 
 
 
