@@ -34,7 +34,6 @@ namespace flower {
         color rgb;
         aroma smell;
         std::string region;
-        uint32_t hash;
         uint8_t delimeter = ' ';
     public:
         flower(){}
@@ -47,7 +46,6 @@ namespace flower {
         uint8_t GetDelimeter() const { return delimeter; }
         void SetDelimeter(uint8_t d) { delimeter = d;}
         std::string GetRegion() const { return region; }
-        uint32_t GetHash() const { return hash; }
         friend std::istream& operator>>(std::istream& in, flower& flwr);
     };
 

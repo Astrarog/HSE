@@ -2,12 +2,13 @@
 #define HASH_HPP
 #include <cstdint>
 #include <iterator>
+#include <stdexcept>
 #include <vector>
-#include "flower.hpp"
+
 namespace ral {
 
 
-template <typename Collection, typename Usigned = std::uint32_t>
+template <typename Collection, typename Usigned = std::uint16_t>
 struct dummy_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -30,7 +31,7 @@ struct dummy_hash{
     }
 };
 
-template <typename Collection, typename Usigned = std::uint32_t>
+template <typename Collection, typename Usigned = std::uint16_t>
 struct smart_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -53,47 +54,78 @@ struct smart_hash{
         }
         for(size_t i=0; i<n-1; ++i)
         {
-            hash += data[i];
-            if(data[i] % 2 == 0)
-            {
-                result_type even_values = constant_even & hash;
-                hash = (even_values >> 2) ^ ((0x2 & even_values) << (sizeof(Usigned)-2));
+            hash ^= data[i];
+            result_type even_values = constant_even & hash;
+            result_type odd_values = constant_odd & hash;
+            switch (data[i] % 4) {
+                case 0:
+                    hash = (even_values >> 2) ^ ((0x2 & even_values) << (8*sizeof(Usigned)-2));
+                    break;
+                case 1:
+                    hash = (odd_values >> 2) ^ ((0x2 & odd_values) << (8*sizeof(Usigned)-2));
+                    break;
+                case 2:
+                    hash = (even_values << 2) ^
+                            (((0x2<<(8*sizeof(Usigned)-2)) & even_values) >> (8*sizeof(Usigned)-2));
+                    break;
+                case 3:
+                    hash = (odd_values << 2) ^
+                        (((0x2<<(8*sizeof(Usigned)-2)) & odd_values) >> (8*sizeof(Usigned)-2));
+                    break;
             }
-            else
-            {
-                result_type odd_values = constant_even & hash;
-                hash = (odd_values >> 2) ^ ((0x2 & odd_values) << (sizeof(Usigned)-2));
-            }
+
         }
         return hash;
     }
 };
 
-template<> struct dummy_hash<flower::flower>
-{
-    using result_type = std::uint32_t;
-    using data_type = std::string;
-    result_type value;
-    dummy_hash(const flower::flower& data): value(dummy_hash<std::string>(data.GetName())){}
-};
-
-template<> struct smart_hash<flower::flower>
-{
-    using result_type = std::uint32_t;
-    using data_type = std::string;
-    result_type value;
-    smart_hash(const flower::flower& data): value(smart_hash<std::string>(data.GetName())){}
-};
 
 
-template <typename T, typename U, template<typename, typename> typename Hasher>
+template <typename Key, typename Value,
+          template <typename, typename> typename Hasher = smart_hash,
+          typename U=uint16_t>
 class HashTable
 {
-    size_t capacity = sizeof(U);
-    std::vector<T> elements;
-    std::vector<U> hashes;
-    HashTable(): elements(capacity), hashes(capacity){}
+    size_t capacity = (size_t(U(-1)));
+    std::vector<Value> elements;
+    std::vector<Key> keys;
+    Key empty_key;
+public:
+    HashTable(): elements(capacity), keys(capacity){}
 
+    Value& find_element_by_key(const Key& key)
+    {
+        U hash = Hasher<Key, U>(key);
+        U ind = 1;
+
+        while(ind!=0&&keys[hash]!=key)
+        {
+            ++hash;
+        }
+        return elements[hash];
+    }
+
+    Value& find_element_by_hash(U hash)
+    {
+                return elements[hash];
+    }
+
+    U insert_element(const Key& key, const Value& elem)
+    {
+        U hash = Hasher<Key, U>(key);
+        U ind = 1;
+        while(ind!=0&&keys[hash]!=empty_key)
+        {
+            ++hash;
+        }
+        if(ind==0&&keys[hash]!=empty_key)
+        {
+            throw std::length_error("Attemt to insert element into full table");
+        }
+        keys[hash] = key;
+        elements[hash] = elem;
+        return hash;
+    }
 
 };
 
