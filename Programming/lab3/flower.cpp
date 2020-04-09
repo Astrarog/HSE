@@ -24,6 +24,7 @@ namespace flower {
     {
         return firts.r==second.r && firts.g==second.g && firts.b==second.b;
     }
+    bool operator!=(const color& firts, const color& second)  { return !(firts == second);}
     bool operator<=(const color& firts, const color& second) { return firts<second || firts==second;}
     bool operator>(const color& firts, const color& second) { return !(firts<=second);}
     bool operator>=(const color& firts, const color& second) { return firts>second || firts==second;}
@@ -125,6 +126,7 @@ namespace flower {
         return std::tuple(firts.GetName(), firts.GetColor(), firts.GetSmell(), firts.GetRegion()) ==
                 std::tuple(second.GetName(), second.GetColor(), second.GetSmell(), second.GetRegion());
     }
+    bool operator!=(const flower& firts, const flower& second) { return !(firts == second);}
     bool operator<=(const flower& firts, const flower& second) { return firts<second || firts==second;}
     bool operator>(const flower& firts, const flower& second) { return !(firts<=second);}
     bool operator>=(const flower& firts, const flower& second) { return firts>second || firts==second;}

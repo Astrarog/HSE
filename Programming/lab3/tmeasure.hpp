@@ -41,9 +41,9 @@ namespace ral {
 
 
 
-template <typename EvaluatorType,
+template <typename Evaluator,
           typename Generator=flower::generate_flowers<std::vector>>
-std::vector<double> generate_and_test(EvaluatorType evaluator, std::vector<size_t> lengs,
+std::vector<double> generate_and_test(Evaluator evaluator, std::vector<size_t> lengs,
                                       size_t& seed,
                                       size_t count_samples = 10)
 {
@@ -61,10 +61,10 @@ std::vector<double> generate_and_test(EvaluatorType evaluator, std::vector<size_
             times.push_back(evaluator(data));
         }
 
-        std::nth_element(average_times.begin(),
-                         average_times.begin() + average_times.size()/2,
-                         average_times.end());
-        auto median = average_times[average_times.size()/2];
+        std::nth_element(times.begin(),
+                         times.begin() + times.size()/2,
+                         times.end());
+        auto median = times[times.size()/2];
         average_times.push_back(median / 1'000'000'000);
     }
     return average_times;

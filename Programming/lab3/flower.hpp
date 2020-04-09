@@ -46,19 +46,23 @@ namespace flower {
         uint8_t GetDelimeter() const { return delimeter; }
         void SetDelimeter(uint8_t d) { delimeter = d;}
         std::string GetRegion() const { return region; }
+        std::string getKey() const { return name; }
         friend std::istream& operator>>(std::istream& in, flower& flwr);
     };
 
     bool operator<(const color& firts, const color& second);
     bool operator==(const color& firts, const color& second);
+    bool operator!=(const color& firts, const color& second);
     bool operator<=(const color& firts, const color& second);
     bool operator>(const color& firts, const color& second);
+    bool operator>=(const color& firts, const color& second);
     bool operator>=(const color& firts, const color& second);
     std::ostream& operator<<(std::ostream& out, const color& rgb);
     std::istream& operator>>(std::istream& out, color& rgb);
 
     bool operator<(const flower& firts, const flower& second);
     bool operator==(const flower& firts, const flower& second);
+    bool operator!=(const flower& firts, const flower& second);
     bool operator<=(const flower& firts, const flower& second);
     bool operator>(const flower& firts, const flower& second);
     bool operator>=(const flower& firts, const flower& second);

@@ -4,6 +4,8 @@
 #include <iterator>
 #include <stdexcept>
 #include <vector>
+#include <list>
+#include "flower.hpp"
 
 namespace ral {
 
@@ -31,6 +33,8 @@ struct dummy_hash{
     }
 };
 
+
+
 template <typename Collection, typename Usigned = std::uint16_t>
 struct smart_hash{
     using result_type = Usigned;
@@ -44,36 +48,11 @@ struct smart_hash{
     result_type operator()(const data_type& data){
         std::size_t n = std::size(data);
         result_type hash = 0;
-        result_type constant_even = 0xAA;
-        result_type constant_odd = 0x55;
 
-        for (std::size_t i=0; i < sizeof(result_type); ++i)
-        {
-            constant_even = (constant_even << 8) ^ 0xAA;
-            constant_odd = (constant_odd << 8) ^ 0x55;
-        }
         for(size_t i=0; i<n-1; ++i)
         {
-            hash ^= data[i];
-            result_type even_values = constant_even & hash;
-            result_type odd_values = constant_odd & hash;
-            switch (data[i] % 4) {
-                case 0:
-                    hash = (even_values >> 2) ^ ((0x2 & even_values) << (8*sizeof(Usigned)-2));
-                    break;
-                case 1:
-                    hash = (odd_values >> 2) ^ ((0x2 & odd_values) << (8*sizeof(Usigned)-2));
-                    break;
-                case 2:
-                    hash = (even_values << 2) ^
-                            (((0x2<<(8*sizeof(Usigned)-2)) & even_values) >> (8*sizeof(Usigned)-2));
-                    break;
-                case 3:
-                    hash = (odd_values << 2) ^
-                        (((0x2<<(8*sizeof(Usigned)-2)) & odd_values) >> (8*sizeof(Usigned)-2));
-                    break;
-            }
-
+            hash += data[i];
+            hash -= (hash << 13) | (hash >> 19);
         }
         return hash;
     }
@@ -86,44 +65,41 @@ template <typename Key, typename Value,
           typename U=uint16_t>
 class HashTable
 {
-    size_t capacity = (size_t(U(-1)));
-    std::vector<Value> elements;
-    std::vector<Key> keys;
-    Key empty_key;
+    size_t capacity = (size_t(U(-1))+1);
+    std::vector<std::list<Value>> elements;
+
 public:
-    HashTable(): elements(capacity), keys(capacity){}
+
+    size_t size(U hash)
+    {
+        return elements[hash].size();
+    }
+
+    HashTable(): elements(capacity){}
 
     Value& find_element_by_key(const Key& key)
     {
         U hash = Hasher<Key, U>(key);
-        U ind = 1;
-
-        while(ind!=0&&keys[hash]!=key)
+        for (Value& s: elements[hash])
         {
-            ++hash;
+            if (s.getKey()==key){
+                return s;
+            }
         }
-        return elements[hash];
+        Value empty_element;
+        return empty_element;
     }
 
-    Value& find_element_by_hash(U hash)
-    {
-                return elements[hash];
-    }
-
-    U insert_element(const Key& key, const Value& elem)
+    size_t count_collisions(const Key& key)
     {
         U hash = Hasher<Key, U>(key);
-        U ind = 1;
-        while(ind!=0&&keys[hash]!=empty_key)
-        {
-            ++hash;
-        }
-        if(ind==0&&keys[hash]!=empty_key)
-        {
-            throw std::length_error("Attemt to insert element into full table");
-        }
-        keys[hash] = key;
-        elements[hash] = elem;
+        return  elements[hash].count();
+    }
+
+    U insert_element(const Value& elem)
+    {
+        U hash = Hasher<Value, U>(elem);
+        elements[hash].push_back(elem);
         return hash;
     }
 
