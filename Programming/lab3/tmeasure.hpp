@@ -42,32 +42,33 @@ namespace ral {
 
 
 template <typename Evaluator,
+          typename OutputType = double,
           typename Generator=flower::generate_flowers<std::vector>>
-std::vector<double> generate_and_test(Evaluator evaluator, std::vector<size_t> lengs,
+std::vector<OutputType> generate_and_test(Evaluator evaluator, std::vector<size_t> lengs,
                                       size_t& seed,
                                       size_t count_samples = 10)
 {
     ++seed;
     using val_type = typename Generator::val_type;
-    std::vector<double> average_times;
-    average_times.reserve(lengs.size());
+    std::vector<OutputType> average_output;
+    average_output.reserve(lengs.size());
     for (auto l:lengs)
     {
-        std::vector<double> times;
-        times.reserve(10);
+        std::vector<OutputType> outs;
+        outs.reserve(10);
         for(size_t i=0;i<count_samples;++i)
         {
             val_type data = Generator(l, seed);
-            times.push_back(evaluator(data));
+            outs.push_back(evaluator(data));
         }
 
-        std::nth_element(times.begin(),
-                         times.begin() + times.size()/2,
-                         times.end());
-        auto median = times[times.size()/2];
-        average_times.push_back(median / 1'000'000'000);
+        std::nth_element(outs.begin(),
+                         outs.begin() + outs.size()/2,
+                         outs.end());
+        auto median = outs[outs.size()/2];
+        average_output.push_back(median);
     }
-    return average_times;
+    return average_output;
 }
 
 

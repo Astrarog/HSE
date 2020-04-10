@@ -47,7 +47,6 @@ double evaluate_hashtable_search(const std::vector<T>& data)
 {
     ral::HashTable<std::string, T, Hasher> table;
     std::vector<double> times;
-    times.reserve(10);
     for (const auto& elem: data)
     {
         table.insert_element(elem);
@@ -63,6 +62,27 @@ double evaluate_hashtable_search(const std::vector<T>& data)
                      times.begin() + times.size()/2,
                      times.end());
     auto median = times[times.size()/2];
+    return median / 1'000'000'000;
+}
+
+template <template<typename, typename> typename Hasher, typename T>
+size_t evaluate_hashtable_collisions(const std::vector<T>& data)
+{
+    ral::HashTable<std::string, T, Hasher> table;
+    std::vector<size_t> times;
+    for (const auto& elem: data)
+    {
+        table.insert_element(elem);
+    }
+    for (const auto& elem: data)
+    {
+        size_t cnt = table.collisions_by_key(elem.GetName());
+        times.push_back(cnt);
+    }
+    std::nth_element(times.begin(),
+                     times.begin() + times.size()/2,
+                     times.end());
+    auto median = times[times.size()/2];
     return median;
 }
 
@@ -70,20 +90,33 @@ int main()
 {
     size_t seed = 0;
 
-    std::vector<size_t> lengs = {1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
+    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
+                                 60000, 70000, 80000, 90000, 100000,
+                                 110000, 120000, 130000, 140000, 150000,
+                                 160000, 170000, 180000, 190000, 200000};
     flower::flower a = flower::random_flower(seed);
 
     std::map<std::string, std::vector<double>> times;
 
     auto dummy = evaluate_hashtable_search<ral::dummy_hash, flower::flower>;
     auto smart = evaluate_hashtable_search<ral::smart_hash, flower::flower>;
+    auto dummy_col = evaluate_hashtable_collisions<ral::dummy_hash, flower::flower>;
+    auto smart_col = evaluate_hashtable_collisions<ral::smart_hash, flower::flower>;
 
     std::cout << "Starting dummy hash searching test..." << std::endl;
-    times["Dummy"] = ral::generate_and_test(dummy, lengs, seed);
+    times["DummySearch"] = ral::generate_and_test(dummy, lengs, seed);
     std::cout << "Done!" << std::endl;
 
     std::cout << "Starting smart hash searching test..." << std::endl;
-    times["Smart"] = ral::generate_and_test(smart, lengs, seed);
+    times["SmartSearch"] = ral::generate_and_test(smart, lengs, seed);
+    std::cout << "Done!" << std::endl;
+
+    std::cout << "Starting dummy hash collisions test..." << std::endl;
+    times["DummyCollisions"] = ral::generate_and_test(dummy_col, lengs, seed);
+    std::cout << "Done!" << std::endl;
+
+    std::cout << "Starting smart hash collisions test..." << std::endl;
+    times["SmartCollisions"] = ral::generate_and_test(smart_col, lengs, seed);
     std::cout << "Done!" << std::endl;
 
     std::ofstream file("data.csv", std::ios::out);
@@ -92,7 +125,5 @@ int main()
        file << key << ';' << value << '\n';
        std::cout << key << ';' << value << '\n';
     }
-
-    std::cout << std::endl;
     return 0;
 }

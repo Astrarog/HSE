@@ -70,9 +70,15 @@ class HashTable
 
 public:
 
-    size_t size(U hash)
+    size_t collisions_by_hash(U hash)
     {
         return elements[hash].size();
+    }
+
+    size_t collisions_by_key(const Key& key)
+    {
+        U hash = Hasher<Key, U>(key);
+        return  elements[hash].size();
     }
 
     HashTable(): elements(capacity){}
@@ -90,11 +96,7 @@ public:
         return empty_element;
     }
 
-    size_t count_collisions(const Key& key)
-    {
-        U hash = Hasher<Key, U>(key);
-        return  elements[hash].count();
-    }
+
 
     U insert_element(const Value& elem)
     {
