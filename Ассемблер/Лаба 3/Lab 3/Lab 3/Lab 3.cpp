@@ -14,7 +14,8 @@ int main() {
 	}
 	if (!correct)
 	{
-		throw std::invalid_argument("String should contain only digits.");
+		std::cerr << "String should contain only digits.";
+		return 0;
 	}
 
 	__asm {
@@ -43,3 +44,5 @@ int main() {
 	std::cout << std::endl;
 	return 0;
 }
+
+
