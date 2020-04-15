@@ -69,7 +69,7 @@ template <template<typename, typename> typename Hasher, typename T>
 size_t evaluate_hashtable_collisions(const std::vector<T>& data)
 {
     ral::HashTable<std::string, T, Hasher> table;
-    std::vector<size_t> times;
+    std::vector<size_t> collisions;
     for (const auto& elem: data)
     {
         table.insert_element(elem);
@@ -77,12 +77,12 @@ size_t evaluate_hashtable_collisions(const std::vector<T>& data)
     for (const auto& elem: data)
     {
         size_t cnt = table.collisions_by_key(elem.GetName());
-        times.push_back(cnt);
+        collisions.push_back(cnt);
     }
-    std::nth_element(times.begin(),
-                     times.begin() + times.size()/2,
-                     times.end());
-    auto median = times[times.size()/2];
+    std::nth_element(collisions.begin(),
+                     collisions.begin() + collisions.size()/2,
+                     collisions.end());
+    auto median = collisions[collisions.size()/2];
     return median;
 }
 
