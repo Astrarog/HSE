@@ -13,40 +13,26 @@ namespace ral {
 /*====================================================================================
  *Interfaces
  *====================================================================================*/
-//template <typename Collection, typename Function>
-//double measure_time(Collection& data, Function evaluator);
 
-
-//template <typename FunctionEval,
-//          typename Generator=flower::generate_flowers<std::vector>>
-//std::vector<double> generate_and_test(FunctionEval evaluator,
-//                                      std::vector<size_t> lengs,
-//                                      size_t& seed,
-//                                      size_t count_samples = 10);
+template <typename FunctionEval,
+          typename OutputType = double,
+          typename Generator=flower::generate_flowers<std::vector>>
+std::vector<double> generate_and_test(FunctionEval evaluator,
+                                      std::vector<size_t> lengs,
+                                      size_t& seed,
+                                      size_t count_samples = 10);
 
 /*====================================================================================
  *Implementation
  *====================================================================================*/
 
 
-//template <typename Collection, typename Function>
-//double measure_time(Collection& data, Function evaluator)
-//{
-//    auto start = std::chrono::steady_clock::now();
-//    evaluator(data.begin(), data.end());
-//    auto end = std::chrono::steady_clock::now();
 
-//    return (end - start).count();
-//}
-
-
-
-template <typename Evaluator,
-          typename OutputType = double,
-          typename Generator=flower::generate_flowers<std::vector>>
-std::vector<OutputType> generate_and_test(Evaluator evaluator, std::vector<size_t> lengs,
-                                      size_t& seed,
-                                      size_t count_samples = 10)
+template <typename Evaluator, typename OutputType, typename Generator>
+std::vector<OutputType> generate_and_test(Evaluator evaluator,
+                                          std::vector<size_t> lengs,
+                                          size_t& seed,
+                                          size_t count_samples)
 {
     ++seed;
     using val_type = typename Generator::val_type;

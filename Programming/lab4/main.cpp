@@ -3,14 +3,39 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <numeric>
+#include <cmath>
+#include <boost/math/distributions/chi_squared.hpp>
+#include "random.hpp"
 #include "tmeasure.hpp"
 #include "output.hpp"
 
+
+struct uniform_gen_test
+{
+    double mean;
+    double stdev;
+    std::size_t count_boxes;
+    bool is_uniform=false;
+    uniform_gen_test(std::vector<std::uint64_t> data)
+    {
+        double sum = std::accumulate(data.begin(), data.end(), 0.0);
+        mean = sum / data.size();
+
+        double sq_sum = std::inner_product(data.begin(), data.end(), data.begin(), 0.0);
+        stdev = std::sqrt(sq_sum / data.size() - mean * mean);
+        count_boxes = 1+ log2(data.size());
+
+
+    }
+};
 
 
 int main()
 {
     size_t seed = 0;
+    std::vector<std::uint64_t> v;
+
 
     std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
                                  60000, 70000, 80000, 90000, 100000,

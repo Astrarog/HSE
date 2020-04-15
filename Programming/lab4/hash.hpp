@@ -9,8 +9,26 @@
 
 namespace ral {
 
+/*====================================================================================
+ *Interfaces
+ *====================================================================================*/
+template <typename Collection, typename Usigned = std::uint16_t>
+struct dummy_hash;
 
 template <typename Collection, typename Usigned = std::uint16_t>
+struct smart_hash;
+
+template <typename Key, typename Value,
+          template <typename, typename> typename Hasher = smart_hash,
+          typename U=std::uint16_t>
+class HashTable;
+
+/*====================================================================================
+ *Implementation
+ *====================================================================================*/
+
+
+template <typename Collection, typename Usigned>
 struct dummy_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -35,7 +53,7 @@ struct dummy_hash{
 
 
 
-template <typename Collection, typename Usigned = std::uint16_t>
+template <typename Collection, typename Usigned>
 struct smart_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -61,8 +79,8 @@ struct smart_hash{
 
 
 template <typename Key, typename Value,
-          template <typename, typename> typename Hasher = smart_hash,
-          typename U=uint16_t>
+          template <typename, typename> typename Hasher,
+          typename U>
 class HashTable
 {
     size_t capacity = (size_t(U(-1))+1);
