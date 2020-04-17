@@ -15,10 +15,10 @@ Unsigned dummyRandNext(Unsigned x, Unsigned y);
 template <typename Unsigned= std::uint64_t>
 std::vector<Unsigned> dummyRand(Unsigned n, Unsigned x = 73, Unsigned y = 17);
 
-template <typename Unsigned = std::uint64_t, Unsigned k1=0, Unsigned k2=69069, Unsigned b=313>
+template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
 Unsigned smartRandNext(Unsigned start);
 
-template <typename Unsigned = std::uint64_t, Unsigned k1=0, Unsigned k2=69069, Unsigned b=313>
+template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
 std::vector<Unsigned> smartRand(Unsigned n, Unsigned start = 5);
 
 /*====================================================================================
