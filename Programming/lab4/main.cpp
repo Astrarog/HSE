@@ -5,7 +5,7 @@
 #include <fstream>
 #include <numeric>
 #include <cmath>
-#include <boost/math/distributions/chi_squared.hpp>
+//#include <boost/math/distributions/chi_squared.hpp>
 #include "random.hpp"
 #include "tmeasure.hpp"
 #include "output.hpp"
@@ -24,7 +24,7 @@ struct uniform_gen_test
 
         double sq_sum = std::inner_product(data.begin(), data.end(), data.begin(), 0.0);
         stdev = std::sqrt(sq_sum / data.size() - mean * mean);
-        count_boxes = 1+ log2(data.size());
+        count_boxes = 1 + log2(data.size());
 
 
     }
