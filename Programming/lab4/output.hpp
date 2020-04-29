@@ -8,11 +8,11 @@ std::ostream& operator<<(std::ostream& out, const std::vector<T>& data)
 {
 //    out << '[';
     bool first = true;
-    for (const auto& elem: data)
+    for (auto& elem: data)
     {
         if(!first)
         {
-            out << ';';
+            out << ";";
         }
         first = false;
         out << elem;

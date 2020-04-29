@@ -2,18 +2,20 @@ cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
 project(lab4 LANGUAGES CXX)
 
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+set(BOOST_INCLUDEDIR "C:/Boost/boost_1_72_0/")
+set(BOOST_ROOT "C:/Boost/boost_1_72_0/")
+set(BOOST_LIBRARYDIR "C:/Boost/boost_1_72_0/stage/lib")
 
-#SET(CMAKE_INCLUDE_PATH ${CMAKE_INCLUDE_PATH} "C:/dev/lib/include")
-#SET(CMAKE_LIBRARY_PATH ${CMAKE_LIBRARY_PATH} "C:/dev/lib/lib")
+find_package(Boost REQUIRED)
+if(Boost_FOUND)
 
-#find_package(Boost REQUIRED)
+    include_directories(${Boost_INCLUDE_DIR})
+    add_definitions( "-DHAS_BOOST" )
 
-add_executable(${PROJECT_NAME} main.cpp flower.cpp flower.hpp sortings.hpp tmeasure.hpp search.hpp
- hash.hpp output.hpp random.hpp)
+    add_executable(${PROJECT_NAME} main.cpp flower.cpp flower.hpp sortings.hpp tmeasure.hpp search.hpp
+     hash.hpp output.hpp random.hpp)
 
-#target_link_libraries(${PROJECT_NAME} Boost::Boost)
+    target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
-target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
-
-set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
+    set_target_properties(${PROJECT_NAME} PROPERTIES CXX_EXTENSIONS OFF)
+endif()

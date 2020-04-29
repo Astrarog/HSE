@@ -14,13 +14,13 @@ namespace ral {
  *Interfaces
  *====================================================================================*/
 
-template <typename FunctionEval,
-          typename OutputType = double,
-          typename Generator=flower::generate_flowers<std::vector>>
-std::vector<double> generate_and_test(FunctionEval evaluator,
-                                      std::vector<size_t> lengs,
-                                      size_t& seed,
-                                      size_t count_samples = 10);
+//template <typename FunctionEval,
+//          typename OutputType = double,
+//          typename Generator=flower::generate_flowers<std::vector>>
+//std::vector<OutputType> generate_and_test(FunctionEval evaluator,
+//                                      std::vector<size_t> lengs,
+//                                      size_t& seed,
+//                                      size_t count_samples = 10);
 
 /*====================================================================================
  *Implementation
@@ -28,11 +28,14 @@ std::vector<double> generate_and_test(FunctionEval evaluator,
 
 
 
-template <typename Evaluator, typename OutputType, typename Generator>
-std::vector<OutputType> generate_and_test(Evaluator evaluator,
-                                          std::vector<size_t> lengs,
-                                          size_t& seed,
-                                          size_t count_samples)
+template <typename FunctionEval,
+          typename OutputType = double,
+          typename Generator=flower::generate_flowers<std::vector>>
+std::vector<OutputType> generate_and_test(FunctionEval evaluator,
+                                      std::vector<size_t> lengs,
+                                      size_t& seed,
+                                      size_t count_samples = 10,
+                                      bool only_averages = true)
 {
     ++seed;
     using val_type = typename Generator::val_type;
@@ -41,18 +44,27 @@ std::vector<OutputType> generate_and_test(Evaluator evaluator,
     for (auto l:lengs)
     {
         std::vector<OutputType> outs;
-        outs.reserve(10);
+        outs.reserve(count_samples);
         for(size_t i=0;i<count_samples;++i)
         {
             val_type data = Generator(l, seed);
             outs.push_back(evaluator(data));
         }
-
-        std::nth_element(outs.begin(),
-                         outs.begin() + outs.size()/2,
-                         outs.end());
-        auto median = outs[outs.size()/2];
-        average_output.push_back(median);
+        if (only_averages)
+        {
+            std::nth_element(outs.begin(),
+                             outs.begin() + outs.size()/2,
+                             outs.end());
+            auto median = outs[outs.size()/2];
+            average_output.push_back(median);
+        }
+        else
+        {
+            for(const auto & e: outs)
+            {
+                average_output.push_back(e);
+            }
+        }
     }
     return average_output;
 }

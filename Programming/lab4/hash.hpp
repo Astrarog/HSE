@@ -12,16 +12,16 @@ namespace ral {
 /*====================================================================================
  *Interfaces
  *====================================================================================*/
-template <typename Collection, typename Usigned = std::uint16_t>
-struct dummy_hash;
+//template <typename Collection, typename Usigned = std::uint16_t>
+//struct dummy_hash;
 
-template <typename Collection, typename Usigned = std::uint16_t>
-struct smart_hash;
+//template <typename Collection, typename Usigned = std::uint16_t>
+//struct smart_hash;
 
-template <typename Key, typename Value,
-          template <typename, typename> typename Hasher = smart_hash,
-          typename U=std::uint16_t>
-class HashTable;
+//template <typename Key, typename Value,
+//          template <typename, typename> typename Hasher = smart_hash,
+//          typename U=std::uint16_t>
+//class HashTable;
 
 /*====================================================================================
  *Implementation
