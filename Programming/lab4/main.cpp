@@ -15,6 +15,10 @@
 using boost::math::chi_squared;
 using boost::math::quantile;
 
+struct uniform_gen_test;
+
+std::ostream& operator<<(std::ostream& out, const uniform_gen_test& data);
+
 struct uniform_gen_test
 {
     double mean;
@@ -25,6 +29,8 @@ struct uniform_gen_test
     bool is_uniform=false;
     uniform_gen_test(std::vector<std::uint64_t> data, double alpha = 0.05)
     {
+        auto pos = std::remove(data.begin(), data.end(), 0);
+        data.erase(pos, data.end());
         double sum = std::accumulate(data.begin(), data.end(), 0.0);
         mean = sum / data.size();
 
@@ -34,17 +40,23 @@ struct uniform_gen_test
         count_boxes = 1 + log2(data.size());
         chi_squared theoretical_dist(count_boxes - 1);
         quantile_value = quantile(theoretical_dist, 1-alpha);
+
+        double expected_frequency = double(data.size()) / count_boxes;
         statistics_value = 0;
         for(int j=0; j < count_boxes; ++j)
         {
             std::size_t count_drops_in_box = std::count_if(data.begin(), data.end(),
                           [&](std::uint64_t x)
-            {   double size_of_box = double(data.size()) / count_boxes;
+            {
+                double size_of_box = double(*std::max_element(data.begin(), data.end())) / count_boxes;
                 return size_of_box*j <= x && x<size_of_box*(j+1);});
-            statistics_value+=count_drops_in_box*count_drops_in_box;
+            double delta_freq = count_drops_in_box - expected_frequency;
+            delta_freq *= delta_freq;
+
+            statistics_value+=delta_freq/expected_frequency;
         }
-        statistics_value = statistics_value / data.size() * count_boxes - data.size();
         is_uniform = statistics_value < quantile_value;
+        std::cout << *this;
     }
 };
 
@@ -108,27 +120,10 @@ struct generate_random_values
     val_type operator()(size_t lenght, size_t& seed)
     {
         ++seed;
-        return Randomer(lenght, 73, 17);
+        return Randomer(lenght);
     }
 };
 
-
-//struct check_stats
-//{
-//    uniform_gen_test value;
-//    check_stats(const std::vector<std::uint64_t>& data):
-//        value((*this)(data)) {}
-
-//    operator uniform_gen_test()
-//    {
-//        return value;
-//    }
-
-//    uniform_gen_test operator()(const std::vector<std::uint64_t>& data)
-//    {
-//        return uniform_gen_test(data);
-//    }
-//};
 
 uniform_gen_test check_stats(const std::vector<std::uint64_t>& data)
 {
@@ -168,36 +163,59 @@ double check_time_gen(std::vector<std::uint64_t>& lenght)
 
 int main()
 {
-    size_t seed = 0;
-    std::vector<std::uint64_t> v;
-    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
-                                 60000, 70000, 80000, 90000, 100000,
-                                 110000, 120000, 130000, 140000, 150000,
-                                 160000, 170000, 180000, 190000, 200000};
-    std::map<std::string, std::vector<uniform_gen_test>> stats;
-    std::map<std::string, std::vector<double>> times;
+//    size_t seed = 0;
+//    std::vector<std::uint64_t> v;
+//    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
+//                                 60000, 70000, 80000, 90000, 100000};
+//    std::map<std::string, std::vector<uniform_gen_test>> stats;
+//    std::map<std::string, std::vector<double>> times;
 
-    using dum_type = ral::dummyRand<std::uint64_t>;
+//    using eval_type_stats = uniform_gen_test(const std::vector<std::uint64_t>&);
+//    using eval_type_time = double(std::vector<std::uint64_t>&);
+//    using gen_type_time = generate_data_for_time_measure;
 
-    using eval_type_stats = uniform_gen_test(const std::vector<std::uint64_t>&);
-    using gen_type_dummy_stats = generate_random_values<dum_type>;
-    stats["DummyRand"] =
-            ral::generate_and_test
-<eval_type_stats, uniform_gen_test, dum_type>(check_stats, lengs, seed, 1, false);
+//    std::cout << "===================================\nSTARTING DUMMY TEST\n===================================\n" ;
+//    using dum_type = ral::dummyRand<std::uint64_t>;
+//    using gen_type_dummy_stats = generate_random_values<dum_type>;
+
+//    stats["DummyRand"] =
+//            ral::generate_and_test
+//<eval_type_stats, uniform_gen_test, gen_type_dummy_stats>(check_stats, lengs, seed, 1, false);
+
+//    times["DummyRand"] =
+//            ral::generate_and_test
+//<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
+
+//    std::cout << "===================================\nSTARTING SMART TEST\n===================================\n" ;
+//    using smart_type = ral::smartRand<std::uint64_t>;
+//    using gen_type_smart_stats = generate_random_values<smart_type>;
+
+//    stats["SmartRand"] =
+//            ral::generate_and_test
+//<eval_type_stats, uniform_gen_test, gen_type_smart_stats>(check_stats, lengs, seed, 1, false);
 
 
-    using eval_type_dummy_time = double(std::vector<std::uint64_t>&);
-    using gen_type_dummy_time = generate_data_for_time_measure;
-    times["DummyRand"] =
-            ral::generate_and_test
-<eval_type_dummy_time, double, gen_type_dummy_time>(check_time_gen<dum_type>, lengs, seed);
+//    times["SmartRand"] =
+//            ral::generate_and_test
+//<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
 
-        std::cout << stats["DummyRand"];
-//    std::ofstream file("data.csv", std::ios::out);
-//    for(const auto& [key, value]: stats)
+//    std::ofstream dummy_log("dummy_log.txt", std::ios::out);
+//    std::ofstream smart_log("smart_log.txt", std::ios::out);
+//    dummy_log << stats["DummyRand"];
+//    smart_log << stats["SmartRand"];
+
+//    std::ofstream time("times.csv", std::ios::out);
+//    for(const auto& [key, value]: times)
 //    {
-//       file << key << ';' << value << '\n';
-//       std::cout << key << "    \n" << value << '\n';
+//       time << key << ';' << value << '\n';
 //    }
+
+    std::ofstream data("data.csv", std::ios::out);
+    std::vector<std::uint64_t> dummy_values = ral::dummyRand<std::uint64_t>(1000);
+    std::vector<std::uint64_t> smart_values = ral::smartRand<std::uint64_t>(1000);
+    data << "DummyValue;" << dummy_values << std::endl;
+    data << "SmartValue;" << smart_values;
+    std::cout << "done" << std::endl;
+
     return 0;
 }

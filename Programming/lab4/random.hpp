@@ -31,13 +31,13 @@ Unsigned dummyRandNext(Unsigned x, Unsigned y)
      return (((x * y)>>8) & 0xffff);
 }
 
-template <typename Unsigned= std::uint64_t>
+template <typename Unsigned= std::uint64_t, Unsigned _x = 18181, Unsigned _y = 17971>
 struct dummyRand
 {
     using elem_type = Unsigned;
     using val_type = std::vector<elem_type>;
     val_type value;
-    dummyRand(Unsigned n, Unsigned x = 73, Unsigned y = 17):
+    dummyRand(Unsigned n, Unsigned x = _x, Unsigned y = _y):
         value((*this)(n, x, y)) {}
 
     operator val_type()
@@ -45,7 +45,7 @@ struct dummyRand
         return value;
     }
 
-    val_type operator()(Unsigned n, Unsigned x = 73, Unsigned y = 17)
+    val_type operator()(Unsigned n, Unsigned x = _x, Unsigned y = _y)
     {
         std::vector<Unsigned> data;
         data.reserve(n);
