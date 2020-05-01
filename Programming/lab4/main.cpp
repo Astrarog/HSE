@@ -163,52 +163,52 @@ double check_time_gen(std::vector<std::uint64_t>& lenght)
 
 int main()
 {
-//    size_t seed = 0;
-//    std::vector<std::uint64_t> v;
-//    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
-//                                 60000, 70000, 80000, 90000, 100000};
-//    std::map<std::string, std::vector<uniform_gen_test>> stats;
-//    std::map<std::string, std::vector<double>> times;
+    size_t seed = 0;
+    std::vector<std::uint64_t> v;
+    std::vector<size_t> lengs = {10000, 20000, 30000, 40000, 50000,
+                                 60000, 70000, 80000, 90000, 100000};
+    std::map<std::string, std::vector<uniform_gen_test>> stats;
+    std::map<std::string, std::vector<double>> times;
 
-//    using eval_type_stats = uniform_gen_test(const std::vector<std::uint64_t>&);
-//    using eval_type_time = double(std::vector<std::uint64_t>&);
-//    using gen_type_time = generate_data_for_time_measure;
+    using eval_type_stats = uniform_gen_test(const std::vector<std::uint64_t>&);
+    using eval_type_time = double(std::vector<std::uint64_t>&);
+    using gen_type_time = generate_data_for_time_measure;
 
-//    std::cout << "===================================\nSTARTING DUMMY TEST\n===================================\n" ;
-//    using dum_type = ral::dummyRand<std::uint64_t>;
-//    using gen_type_dummy_stats = generate_random_values<dum_type>;
+    std::cout << "===================================\nSTARTING DUMMY TEST\n===================================\n" ;
+    using dum_type = ral::dummyRand<std::uint64_t>;
+    using gen_type_dummy_stats = generate_random_values<dum_type>;
 
-//    stats["DummyRand"] =
-//            ral::generate_and_test
-//<eval_type_stats, uniform_gen_test, gen_type_dummy_stats>(check_stats, lengs, seed, 1, false);
+    stats["DummyRand"] =
+            ral::generate_and_test
+<eval_type_stats, uniform_gen_test, gen_type_dummy_stats>(check_stats, lengs, seed, 1, false);
 
-//    times["DummyRand"] =
-//            ral::generate_and_test
-//<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
+    times["DummyRand"] =
+            ral::generate_and_test
+<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
 
-//    std::cout << "===================================\nSTARTING SMART TEST\n===================================\n" ;
-//    using smart_type = ral::smartRand<std::uint64_t>;
-//    using gen_type_smart_stats = generate_random_values<smart_type>;
+    std::cout << "===================================\nSTARTING SMART TEST\n===================================\n" ;
+    using smart_type = ral::smartRand<std::uint64_t>;
+    using gen_type_smart_stats = generate_random_values<smart_type>;
 
-//    stats["SmartRand"] =
-//            ral::generate_and_test
-//<eval_type_stats, uniform_gen_test, gen_type_smart_stats>(check_stats, lengs, seed, 1, false);
+    stats["SmartRand"] =
+            ral::generate_and_test
+<eval_type_stats, uniform_gen_test, gen_type_smart_stats>(check_stats, lengs, seed, 1, false);
 
 
-//    times["SmartRand"] =
-//            ral::generate_and_test
-//<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
+    times["SmartRand"] =
+            ral::generate_and_test
+<eval_type_time, double, gen_type_time>(check_time_gen<dum_type>, lengs, seed);
 
-//    std::ofstream dummy_log("dummy_log.txt", std::ios::out);
-//    std::ofstream smart_log("smart_log.txt", std::ios::out);
-//    dummy_log << stats["DummyRand"];
-//    smart_log << stats["SmartRand"];
+    std::ofstream dummy_log("dummy_log.txt", std::ios::out);
+    std::ofstream smart_log("smart_log.txt", std::ios::out);
+    dummy_log << stats["DummyRand"];
+    smart_log << stats["SmartRand"];
 
-//    std::ofstream time("times.csv", std::ios::out);
-//    for(const auto& [key, value]: times)
-//    {
-//       time << key << ';' << value << '\n';
-//    }
+    std::ofstream time("times.csv", std::ios::out);
+    for(const auto& [key, value]: times)
+    {
+       time << key << ';' << value << '\n';
+    }
 
     std::ofstream data("data.csv", std::ios::out);
     std::vector<std::uint64_t> dummy_values = ral::dummyRand<std::uint64_t>(1000);
