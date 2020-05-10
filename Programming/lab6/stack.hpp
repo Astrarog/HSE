@@ -3,7 +3,7 @@
 #include <list>
 #include <string>
 #include <stdexcept>
-
+#include <iostream>
 
 namespace ral {
 
@@ -34,22 +34,28 @@ namespace ral {
         std::list<T> data;
     public:
         stack(){}
-        T pop() override
+        void pop() override
         {
-            if(data.size())
+            if(data.size()==0)
             {
                 throw ListException();
             }
             else
             {
-                auto ret = *(data.begin());
                 data.pop_front();
-                return ret;
             }
         }
         void push(const T& val) override
         {
             data.push_front(val);
+        }
+
+        void PrintStack() const
+        {
+            for (const auto& e: data)
+            {
+                std::cout << e << ' ';
+            }
         }
     };
 

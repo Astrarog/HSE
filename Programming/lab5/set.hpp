@@ -17,6 +17,7 @@ namespace ral {
         virtual size_t count() const = 0;
         virtual T getFirstElement() const = 0;
         virtual void PrintSet() const = 0;
+        virtual ~setImplementation_base(){}
     };
 
     //set on trees
@@ -109,6 +110,7 @@ namespace ral {
         {
             impl->PrintSet();
         }
+        virtual ~set_base(){}
     protected:
         setImplementation_base<T>* impl;
         virtual void check_capasity()=0;
