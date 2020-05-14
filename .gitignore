@@ -1,3 +1,6 @@
+git_pull.bat
+git_push.bat
+
 .ipynb_checkpoints
 *.log
 build*
