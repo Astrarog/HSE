@@ -1,0 +1,108 @@
+TEST #1
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #2
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #3
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #4
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #5
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #6
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #7
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #8
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #9
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++
+
+
+TEST #10
+The mean is: 31794.8
+The standart deviation is: 18936.9
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 10
+The statistics value is: 8.33579
+The quantile value of theoretical distribution is: 16.919
++++TEST SUCCEEDED+++

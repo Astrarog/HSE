@@ -220,26 +220,20 @@ namespace flower {
 
     }
 
-    std::vector<flower> generate_flowers(size_t lenght, size_t& seed)
+    flower random_flower(size_t& seed)
     {
-        std::vector<flower> answ;
-        answ.reserve(lenght);
-
         ++seed;
         thread_local static std::mt19937 rg(seed);
         thread_local static std::uniform_int_distribution<std::string::size_type> pick(3, 20);
 
-        while(lenght--)
-        {
+        std::string name = random_string(pick(rg), seed);
+        color clr = random_color(seed);
+        aroma smell = random_aroma(seed);
+        std::string region = random_string(pick(rg), seed);
 
-            std::string name = random_string(pick(rg), seed);
-            color clr = random_color(seed);
-            aroma smell = random_aroma(seed);
-            std::string region = random_string(pick(rg), seed);
-            answ.push_back(flower(name, clr, smell, region));
-        }
+        return flower(name, clr, smell, region);
 
-        return answ;
     }
+
 
 }

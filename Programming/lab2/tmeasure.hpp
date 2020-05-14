@@ -22,32 +22,35 @@ double measure_time(Collection& data, Function evaluator)
     return (end - start).count();
 }
 
-template <typename FunctionEval, typename Collection>
-std::vector<double> generate_and_test(FunctionEval evaluator,
-                                      std::vector<size_t> lengs,
+template <typename Evaluator,
+          typename OutputType = double,
+          typename Generator=flower::generate_flowers<std::vector>>
+std::vector<OutputType> generate_and_test(Evaluator evaluator, std::vector<size_t> lengs,
                                       size_t& seed,
-                                      typename std::function<Collection(size_t, size_t&)> generator=flower::generate_flowers)
+                                      size_t count_samples = 10)
 {
     ++seed;
-    std::vector<double> average_times;
-    average_times.reserve(lengs.size());
+    using val_type = typename Generator::val_type;
+    std::vector<OutputType> average_output;
+    average_output.reserve(lengs.size());
     for (auto l:lengs)
     {
-        std::vector<double> times;
-        times.reserve(10);
-        for(int i=0;i<10;++i){
-            Collection data = generator(l, seed);
-            times.push_back(measure_time(data, evaluator));
+        std::vector<OutputType> outs;
+        outs.reserve(10);
+        for(size_t i=0;i<count_samples;++i)
+        {
+            val_type data = Generator(l, seed);
+            outs.push_back(evaluator(data));
         }
 
-        //may be meadian is better
-        double sum = std::accumulate(times.begin(), times.end(), 0.0);
-        double mean = sum / times.size();
-        average_times.push_back(mean / 1'000'000'000);
+        std::nth_element(outs.begin(),
+                         outs.begin() + outs.size()/2,
+                         outs.end());
+        auto median = outs[outs.size()/2];
+        average_output.push_back(median);
     }
-    return average_times;
+    return average_output;
 }
-
 
 
 

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
-project(lab LANGUAGES CXX)
+project(lab1 LANGUAGES CXX)
 
 add_executable(${PROJECT_NAME} main.cpp flower.cpp flower.hpp sortings.hpp tmeasure.hpp)
 

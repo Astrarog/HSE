@@ -103,28 +103,28 @@ int main()
     auto dummy_col = evaluate_hashtable_collisions<ral::dummy_hash, flower::flower>;
     auto smart_col = evaluate_hashtable_collisions<ral::smart_hash, flower::flower>;
 
-//    std::cout << "Starting dummy hash searching test..." << std::endl;
-//    times["DummySearch"] = ral::generate_and_test(dummy, lengs, seed);
-//    std::cout << "Done!" << std::endl;
+    std::cout << "Starting dummy hash searching test..." << std::endl;
+    times["DummySearch"] = ral::generate_and_test(dummy, lengs, seed);
+    std::cout << "Done!" << std::endl;
 
-//    std::cout << "Starting smart hash searching test..." << std::endl;
-//    times["SmartSearch"] = ral::generate_and_test(smart, lengs, seed);
-//    std::cout << "Done!" << std::endl;
+    std::cout << "Starting smart hash searching test..." << std::endl;
+    times["SmartSearch"] = ral::generate_and_test(smart, lengs, seed);
+    std::cout << "Done!" << std::endl;
 
-//    std::cout << "Starting dummy hash collisions test..." << std::endl;
-//    times["DummyCollisions"] = ral::generate_and_test(dummy_col, lengs, seed);
-//    std::cout << "Done!" << std::endl;
+    std::cout << "Starting dummy hash collisions test..." << std::endl;
+    times["DummyCollisions"] = ral::generate_and_test(dummy_col, lengs, seed);
+    std::cout << "Done!" << std::endl;
 
-//    std::cout << "Starting smart hash collisions test..." << std::endl;
-//    times["SmartCollisions"] = ral::generate_and_test(smart_col, lengs, seed);
-//    std::cout << "Done!" << std::endl;
+    std::cout << "Starting smart hash collisions test..." << std::endl;
+    times["SmartCollisions"] = ral::generate_and_test(smart_col, lengs, seed);
+    std::cout << "Done!" << std::endl;
 
-//    std::ofstream file("data.csv", std::ios::out);
-//    for(const auto& [key, value]: times)
-//    {
-//       file << key << ';' << value << '\n';
-//       std::cout << key << ';' << value << '\n';
-//    }
+    std::ofstream file("data.csv", std::ios::out);
+    for(const auto& [key, value]: times)
+    {
+       file << key << ';' << value << '\n';
+       std::cout << key << ';' << value << '\n';
+    }
     std::cout << lengs << std::endl ;
     return 0;
 }
