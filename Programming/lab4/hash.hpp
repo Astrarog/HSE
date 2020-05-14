@@ -9,26 +9,16 @@
 
 namespace ral {
 
-/*====================================================================================
- *Interfaces
- *====================================================================================*/
-//template <typename Collection, typename Usigned = std::uint16_t>
-//struct dummy_hash;
-
-//template <typename Collection, typename Usigned = std::uint16_t>
-//struct smart_hash;
-
-//template <typename Key, typename Value,
-//          template <typename, typename> typename Hasher = smart_hash,
-//          typename U=std::uint16_t>
-//class HashTable;
-
-/*====================================================================================
- *Implementation
- *====================================================================================*/
 
 
-template <typename Collection, typename Usigned>
+/**
+ * @class dummy_hash
+ * @brief Класс-функтор для генерации вычиления "глупого" хеша.
+ * Эквиванетно dummy_hash(data).
+ * @param[in] data -- данные, по которым вычисляется хеш
+ * @return "глупый" хеш
+ */
+template <typename Collection, typename Usigned = std::uint16_t>
 struct dummy_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -52,8 +42,14 @@ struct dummy_hash{
 };
 
 
-
-template <typename Collection, typename Usigned>
+/**
+ * @class smart_hash
+ * @brief Класс-функтор для генерации вычиления "умного" хеша.
+ * Эквиванетно smart_hash(data).
+ * @param[in] data -- данные, по которым вычисляется хеш
+ * @return "умный" хеш
+ */
+template <typename Collection, typename Usigned = std::uint16_t>
 struct smart_hash{
     using result_type = Usigned;
     using data_type = Collection;
@@ -77,10 +73,13 @@ struct smart_hash{
 };
 
 
-
+/**
+ * @class HashTable
+ * @brief Класс для создания хеш таблицы и работы с ней.
+ */
 template <typename Key, typename Value,
-          template <typename, typename> typename Hasher,
-          typename U>
+          template <typename, typename> typename Hasher = smart_hash,
+          typename U=uint16_t>
 class HashTable
 {
     size_t capacity = (size_t(U(-1))+1);
@@ -88,11 +87,21 @@ class HashTable
 
 public:
 
+    /**
+     * @brief Количество коллизий по известному хешу
+     * @param[in] hash -- непосредственно хеш
+     * @return количество коллизий
+     */
     size_t collisions_by_hash(U hash)
     {
         return elements[hash].size();
     }
 
+    /**
+     * @brief Количество коллизий по известному ключу
+     * @param[in] hash -- непосредственно ключ
+     * @return количество коллизий
+     */
     size_t collisions_by_key(const Key& key)
     {
         U hash = Hasher<Key, U>(key);
@@ -101,6 +110,11 @@ public:
 
     HashTable(): elements(capacity){}
 
+    /**
+     * @brief Поиск элемента по ключу
+     * @param[in] key -- непосредственно ключ
+     * @return Значение по ключу
+     */
     Value& find_element_by_key(const Key& key)
     {
         U hash = Hasher<Key, U>(key);
@@ -115,7 +129,11 @@ public:
     }
 
 
-
+    /**
+     * @brief Добавление элемента в таблицу
+     * @param[in] elem -- значение на добавление
+     * @return хеш
+     */
     U insert_element(const Value& elem)
     {
         U hash = Hasher<Value, U>(elem);

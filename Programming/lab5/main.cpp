@@ -2,6 +2,11 @@
 #include <vector>
 #include "set.hpp"
 
+
+/**
+ * @class set
+ * @brief Класс множества, меняющий свою внутреннюю структуру
+ */
 template<typename T>
 class set : public ral::set_base<T>
 {

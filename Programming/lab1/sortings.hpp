@@ -7,6 +7,13 @@
 
 namespace ral {
 
+
+
+/**
+ * @brief Функция поиска минимального элемента в массиве
+ * @param[in] first, last -- итераторы на начало и пост конец искомых данных
+ * @return позиция на минимальный элемент в массиве
+ */
 template<class ForwardIt >
 ForwardIt find_min_element(ForwardIt first, ForwardIt last)
 {
@@ -21,7 +28,10 @@ ForwardIt find_min_element(ForwardIt first, ForwardIt last)
     return min_position;
 }
 
-
+/**
+ * @brief Функция селективной сортировки массива
+ * @param[in] first, last -- итераторы на начало и пост конец сортируемых данных
+ */
 template<typename RandomIt>
 void SelectionSort(RandomIt first,  RandomIt last)
 {
@@ -32,6 +42,11 @@ void SelectionSort(RandomIt first,  RandomIt last)
     }
 }
 
+/**
+ * @brief Функция разделения массива на 2 части: меньше центрального и больше
+ * @param[in] first, last -- итераторы на начало и пост конец разделяемых данных
+ * @return точку разделения
+ */
 template <typename RandomIt>
 RandomIt partition(RandomIt first, RandomIt last){
     --last;
@@ -56,7 +71,10 @@ RandomIt partition(RandomIt first, RandomIt last){
 }
 
 
-
+/**
+ * @brief Функция быстрой сортировки массива
+ * @param[in] first, last -- итераторы на начало и пост конец сортируемых данных
+ */
 template<typename RandomIt>
 void QuickSort(RandomIt first,  RandomIt last)
 {
@@ -69,6 +87,11 @@ void QuickSort(RandomIt first,  RandomIt last)
 }
 
 
+/**
+ * @brief Функция просейки элемента вверх
+ * @param[in] first, last -- итераторы на начало и пост конец кучи
+ * @param[in] current -- итератор на просеиваемый элемент
+ */
 template<typename RandomIt>
 void ShiftUp(RandomIt first,  RandomIt last, RandomIt current)
 {
@@ -87,6 +110,11 @@ void ShiftUp(RandomIt first,  RandomIt last, RandomIt current)
 }
 
 
+/**
+ * @brief Функция просейки элемента вниз
+ * @param[in] first, last -- итераторы на начало и пост конец кучи
+ * @param[in] current -- итератор на просеиваемый элемент
+ */
 template<typename RandomIt>
 void ShiftDown(RandomIt first,  RandomIt last, RandomIt current){
     size_t size = last - first;
@@ -113,7 +141,10 @@ void ShiftDown(RandomIt first,  RandomIt last, RandomIt current){
     }
 }
 
-
+/**
+ * @brief Функция построения кучи над массивом
+ * @param[in] first, last -- итераторы на начало и пост конец данных для построения кучи
+ */
 template<typename RandomIt>
 void BuildHeap(RandomIt first,  RandomIt last)
 {
@@ -127,6 +158,10 @@ void BuildHeap(RandomIt first,  RandomIt last)
 }
 
 
+/**
+ * @brief Функция пирамидальной сортировки массива
+ * @param[in] first, last -- итераторы на начало и пост конец сортируемых данных
+ */
 template<typename RandomIt>
 void HeapSort(RandomIt first,  RandomIt last)
 {

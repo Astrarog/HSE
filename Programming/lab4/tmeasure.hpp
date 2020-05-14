@@ -10,24 +10,16 @@
 
 namespace ral {
 
-/*====================================================================================
- *Interfaces
- *====================================================================================*/
 
-//template <typename FunctionEval,
-//          typename OutputType = double,
-//          typename Generator=flower::generate_flowers<std::vector>>
-//std::vector<OutputType> generate_and_test(FunctionEval evaluator,
-//                                      std::vector<size_t> lengs,
-//                                      size_t& seed,
-//                                      size_t count_samples = 10);
-
-/*====================================================================================
- *Implementation
- *====================================================================================*/
-
-
-
+/**
+ * @brief Функция генерации данных и для подсчёта времени выполнения функции evaluator
+ * @param[in] evaluator -- функция, принимающая массив данных, время работы которой необходимо измерить
+ * @param[in] lengs -- длины массивов, которые надо генерировать и над которыми надо производить замер времени.
+ * @param[in] seed -- начальное значение для генератора случайных чисел
+ * @param[in] count_samples -- количество образцов по которым будет браться среднее значение
+ * @param[in] only_averages -- флаг, говорящий, что нужно выводить только среднее временя выполнения или же все проведённые эксперименты
+ * @return среднее время работы функции evaluator
+ */
 template <typename FunctionEval,
           typename OutputType = double,
           typename Generator=flower::generate_flowers<std::vector>>

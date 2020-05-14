@@ -3,6 +3,13 @@
 #include <iostream>
 #include <vector>
 
+
+/**
+ * @brief Функция вывода массива
+ * @param[in] out -- поток вывода
+ * @param[in] data -- массив значений
+ * @return поток вывода
+ */
 template <typename T>
 std::ostream& operator<<(std::ostream& out, const std::vector<T>& data)
 {

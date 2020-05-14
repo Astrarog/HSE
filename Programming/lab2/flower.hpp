@@ -5,6 +5,11 @@
 #include <vector>
 namespace flower {
 
+
+    /**
+     * @class aroma
+     * @brief Класс типа запаха
+     */
     enum class aroma
     {
         WEAK,
@@ -12,6 +17,11 @@ namespace flower {
         STRONG
     };
 
+
+    /**
+     * @class color
+     * @brief Класс, содержащий цвет в формате rgb
+     */
     struct color
     {
         uint8_t r=0;
@@ -22,6 +32,11 @@ namespace flower {
         color(uint8_t r, uint8_t g, uint8_t b): r(r), g(g), b(b) {}
     };
 
+
+    /**
+     * @class flower
+     * @brief Класс, содержащий имя цветка, его цвет, запах и место обитания.
+     */
     class flower
     {
         std::string name;
@@ -58,12 +73,44 @@ namespace flower {
     std::ostream& operator<<(std::ostream& out, const flower& rgb);
     std::istream& operator>>(std::istream& out, flower& rgb);
 
+    /**
+     * @brief Генератор случайной строки
+     * @param[in] length -- Длина генерируемой строки
+     * @param[in] seed -- начальное значение для генератора случайных чисел
+     * @return случайная строка
+     */
     std::string random_string(std::string::size_type length, size_t& seed);
+
+    /**
+     * @brief Генератор случайного цвета
+     * @param[in] seed -- начальное значение для генератора случайных чисел
+     * @return случайный цвет
+     */
     color random_color(size_t& seed);
+
+    /**
+     * @brief Генератор случайного запаха
+     * @param[in] seed -- начальное значение для генератора случайных чисел
+     * @return случайный запах
+     */
     aroma random_aroma(size_t& seed);
+
+    /**
+     * @brief Генератор случайного цветка
+     * @param[in] seed -- начальное значение для генератора случайных чисел
+     * @return случайный цветок
+     */
     flower random_flower(size_t& seed);
 
 
+    /**
+     * @class generate_flowers
+     * @brief Класс-функтор для генерации массива случайных цветков.
+     * Эквиванетно generate_flowers(length, seed).
+     * @param[in] length -- Длина генерируемого массива
+     * @param[in] seed -- начальное значение для генератора случайных чисел
+     * @return массив случайных цветков
+     */
     template <template<typename ...> typename Collection>
     struct generate_flowers
     {

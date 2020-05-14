@@ -10,37 +10,15 @@
 
 namespace ral {
 
-/*====================================================================================
- *Interfaces
- *====================================================================================*/
-//template <typename Collection, typename Function>
-//double measure_time(Collection& data, Function evaluator);
 
-
-//template <typename FunctionEval,
-//          typename Generator=flower::generate_flowers<std::vector>>
-//std::vector<double> generate_and_test(FunctionEval evaluator,
-//                                      std::vector<size_t> lengs,
-//                                      size_t& seed,
-//                                      size_t count_samples = 10);
-
-/*====================================================================================
- *Implementation
- *====================================================================================*/
-
-
-//template <typename Collection, typename Function>
-//double measure_time(Collection& data, Function evaluator)
-//{
-//    auto start = std::chrono::steady_clock::now();
-//    evaluator(data.begin(), data.end());
-//    auto end = std::chrono::steady_clock::now();
-
-//    return (end - start).count();
-//}
-
-
-
+/**
+ * @brief Функция генерации данных и для подсчёта среднего времени выполнения функции evaluator
+ * @param[in] evaluator -- функция, принимающая массив данных, время работы которой необходимо измерить
+ * @param[in] lengs -- длины массивов, которые надо генерировать и над которыми надо производить замер времени.
+ * @param[in] seed -- начальное значение для генератора случайных чисел
+ * @param[in] count_samples -- количество образцов по которым будет браться среднее значение
+ * @return среднее время работы функции evaluator
+ */
 template <typename Evaluator,
           typename OutputType = double,
           typename Generator=flower::generate_flowers<std::vector>>

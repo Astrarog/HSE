@@ -6,31 +6,25 @@
 
 namespace ral {
 
-/*====================================================================================
- *Interfaces
- *====================================================================================*/
-//template <typename Unsigned= std::uint64_t>
-//Unsigned dummyRandNext(Unsigned x, Unsigned y);
-
-//template <typename Unsigned= std::uint64_t>
-//std::vector<Unsigned> dummyRand(Unsigned n, Unsigned x = 73, Unsigned y = 17);
-
-//template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
-//Unsigned smartRandNext(Unsigned start);
-
-//template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
-//std::vector<Unsigned> smartRand(Unsigned n, Unsigned start = 5);
-
-/*====================================================================================
- *Implementation
- *====================================================================================*/
-
+/**
+ * @brief Функция следующего пседвослучаного числа методом серидинных произведений
+ * @param[in] x, y -- значения предыдущих двух значений
+ * @return следующее пседвослучаное число
+ */
 template <typename Unsigned= std::uint64_t>
 Unsigned dummyRandNext(Unsigned x, Unsigned y)
 {
      return (((x * y)>>8) & 0xffff);
 }
 
+/**
+ * @class dummyRand
+ * @brief Класс-функтор реазлиующий метод серидинных произведений
+ * Эквивалентно dummyRand(n, x, y)
+ * @param[in] n -- Количество генерируемых чисел
+ * @param[in] x, y -- начальные значения для генерации чисел
+ * @return массив случайных чисел
+ */
 template <typename Unsigned= std::uint64_t, Unsigned _x = 18181, Unsigned _y = 17971>
 struct dummyRand
 {
@@ -60,7 +54,11 @@ struct dummyRand
 };
 
 
-
+/**
+ * @brief Функция следующего пседвослучаного числа методом квадратичного конгруентного метода
+ * @param[in] start -- предыдущего значения
+ * @return следующее пседвослучаное число
+ */
 template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
 Unsigned smartRandNext(Unsigned start)
 {
@@ -68,6 +66,14 @@ Unsigned smartRandNext(Unsigned start)
 }
 
 
+/**
+ * @class smartRand
+ * @brief Класс-функтор реазлиующий квадратичный конгруентный метод
+ * Эквивалентно smartRand(n, start)
+ * @param[in] n -- Количество генерируемых чисел
+ * @param[in] start -- начальное значение
+ * @return массив случайных чисел
+ */
 template <typename Unsigned = std::uint64_t, Unsigned k1=8, Unsigned k2=69069, Unsigned b=313>
 struct smartRand
 {

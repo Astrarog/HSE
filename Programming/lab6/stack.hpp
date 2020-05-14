@@ -7,6 +7,10 @@
 
 namespace ral {
 
+    /**
+     * @class ListException
+     * @brief Класс исключения для стека
+     */
     class ListException: public std::exception
     {
     private:
@@ -19,6 +23,11 @@ namespace ral {
         const char* what() const noexcept { return m_error.c_str(); }
     };
 
+
+    /**
+     * @class stack_base
+     * @brief базовый класс для стека
+     */
     template <typename T>
     class stack_base
     {
@@ -28,6 +37,10 @@ namespace ral {
     };
 
 
+    /**
+     * @class stack
+     * @brief Реализация стека через std::list
+     */
     template <typename T>
     class stack : stack_base<T>
     {

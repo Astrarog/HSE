@@ -7,6 +7,10 @@
 
 namespace ral {
 
+    /**
+     * @class setImplementation_base
+     * @brief Базовый класс для интерфейса
+     */
     template<typename T>
     class setImplementation_base
     {
@@ -20,7 +24,10 @@ namespace ral {
         virtual ~setImplementation_base(){}
     };
 
-    //set on trees
+    /**
+     * @class setOnTrees
+     * @brief Класс, реазилующий интерфейс множества на деревьях
+     */
     template<typename T>
     class setOnTrees : public setImplementation_base<T>
     {
@@ -53,7 +60,10 @@ namespace ral {
     };
 
 
-    //set on hash tables
+    /**
+     * @class setOnHashes
+     * @brief Класс, реазилующий интерфейс множества на хешах
+     */
     template<typename T>
     class setOnHashes : public setImplementation_base<T>
     {
@@ -86,6 +96,10 @@ namespace ral {
     };
 
 
+    /**
+     * @class set_base
+     * @brief Базовый класс для реализации множества
+     */
     template<typename T>
     class set_base
     {

@@ -10,6 +10,12 @@
 namespace ral {
 
 
+/**
+ * @brief Функция для подсчёта времени выполнения 1ой итерации функции evaluator
+ * @param[in] data -- передаваемые данные
+ * @param[in] evaluator -- функция, принимающая итератор на начало и конец данных, время работы которой необходимо измерить
+ * @return время работы функции evaluator
+ */
 template <typename Collection, typename Function>
 double measure_time(Collection& data, Function evaluator)
 {
@@ -20,6 +26,15 @@ double measure_time(Collection& data, Function evaluator)
     return (end - start).count();
 }
 
+
+
+/**
+ * @brief Функция генерации данных и для подсчёта среднего времени выполнения функции evaluator
+ * @param[in] evaluator -- функция, принимающая итератор на начало и конец данных, время работы которой необходимо измерить
+ * @param[in] lengs -- длины массивов, которые надо генерировать и над которыми надо производить замер времени.
+ * @param[in] seed -- начальное значение для генератора случайных чисел
+ * @return среднее время работы функции evaluator
+ */
 template <typename Function>
 std::vector<double> generate_and_test(Function evaluator, std::vector<size_t> lengs, size_t& seed)
 {

@@ -1,3 +1,8 @@
+/**
+  * @file
+  * @brief Содержит реализации функций, описанных в flower.hpp
+  */
+
 #include <cassert>
 #include <tuple>
 #include <stdexcept>

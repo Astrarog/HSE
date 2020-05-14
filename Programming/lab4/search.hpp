@@ -4,25 +4,12 @@
 
 namespace ral {
 
-/*====================================================================================
- *Interfaces
- *====================================================================================*/
-template <typename ForwardIt>
-ForwardIt linear_search(ForwardIt first,
-                        ForwardIt last,
-                        const typename ForwardIt::value_type& value);
-
-template <typename RandomIt>
-RandomIt binary_search(RandomIt first,
-                       RandomIt last,
-                       const typename RandomIt::value_type& value);
-
-
-
-/*====================================================================================
- *Implementation
- *====================================================================================*/
-
+/**
+ * @brief Функция линейного поиска по массиву
+ * @param[in] first, last -- итераторы на начало и пост конец разделяемых данных
+ * @param[in] value -- искомое значение
+ * @return позиция в массиве искомого элемента
+ */
 template <typename ForwardIt>
 ForwardIt linear_search(ForwardIt first, ForwardIt last, const typename ForwardIt::value_type& value)
 {
@@ -36,7 +23,12 @@ ForwardIt linear_search(ForwardIt first, ForwardIt last, const typename ForwardI
     return last;
 }
 
-
+/**
+ * @brief Функция бинарного поиска по массиву
+ * @param[in] first, last -- итераторы на начало и пост конец разделяемых данных
+ * @param[in] value -- искомое значение
+ * @return позиция в массиве искомого элемента
+ */
 template <typename RandomIt>
 RandomIt binary_search(RandomIt first, RandomIt last, const typename RandomIt::value_type& value)
 {
