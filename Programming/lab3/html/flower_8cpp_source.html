@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная №3: Исходный файл flower.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторная №3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">flower.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="flower_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flower_8hpp.html">flower.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="namespaceflower.html">   16</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceflower.html">flower</a> {</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#ab805f624b35d27b60f2b9e20f8de29d9">   17</a></span>&#160;    <a class="code" href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">color::color</a>(uint32_t c){</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a> = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(c / 256 / 256);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a> = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>((c / 256) % 256);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a> = <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(c % 256);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">   23</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> 256*256*firts.<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a> + 256*firts.<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a> + firts.<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a> &lt; 256*256*second.<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a> + 256*second.<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a> + second.<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="namespaceflower.html#ade63c84bf94f517eb701377737355753">   27</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#ade63c84bf94f517eb701377737355753">operator==</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordflow">return</span> firts.<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>==second.<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a> &amp;&amp; firts.<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>==second.<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a> &amp;&amp; firts.<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>==second.<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">   31</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">operator!=</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second)  { <span class="keywordflow">return</span> !(firts == second);}</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">   32</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">operator&lt;=</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second) { <span class="keywordflow">return</span> firts&lt;second || firts==second;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">   33</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second) { <span class="keywordflow">return</span> !(firts&lt;=second);}</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">   34</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">operator&gt;=</a>(<span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; second) { <span class="keywordflow">return</span> firts&gt;second || firts==second;}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">   36</a></span>&#160;    std::ostream&amp; <a class="code" href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; rgb)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        out &lt;&lt; <span class="charliteral">&#39;#&#39;</span>  &lt;&lt; std::hex &lt;&lt; std::uppercase &lt;&lt; std::right &lt;&lt; std::setw(2) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        out &lt;&lt; int(rgb.<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        out &lt;&lt; std::setw(2) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; int(rgb.<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        out &lt;&lt; std::setw(2) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; int(rgb.<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        out &lt;&lt; std::dec;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">   47</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(uint8_t x)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       <span class="keywordflow">return</span> (x&gt;=<span class="charliteral">&#39;0&#39;</span> &amp;&amp; x&lt;=<span class="charliteral">&#39;9&#39;</span>)||(x&gt;=<span class="charliteral">&#39;A&#39;</span> &amp;&amp; x&lt;=<span class="charliteral">&#39;F&#39;</span>);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">   52</a></span>&#160;    uint8_t <a class="code" href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">parseHex</a>(uint8_t f, uint8_t s){</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        f = f&gt;=<span class="charliteral">&#39;0&#39;</span>&amp;&amp;f&lt;=<span class="charliteral">&#39;9&#39;</span>?f-<span class="charliteral">&#39;0&#39;</span>:(f-<span class="charliteral">&#39;A&#39;</span>)+10;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        s = s&gt;=<span class="charliteral">&#39;0&#39;</span>&amp;&amp;s&lt;=<span class="charliteral">&#39;9&#39;</span>?s-<span class="charliteral">&#39;0&#39;</span>:(s-<span class="charliteral">&#39;A&#39;</span>)+10;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">return</span> f*16 + s;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">   58</a></span>&#160;    std::istream&amp; <a class="code" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">operator&gt;&gt;</a>(std::istream&amp; input, <a class="code" href="structflower_1_1color.html">color</a>&amp; rgb)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        std::string format;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        input &gt;&gt; format;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::istringstream in(format);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keywordtype">bool</span> parse_is_good = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        uint8_t stratring_char=0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; stratring_char);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (stratring_char == <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <a class="code" href="structflower_1_1color.html">color</a> to_rgb;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        uint8_t f=0, s=0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; f);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        f = uint8_t(std::toupper(f));</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(f));</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; s);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        s = uint8_t(std::toupper(s));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(s));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        to_rgb.r = <a class="code" href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">parseHex</a>(f, s);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        f=0; s=0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; f);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        f = uint8_t(std::toupper(f));</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(f));</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; s);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        s = uint8_t(std::toupper(s));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(s));</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        to_rgb.g = <a class="code" href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">parseHex</a>(f, s);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        f=0; s=0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; f);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        f = uint8_t(std::toupper(f));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(f));</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in &gt;&gt; s);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        s = uint8_t(std::toupper(s));</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (<a class="code" href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">checkHex</a>(s));</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        to_rgb.b = <a class="code" href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">parseHex</a>(f, s);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        in.peek();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        parse_is_good = parse_is_good &amp;&amp; in.eof();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordflow">if</span> (!parse_is_good){</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Wrong color format: &quot;</span>+format);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        rgb = to_rgb;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#ad266169d062d0908ee464233e13b4da4">  109</a></span>&#160;    <a class="code" href="classflower_1_1flower.html">flower::flower</a>(<span class="keyword">const</span> std::string&amp; n, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; c, <a class="code" href="classaroma.html">aroma</a> a, <span class="keyword">const</span> std::string&amp; r): name(n), rgb(c), smell(a), region(r){}</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#acf96f27ef9e6883527c45ccd6186e46f">  111</a></span>&#160;    <a class="code" href="classflower_1_1flower.html">flower::flower</a>(<span class="keyword">const</span> std::string&amp; n, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp; c, <span class="keywordtype">int</span> a, <span class="keyword">const</span> std::string&amp; r)</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    {</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;        assert(a&gt;=0&amp;&amp;a&lt;=2);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordflow">if</span> (!(a&gt;=0 &amp;&amp; a&lt;=2))</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            <span class="keywordflow">throw</span> std::domain_error(<span class="stringliteral">&quot;Aroma should be 0, 1 or 2&quot;</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="classaroma.html">aroma</a> smell = <span class="keyword">static_cast&lt;</span><a class="code" href="classaroma.html">aroma</a><span class="keyword">&gt;</span>(a);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="namespaceflower.html">flower</a>(n, c, smell, r);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="namespaceflower.html#a2527d508bc9de6ed038c4f038eb164db">  122</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> std::tuple(firts.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>(), firts.<a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>(), firts.<a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>(), firts.<a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>())</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                &lt; std::tuple(second.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>(), second.<a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>(), second.<a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>(), second.<a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>());</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="namespaceflower.html#ad9cce2d32eaacfa35a0b41564b55d5d9">  128</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#ade63c84bf94f517eb701377737355753">operator==</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">return</span> std::tuple(firts.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>(), firts.<a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>(), firts.<a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>(), firts.<a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>()) ==</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                std::tuple(second.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>(), second.<a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>(), second.<a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>(), second.<a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>());</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="namespaceflower.html#af0d2c456381213899f66c022a5c8af2e">  133</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">operator!=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second) { <span class="keywordflow">return</span> !(firts == second);}</div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="namespaceflower.html#a6a7de1b996ecacf7df0fbb60e4ca15ec">  134</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">operator&lt;=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second) { <span class="keywordflow">return</span> firts&lt;second || firts==second;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="namespaceflower.html#a6121ce8ca4c68027d8310347925beade">  135</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second) { <span class="keywordflow">return</span> !(firts&lt;=second);}</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="namespaceflower.html#adf2407352433d96c0d3844c9cab13454">  136</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">operator&gt;=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second) { <span class="keywordflow">return</span> firts&gt;second || firts==second;}</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="namespaceflower.html#a08f27608e428db4791e83f6960957a8b">  138</a></span>&#160;    std::ostream&amp; <a class="code" href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; flwr)</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        uint8_t d = flwr.<a class="code" href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">GetDelimeter</a>();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        out &lt;&lt; flwr.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>() &lt;&lt; d &lt;&lt; flwr.<a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>() &lt;&lt; d;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        out &lt;&lt; static_cast&lt;int&gt;(flwr.<a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>()) &lt;&lt; d &lt;&lt; flwr.<a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">return</span> out;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="namespaceflower.html#a6cbe775fc3888e8db7f0dae08fe4339a">  146</a></span>&#160;    std::istream&amp; <a class="code" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">operator&gt;&gt;</a>(std::istream&amp; input, <a class="code" href="namespaceflower.html">flower</a>&amp; flwr)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        std::string format;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        std::getline(input, format, <span class="charliteral">&#39;-&#39;</span>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        std::istringstream in(format);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordtype">char</span> d = flwr.<a class="code" href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">GetDelimeter</a>();</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        std::string name, smell_str, rgb_str, region;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        <span class="keywordtype">int</span> smell=0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="structflower_1_1color.html">color</a> rgb;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordtype">bool</span> parse_is_good = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;        std::getline(in, name, d);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;        parse_is_good = parse_is_good &amp;&amp; (in);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        std::getline(in, rgb_str, d);</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        std::istringstream rgb_stream(rgb_str);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        parse_is_good = parse_is_good &amp;&amp;(rgb_stream &gt;&gt; rgb);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        std::getline(in, smell_str, d);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        std::istringstream smell_stream(smell_str);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        parse_is_good = parse_is_good &amp;&amp;(smell_stream &gt;&gt; smell);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        std::getline(in, region);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        parse_is_good = parse_is_good &amp;&amp;(in);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        parse_is_good = parse_is_good &amp;&amp; in.eof();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keywordflow">if</span> (!parse_is_good){</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Wrong flower format: &quot;</span>+format);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        <a class="code" href="namespaceflower.html">flower</a> to_flower(name, rgb, smell, region);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        flwr = to_flower;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span> input;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">  188</a></span>&#160;    std::string <a class="code" href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">random_string</a>(std::string::size_type length, <span class="keywordtype">size_t</span>&amp; seed)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="keyword">static</span> <span class="keyword">auto</span>&amp; chrs = <span class="stringliteral">&quot;0123456789&quot;</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="stringliteral">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <span class="stringliteral">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        ++seed;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        thread_local <span class="keyword">static</span> std::mt19937 rg(seed);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        thread_local <span class="keyword">static</span> std::uniform_int_distribution&lt;std::string::size_type&gt; pick(0, <span class="keyword">sizeof</span>(chrs) - 2);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        std::string s;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        s.reserve(length);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">while</span>(length--){</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;            s += chrs[pick(rg)];</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">return</span> s;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">  209</a></span>&#160;    <a class="code" href="structflower_1_1color.html">color</a> <a class="code" href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">random_color</a>(<span class="keywordtype">size_t</span>&amp; seed)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        ++seed;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        thread_local <span class="keyword">static</span> std::mt19937 rg(seed);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        thread_local <span class="keyword">static</span> std::uniform_int_distribution&lt;uint8_t&gt; pick(0, 255);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structflower_1_1color.html">color</a>(pick(rg), pick(rg), pick(rg));</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">  219</a></span>&#160;    <a class="code" href="classaroma.html">aroma</a> <a class="code" href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">random_aroma</a>(<span class="keywordtype">size_t</span>&amp; seed)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;        ++seed;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        thread_local <span class="keyword">static</span> std::mt19937 rg(seed);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        thread_local <span class="keyword">static</span> std::uniform_int_distribution&lt;uint8_t&gt; pick(0, 2);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="classaroma.html">aroma</a><span class="keyword">&gt;</span>(pick(rg));</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">  229</a></span>&#160;    <a class="code" href="namespaceflower.html">flower</a> <a class="code" href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">random_flower</a>(<span class="keywordtype">size_t</span>&amp; seed)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        ++seed;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        thread_local <span class="keyword">static</span> std::mt19937 rg(seed);</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        thread_local <span class="keyword">static</span> std::uniform_int_distribution&lt;std::string::size_type&gt; pick(3, 20);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        std::string name = <a class="code" href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">random_string</a>(pick(rg), seed);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        <a class="code" href="structflower_1_1color.html">color</a> clr = <a class="code" href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">random_color</a>(seed);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;        <a class="code" href="classaroma.html">aroma</a> smell = <a class="code" href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">random_aroma</a>(seed);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        std::string region = <a class="code" href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">random_string</a>(pick(rg), seed);</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceflower.html">flower</a>(name, clr, smell, region);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;}</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructflower_1_1color_html_a8b952e45e172dd0a19bea4287ab9584b"><div class="ttname"><a href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">flower::color::r</a></div><div class="ttdeci">uint8_t r</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00030">flower.hpp:30</a></div></div>
+<div class="ttc" id="anamespaceflower_html_ade63c84bf94f517eb701377737355753"><div class="ttname"><a href="namespaceflower.html#ade63c84bf94f517eb701377737355753">flower::operator==</a></div><div class="ttdeci">bool operator==(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00027">flower.cpp:27</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a02f0bb48579c1d72f14e871251da1c66"><div class="ttname"><a href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">flower::random_aroma</a></div><div class="ttdeci">aroma random_aroma(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного запаха</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00219">flower.cpp:219</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a0527a43ea8f39158c631d10e146b02a1"><div class="ttname"><a href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">flower::flower::GetRegion</a></div><div class="ttdeci">std::string GetRegion() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00059">flower.hpp:59</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a5f927ff873bf0911f0bfe804bebf6479"><div class="ttname"><a href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">flower::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;input, color &amp;rgb)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00058">flower.cpp:58</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_a2c47fa02ae12415289ebf90e521d4290"><div class="ttname"><a href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">flower::color::b</a></div><div class="ttdeci">uint8_t b</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00032">flower.hpp:32</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html"><div class="ttname"><a href="classflower_1_1flower.html">flower::flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00042">flower.hpp:42</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_ab8796b5b64c8a930c84644bd6c558482"><div class="ttname"><a href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">flower::color::color</a></div><div class="ttdeci">color()</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00033">flower.hpp:33</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a5c2379aaa18a4fe27fc0c52242e003ce"><div class="ttname"><a href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">flower::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const color &amp;rgb)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00036">flower.cpp:36</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a882707d517b0697eb9c9d7a0d35c2142"><div class="ttname"><a href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">flower::operator!=</a></div><div class="ttdeci">bool operator!=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00031">flower.cpp:31</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a139440eaf593f6cb5f73fcaf41738143"><div class="ttname"><a href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">flower::random_color</a></div><div class="ttdeci">color random_color(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного цвета</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00209">flower.cpp:209</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html"><div class="ttname"><a href="structflower_1_1color.html">flower::color</a></div><div class="ttdoc">Класс, содержащий цвет в формате rgb.</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00028">flower.hpp:28</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a8a5443f335b090dfa51a7f8b8e14ad82"><div class="ttname"><a href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">flower::random_flower</a></div><div class="ttdeci">flower random_flower(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного цветка</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00229">flower.cpp:229</a></div></div>
+<div class="ttc" id="anamespaceflower_html_af8c3a0a1c6643d127aeb9d3ec2267fbc"><div class="ttname"><a href="namespaceflower.html#af8c3a0a1c6643d127aeb9d3ec2267fbc">flower::parseHex</a></div><div class="ttdeci">uint8_t parseHex(uint8_t f, uint8_t s)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00052">flower.cpp:52</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a06bf21f75ff33aca07868cc763f9dbea"><div class="ttname"><a href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">flower::flower::GetSmell</a></div><div class="ttdeci">aroma GetSmell() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00056">flower.hpp:56</a></div></div>
+<div class="ttc" id="aflower_8hpp_html"><div class="ttname"><a href="flower_8hpp.html">flower.hpp</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a7f9709efd89f817ee83cbdff3eb1ea0f"><div class="ttname"><a href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">flower::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00023">flower.cpp:23</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a1ba490c2a077076092e99152cfa9353a"><div class="ttname"><a href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">flower::flower::GetDelimeter</a></div><div class="ttdeci">uint8_t GetDelimeter() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00057">flower.hpp:57</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a7a64b0628509278acd9a604a7be84532"><div class="ttname"><a href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">flower::flower::GetColor</a></div><div class="ttdeci">color GetColor() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00055">flower.hpp:55</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a03714d8e6c4638000048600fcf124aa5"><div class="ttname"><a href="namespaceflower.html#a03714d8e6c4638000048600fcf124aa5">flower::checkHex</a></div><div class="ttdeci">bool checkHex(uint8_t x)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00047">flower.cpp:47</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a6748e7eb1a289051a93583947041b687"><div class="ttname"><a href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">flower::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00034">flower.cpp:34</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_a4f7e05f58157aae076228ed0fa89572e"><div class="ttname"><a href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">flower::color::g</a></div><div class="ttdeci">uint8_t g</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00031">flower.hpp:31</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a1c861dd57b2a0868918b73a2f26b9e6f"><div class="ttname"><a href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">flower::random_string</a></div><div class="ttdeci">std::string random_string(std::string::size_type length, size_t &amp;seed)</div><div class="ttdoc">Генератор случайной строки</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00188">flower.cpp:188</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a4514d87cb0191526db80df8533361e8f"><div class="ttname"><a href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">flower::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00032">flower.cpp:32</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a4ef1c06fe23a35d805632569738d5ca4"><div class="ttname"><a href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">flower::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00033">flower.cpp:33</a></div></div>
+<div class="ttc" id="anamespaceflower_html"><div class="ttname"><a href="namespaceflower.html">flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00016">flower.cpp:16</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_aae42d88e15ba566379c0cb9daa1b6c33"><div class="ttname"><a href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">flower::flower::GetName</a></div><div class="ttdeci">std::string GetName() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00054">flower.hpp:54</a></div></div>
+<div class="ttc" id="aclassaroma_html"><div class="ttname"><a href="classaroma.html">aroma</a></div><div class="ttdoc">Класс типа запаха</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,108 @@
+TEST #1
+The mean is: 9.26965e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 14
+The statistics value is: 12.5138
+The quantile value of theoretical distribution is: 22.362
++++TEST SUCCEEDED+++
+
+
+TEST #2
+The mean is: 9.26317e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 15
+The statistics value is: 8.04075
+The quantile value of theoretical distribution is: 23.6848
++++TEST SUCCEEDED+++
+
+
+TEST #3
+The mean is: 9.24185e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 15
+The statistics value is: 13.6205
+The quantile value of theoretical distribution is: 23.6848
++++TEST SUCCEEDED+++
+
+
+TEST #4
+The mean is: 9.22972e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 16
+The statistics value is: 16.118
+The quantile value of theoretical distribution is: 24.9958
++++TEST SUCCEEDED+++
+
+
+TEST #5
+The mean is: 9.22727e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 16
+The statistics value is: 17.807
+The quantile value of theoretical distribution is: 24.9958
++++TEST SUCCEEDED+++
+
+
+TEST #6
+The mean is: 9.22511e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 16
+The statistics value is: 18.5843
+The quantile value of theoretical distribution is: 24.9958
++++TEST SUCCEEDED+++
+
+
+TEST #7
+The mean is: 9.22759e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 17
+The statistics value is: 11.4075
+The quantile value of theoretical distribution is: 26.2962
++++TEST SUCCEEDED+++
+
+
+TEST #8
+The mean is: 9.22511e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 17
+The statistics value is: 14.6868
+The quantile value of theoretical distribution is: 26.2962
++++TEST SUCCEEDED+++
+
+
+TEST #9
+The mean is: 9.22763e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 17
+The statistics value is: 18.3458
+The quantile value of theoretical distribution is: 26.2962
++++TEST SUCCEEDED+++
+
+
+TEST #10
+The mean is: 9.22996e+18
+The standart deviation is: nan
+
+The chi-squared test information follows.
+The number of boxes (degrees of freedom + 1) is: 17
+The statistics value is: 20.5988
+The quantile value of theoretical distribution is: 26.2962
++++TEST SUCCEEDED+++

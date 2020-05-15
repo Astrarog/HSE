@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная №3: Шаблон класса ral::HashTable&lt; Key, Value, Hasher, U &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторная №3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceral.html">ral</a></li><li class="navelem"><a class="el" href="classral_1_1_hash_table.html">HashTable</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="classral_1_1_hash_table-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Шаблон класса ral::HashTable&lt; Key, Value, Hasher, U &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для создания хеш таблицы и работы с ней.  
+ <a href="classral_1_1_hash_table.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="hash_8hpp_source.html">hash.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:aa39b1894c128af79a4ba2fb9e9b12c7d"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#aa39b1894c128af79a4ba2fb9e9b12c7d">collisions_by_hash</a> (U hash)</td></tr>
+<tr class="memdesc:aa39b1894c128af79a4ba2fb9e9b12c7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество коллизий по известному хешу  <a href="classral_1_1_hash_table.html#aa39b1894c128af79a4ba2fb9e9b12c7d">Подробнее...</a><br /></td></tr>
+<tr class="separator:aa39b1894c128af79a4ba2fb9e9b12c7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6808c293ffe7f8732d4bfbf3bf0cc8f7"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#a6808c293ffe7f8732d4bfbf3bf0cc8f7">collisions_by_key</a> (const Key &amp;key)</td></tr>
+<tr class="memdesc:a6808c293ffe7f8732d4bfbf3bf0cc8f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество коллизий по известному ключу  <a href="classral_1_1_hash_table.html#a6808c293ffe7f8732d4bfbf3bf0cc8f7">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6808c293ffe7f8732d4bfbf3bf0cc8f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449425728e54112a9d03e831e8fa6de0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#a449425728e54112a9d03e831e8fa6de0">HashTable</a> ()</td></tr>
+<tr class="separator:a449425728e54112a9d03e831e8fa6de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af914d944c798145aed56a449c65068b3"><td class="memItemLeft" align="right" valign="top">Value &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#af914d944c798145aed56a449c65068b3">find_element_by_key</a> (const Key &amp;key)</td></tr>
+<tr class="memdesc:af914d944c798145aed56a449c65068b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Поиск элемента по ключу  <a href="classral_1_1_hash_table.html#af914d944c798145aed56a449c65068b3">Подробнее...</a><br /></td></tr>
+<tr class="separator:af914d944c798145aed56a449c65068b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43b81d750a3a5a4c46369bed2dcbd50d"><td class="memItemLeft" align="right" valign="top">U&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#a43b81d750a3a5a4c46369bed2dcbd50d">insert_element</a> (const Value &amp;elem)</td></tr>
+<tr class="memdesc:a43b81d750a3a5a4c46369bed2dcbd50d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление элемента в таблицу  <a href="classral_1_1_hash_table.html#a43b81d750a3a5a4c46369bed2dcbd50d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a43b81d750a3a5a4c46369bed2dcbd50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a98c57ffd7de10b0faeb5007ad312254b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#a98c57ffd7de10b0faeb5007ad312254b">capacity</a> = (size_t(U(-1))+1)</td></tr>
+<tr class="separator:a98c57ffd7de10b0faeb5007ad312254b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65b69b0d9467f9c3789acd727bb34285"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::list&lt; Value &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classral_1_1_hash_table.html#a65b69b0d9467f9c3789acd727bb34285">elements</a></td></tr>
+<tr class="separator:a65b69b0d9467f9c3789acd727bb34285"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><h3>template&lt;typename Key, typename Value, template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U = uint16_t&gt;<br />
+class ral::HashTable&lt; Key, Value, Hasher, U &gt;</h3>
+
+<p>Класс для создания хеш таблицы и работы с ней. </p>
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00083">83</a></p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a449425728e54112a9d03e831e8fa6de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449425728e54112a9d03e831e8fa6de0">&#9670;&nbsp;</a></span>HashTable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::<a class="el" href="classral_1_1_hash_table.html">HashTable</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00111">111</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="aa39b1894c128af79a4ba2fb9e9b12c7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39b1894c128af79a4ba2fb9e9b12c7d">&#9670;&nbsp;</a></span>collisions_by_hash()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::collisions_by_hash </td>
+          <td>(</td>
+          <td class="paramtype">U&#160;</td>
+          <td class="paramname"><em>hash</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Количество коллизий по известному хешу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash</td><td>&ndash; непосредственно хеш </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>количество коллизий </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00095">95</a></p>
+
+</div>
+</div>
+<a id="a6808c293ffe7f8732d4bfbf3bf0cc8f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6808c293ffe7f8732d4bfbf3bf0cc8f7">&#9670;&nbsp;</a></span>collisions_by_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::collisions_by_key </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Количество коллизий по известному ключу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">hash</td><td>&ndash; непосредственно ключ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>количество коллизий </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00105">105</a></p>
+
+</div>
+</div>
+<a id="af914d944c798145aed56a449c65068b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af914d944c798145aed56a449c65068b3">&#9670;&nbsp;</a></span>find_element_by_key()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Value&amp; <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::find_element_by_key </td>
+          <td>(</td>
+          <td class="paramtype">const Key &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Поиск элемента по ключу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">key</td><td>&ndash; непосредственно ключ </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Значение по ключу </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00118">118</a></p>
+
+</div>
+</div>
+<a id="a43b81d750a3a5a4c46369bed2dcbd50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43b81d750a3a5a4c46369bed2dcbd50d">&#9670;&nbsp;</a></span>insert_element()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">U <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::insert_element </td>
+          <td>(</td>
+          <td class="paramtype">const Value &amp;&#160;</td>
+          <td class="paramname"><em>elem</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Добавление элемента в таблицу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">elem</td><td>&ndash; значение на добавление </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>хеш </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00137">137</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a98c57ffd7de10b0faeb5007ad312254b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98c57ffd7de10b0faeb5007ad312254b">&#9670;&nbsp;</a></span>capacity</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::capacity = (size_t(U(-1))+1)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00085">85</a></p>
+
+</div>
+</div>
+<a id="a65b69b0d9467f9c3789acd727bb34285"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65b69b0d9467f9c3789acd727bb34285">&#9670;&nbsp;</a></span>elements</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Key , typename Value , template&lt; typename, typename &gt; typename Hasher = smart_hash, typename U  = uint16_t&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::list&lt;Value&gt; &gt; <a class="el" href="classral_1_1_hash_table.html">ral::HashTable</a>&lt; Key, Value, Hasher, U &gt;::elements</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="hash_8hpp_source.html">hash.hpp</a> строка <a class="el" href="hash_8hpp_source.html#l00086">86</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="hash_8hpp_source.html">hash.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

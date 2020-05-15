@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная №3: Исходный файл main.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторная №3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">main.cpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="main_8cpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="tmeasure_8hpp.html">tmeasure.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hash_8hpp.html">hash.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="flower_8hpp.html">flower.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="output_8hpp.html">output.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html">   13</a></span>&#160;<span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code" href="structral_1_1dummy__hash.html">ral::dummy_hash</a>&lt;<a class="code" href="namespaceflower.html">flower</a>::<a class="code" href="namespaceflower.html">flower</a>, std::uint16_t&gt;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a27eaa2820b30cfc05e07af62c9d56501">   15</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a27eaa2820b30cfc05e07af62c9d56501">result_type</a> = std::uint16_t;</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a007f401f7a721242c54c9d15c93ba265">   16</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classflower_1_1flower.html">data_type</a> = <a class="code" href="classflower_1_1flower.html">flower::flower</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a005d7c18b10bb9b46cd9ffb42e681830">   17</a></span>&#160;    <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a27eaa2820b30cfc05e07af62c9d56501">result_type</a> <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a005d7c18b10bb9b46cd9ffb42e681830">value</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a1f13e82a8c9fed8e03a81edaa99fcccb">   19</a></span>&#160;    <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a1f13e82a8c9fed8e03a81edaa99fcccb">dummy_hash</a>(<span class="keyword">const</span> <a class="code" href="classflower_1_1flower.html">flower::flower</a>&amp; data): <a class="code" href="structral_1_1dummy__hash.html#ab7b68bad8b1731e86eb9634f1567929f">value</a>((*this)(data)){}</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aaaa47119d51757b3aad1a84161bd0dde">   20</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="structral_1_1dummy__hash.html#a211f5ecfa5d1a77afbb822133591bc0e">result_type</a>(){</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structral_1_1dummy__hash.html#ab7b68bad8b1731e86eb9634f1567929f">value</a>;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a09032962b6b2a7d4311b3db2cb095c21">   23</a></span>&#160;    <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a27eaa2820b30cfc05e07af62c9d56501">result_type</a> <a class="code" href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a09032962b6b2a7d4311b3db2cb095c21">operator()</a>(<span class="keyword">const</span> <a class="code" href="classflower_1_1flower.html">flower::flower</a>&amp; data)</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structral_1_1dummy__hash.html#a211f5ecfa5d1a77afbb822133591bc0e">result_type</a>(<a class="code" href="structral_1_1dummy__hash.html">dummy_hash&lt;std::string, std::uint16_t&gt;</a>(data.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>()));</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html">   29</a></span>&#160;<span class="keyword">template</span>&lt;&gt; <span class="keyword">struct </span><a class="code" href="structral_1_1smart__hash.html">ral::smart_hash</a>&lt;<a class="code" href="namespaceflower.html">flower</a>::<a class="code" href="namespaceflower.html">flower</a>, std::uint16_t&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aea57c692930a2c8ff813583f49bee8b7">   31</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aea57c692930a2c8ff813583f49bee8b7">result_type</a> = std::uint16_t;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a3b367a7b0cd6467aff192ae9fb9c9973">   32</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="classflower_1_1flower.html">data_type</a> = <a class="code" href="classflower_1_1flower.html">flower::flower</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aedb7b38f59df32a4bd9fa7fc84e39cdd">   33</a></span>&#160;    <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aea57c692930a2c8ff813583f49bee8b7">result_type</a> <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aedb7b38f59df32a4bd9fa7fc84e39cdd">value</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a8cda799c5761f9be8adcb704bb9ba839">   35</a></span>&#160;    <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a8cda799c5761f9be8adcb704bb9ba839">smart_hash</a>(<span class="keyword">const</span> <a class="code" href="classflower_1_1flower.html">flower::flower</a>&amp; data): <a class="code" href="structral_1_1smart__hash.html#aac99df4a354b7275fa73ab1324fb7312">value</a>((*this)(data)){}</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a517d18147a6fe285aec6c30c9f9de46d">   36</a></span>&#160;    <span class="keyword">operator</span> <a class="code" href="structral_1_1smart__hash.html#a0d57834e71afe25e0393d2c615ecd1bd">result_type</a>(){</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structral_1_1smart__hash.html#aac99df4a354b7275fa73ab1324fb7312">value</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    }</div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a14d780c99229bca1d735c8b8c078eaa6">   39</a></span>&#160;    <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aea57c692930a2c8ff813583f49bee8b7">result_type</a> <a class="code" href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a14d780c99229bca1d735c8b8c078eaa6">operator()</a>(<span class="keyword">const</span> <a class="code" href="classflower_1_1flower.html">flower::flower</a>&amp; data)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structral_1_1smart__hash.html#a0d57834e71afe25e0393d2c615ecd1bd">result_type</a>(<a class="code" href="structral_1_1smart__hash.html">smart_hash&lt;std::string, std::uint16_t&gt;</a>(data.<a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>()));</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span>, <span class="keyword">typename</span>&gt; <span class="keyword">typename</span> Hasher, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="main_8cpp.html#a6eb193e94fcc93ff17a26979b8568877">   46</a></span>&#160;<span class="keywordtype">double</span> <a class="code" href="main_8cpp.html#a6eb193e94fcc93ff17a26979b8568877">evaluate_hashtable_search</a>(<span class="keyword">const</span> std::vector&lt;T&gt;&amp; data)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <a class="code" href="classral_1_1_hash_table.html">ral::HashTable&lt;std::string, T, Hasher&gt;</a> table;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::vector&lt;double&gt; times;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: data)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        table.<a class="code" href="classral_1_1_hash_table.html#a43b81d750a3a5a4c46369bed2dcbd50d">insert_element</a>(elem);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; elem: data)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    {</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">auto</span> start = std::chrono::steady_clock::now();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        table.<a class="code" href="classral_1_1_hash_table.html#af914d944c798145aed56a449c65068b3">find_element_by_key</a>(elem.GetName());</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        <span class="keyword">auto</span> end = std::chrono::steady_clock::now();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        times.push_back((end - start).count());</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::nth_element(times.begin(),</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                     times.begin() + times.size()/2,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                     times.end());</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keyword">auto</span> median = times[times.size()/2];</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> median / 1<span class="stringliteral">&#39;000&#39;</span>000<span class="stringliteral">&#39;000;</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="stringliteral">}</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="stringliteral">template &lt;template&lt;typename, typename&gt; typename Hasher, typename T&gt;</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="main_8cpp.html#a655044bff7d7a5cb18d1bf0c807587c1">   69</a></span>&#160;<span class="stringliteral">size_t evaluate_hashtable_collisions(const std::vector&lt;T&gt;&amp; data)</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="stringliteral">{</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="stringliteral">    ral::HashTable&lt;std::string, T, Hasher&gt; table;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="stringliteral">    std::vector&lt;size_t&gt; collisions;</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="stringliteral">    for (const auto&amp; elem: data)</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="stringliteral">    {</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="stringliteral">        table.insert_element(elem);</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="stringliteral">    for (const auto&amp; elem: data)</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="stringliteral">    {</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="stringliteral">        size_t cnt = table.collisions_by_key(elem.GetName());</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="stringliteral">        collisions.push_back(cnt);</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="stringliteral">    std::nth_element(collisions.begin(),</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="stringliteral">                     collisions.begin() + collisions.size()/2,</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="stringliteral">                     collisions.end());</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="stringliteral">    auto median = collisions[collisions.size()/2];</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="stringliteral">    return median;</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="stringliteral">}</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   89</a></span>&#160;<span class="stringliteral">int main()</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="stringliteral">{</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="stringliteral">    size_t seed = 0;</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="stringliteral">    std::vector&lt;size_t&gt; lengs = {10000, 20000, 30000, 40000, 50000,</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="stringliteral">                                 60000, 70000, 80000, 90000, 100000,</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="stringliteral">                                 110000, 120000, 130000, 140000, 150000,</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="stringliteral">                                 160000, 170000, 180000, 190000, 200000};</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="stringliteral">    flower::flower a = flower::random_flower(seed);</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="stringliteral">    std::map&lt;std::string, std::vector&lt;double&gt;&gt; times;</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="stringliteral">    auto dummy = evaluate_hashtable_search&lt;ral::dummy_hash, flower::flower&gt;;</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="stringliteral">    auto smart = evaluate_hashtable_search&lt;ral::smart_hash, flower::flower&gt;;</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="stringliteral">    auto dummy_col = evaluate_hashtable_collisions&lt;ral::dummy_hash, flower::flower&gt;;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="stringliteral">    auto smart_col = evaluate_hashtable_collisions&lt;ral::smart_hash, flower::flower&gt;;</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Starting dummy hash searching test...&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="stringliteral">    times[&quot;DummySearch&quot;] = ral::generate_and_test(dummy, lengs, seed);</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Done!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Starting smart hash searching test...&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="stringliteral">    times[&quot;SmartSearch&quot;] = ral::generate_and_test(smart, lengs, seed);</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Done!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Starting dummy hash collisions test...&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="stringliteral">    times[&quot;DummyCollisions&quot;] = ral::generate_and_test(dummy_col, lengs, seed);</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Done!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Starting smart hash collisions test...&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="stringliteral">    times[&quot;SmartCollisions&quot;] = ral::generate_and_test(smart_col, lengs, seed);</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; &quot;Done!&quot; &lt;&lt; std::endl;</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="stringliteral"></span> </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="stringliteral">    std::ofstream file(&quot;data.csv&quot;, std::ios::out);</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="stringliteral">    for(const auto&amp; [key, value]: times)</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="stringliteral">    {</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="stringliteral">       file &lt;&lt; key &lt;&lt; &#39;</span>;<span class="stringliteral">&#39; &lt;&lt; value &lt;&lt; &#39;</span>\n<span class="stringliteral">&#39;;</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="stringliteral">       std::cout &lt;&lt; key &lt;&lt; &#39;</span>;<span class="stringliteral">&#39; &lt;&lt; value &lt;&lt; &#39;</span>\n<span class="stringliteral">&#39;;</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="stringliteral">    }</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="stringliteral">    std::cout &lt;&lt; lengs &lt;&lt; std::endl ;</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="stringliteral">    return 0;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="stringliteral">}</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="ahash_8hpp_html"><div class="ttname"><a href="hash_8hpp.html">hash.hpp</a></div></div>
+<div class="ttc" id="aclassral_1_1_hash_table_html_af914d944c798145aed56a449c65068b3"><div class="ttname"><a href="classral_1_1_hash_table.html#af914d944c798145aed56a449c65068b3">ral::HashTable::find_element_by_key</a></div><div class="ttdeci">Value &amp; find_element_by_key(const Key &amp;key)</div><div class="ttdoc">Поиск элемента по ключу</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00118">hash.hpp:118</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_html_a0d57834e71afe25e0393d2c615ecd1bd"><div class="ttname"><a href="structral_1_1smart__hash.html#a0d57834e71afe25e0393d2c615ecd1bd">ral::smart_hash::result_type</a></div><div class="ttdeci">Usigned result_type</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00054">hash.hpp:54</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a27eaa2820b30cfc05e07af62c9d56501"><div class="ttname"><a href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a27eaa2820b30cfc05e07af62c9d56501">ral::dummy_hash&lt; flower::flower, std::uint16_t &gt;::result_type</a></div><div class="ttdeci">std::uint16_t result_type</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00015">main.cpp:15</a></div></div>
+<div class="ttc" id="aoutput_8hpp_html"><div class="ttname"><a href="output_8hpp.html">output.hpp</a></div></div>
+<div class="ttc" id="atmeasure_8hpp_html"><div class="ttname"><a href="tmeasure_8hpp.html">tmeasure.hpp</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html"><div class="ttname"><a href="classflower_1_1flower.html">flower::flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00042">flower.hpp:42</a></div></div>
+<div class="ttc" id="aclassral_1_1_hash_table_html_a43b81d750a3a5a4c46369bed2dcbd50d"><div class="ttname"><a href="classral_1_1_hash_table.html#a43b81d750a3a5a4c46369bed2dcbd50d">ral::HashTable::insert_element</a></div><div class="ttdeci">U insert_element(const Value &amp;elem)</div><div class="ttdoc">Добавление элемента в таблицу</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00137">hash.hpp:137</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a8cda799c5761f9be8adcb704bb9ba839"><div class="ttname"><a href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a8cda799c5761f9be8adcb704bb9ba839">ral::smart_hash&lt; flower::flower, std::uint16_t &gt;::smart_hash</a></div><div class="ttdeci">smart_hash(const flower::flower &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00035">main.cpp:35</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_aedb7b38f59df32a4bd9fa7fc84e39cdd"><div class="ttname"><a href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aedb7b38f59df32a4bd9fa7fc84e39cdd">ral::smart_hash&lt; flower::flower, std::uint16_t &gt;::value</a></div><div class="ttdeci">result_type value</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00033">main.cpp:33</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_html_a211f5ecfa5d1a77afbb822133591bc0e"><div class="ttname"><a href="structral_1_1dummy__hash.html#a211f5ecfa5d1a77afbb822133591bc0e">ral::dummy_hash::result_type</a></div><div class="ttdeci">Usigned result_type</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00023">hash.hpp:23</a></div></div>
+<div class="ttc" id="aflower_8hpp_html"><div class="ttname"><a href="flower_8hpp.html">flower.hpp</a></div></div>
+<div class="ttc" id="amain_8cpp_html_a6eb193e94fcc93ff17a26979b8568877"><div class="ttname"><a href="main_8cpp.html#a6eb193e94fcc93ff17a26979b8568877">evaluate_hashtable_search</a></div><div class="ttdeci">double evaluate_hashtable_search(const std::vector&lt; T &gt; &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00046">main.cpp:46</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a14d780c99229bca1d735c8b8c078eaa6"><div class="ttname"><a href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a14d780c99229bca1d735c8b8c078eaa6">ral::smart_hash&lt; flower::flower, std::uint16_t &gt;::operator()</a></div><div class="ttdeci">result_type operator()(const flower::flower &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00039">main.cpp:39</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a1f13e82a8c9fed8e03a81edaa99fcccb"><div class="ttname"><a href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a1f13e82a8c9fed8e03a81edaa99fcccb">ral::dummy_hash&lt; flower::flower, std::uint16_t &gt;::dummy_hash</a></div><div class="ttdeci">dummy_hash(const flower::flower &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00019">main.cpp:19</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_aea57c692930a2c8ff813583f49bee8b7"><div class="ttname"><a href="structral_1_1smart__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#aea57c692930a2c8ff813583f49bee8b7">ral::smart_hash&lt; flower::flower, std::uint16_t &gt;::result_type</a></div><div class="ttdeci">std::uint16_t result_type</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00031">main.cpp:31</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a09032962b6b2a7d4311b3db2cb095c21"><div class="ttname"><a href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a09032962b6b2a7d4311b3db2cb095c21">ral::dummy_hash&lt; flower::flower, std::uint16_t &gt;::operator()</a></div><div class="ttdeci">result_type operator()(const flower::flower &amp;data)</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00023">main.cpp:23</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_html_aac99df4a354b7275fa73ab1324fb7312"><div class="ttname"><a href="structral_1_1smart__hash.html#aac99df4a354b7275fa73ab1324fb7312">ral::smart_hash::value</a></div><div class="ttdeci">result_type value</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00056">hash.hpp:56</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4_html_a005d7c18b10bb9b46cd9ffb42e681830"><div class="ttname"><a href="structral_1_1dummy__hash_3_01flower_1_1flower_00_01std_1_1uint16__t_01_4.html#a005d7c18b10bb9b46cd9ffb42e681830">ral::dummy_hash&lt; flower::flower, std::uint16_t &gt;::value</a></div><div class="ttdeci">result_type value</div><div class="ttdef"><b>Definition:</b> <a href="main_8cpp_source.html#l00017">main.cpp:17</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_html"><div class="ttname"><a href="structral_1_1dummy__hash.html">ral::dummy_hash</a></div><div class="ttdoc">Класс-функтор для генерации вычиления &quot;глупого&quot; хеша. Эквиванетно dummy_hash(data).</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00022">hash.hpp:22</a></div></div>
+<div class="ttc" id="astructral_1_1dummy__hash_html_ab7b68bad8b1731e86eb9634f1567929f"><div class="ttname"><a href="structral_1_1dummy__hash.html#ab7b68bad8b1731e86eb9634f1567929f">ral::dummy_hash::value</a></div><div class="ttdeci">result_type value</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00025">hash.hpp:25</a></div></div>
+<div class="ttc" id="aclassral_1_1_hash_table_html"><div class="ttname"><a href="classral_1_1_hash_table.html">ral::HashTable</a></div><div class="ttdoc">Класс для создания хеш таблицы и работы с ней.</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00083">hash.hpp:83</a></div></div>
+<div class="ttc" id="anamespaceflower_html"><div class="ttname"><a href="namespaceflower.html">flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00016">flower.cpp:16</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_aae42d88e15ba566379c0cb9daa1b6c33"><div class="ttname"><a href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">flower::flower::GetName</a></div><div class="ttdeci">std::string GetName() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00054">flower.hpp:54</a></div></div>
+<div class="ttc" id="astructral_1_1smart__hash_html"><div class="ttname"><a href="structral_1_1smart__hash.html">ral::smart_hash</a></div><div class="ttdoc">Класс-функтор для генерации вычиления &quot;умного&quot; хеша. Эквиванетно smart_hash(data).</div><div class="ttdef"><b>Definition:</b> <a href="hash_8hpp_source.html#l00053">hash.hpp:53</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

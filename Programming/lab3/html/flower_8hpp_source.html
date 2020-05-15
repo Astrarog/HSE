@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная №3: Исходный файл flower.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторная №3
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">flower.hpp</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="flower_8hpp.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef FLOWER_HPP</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define FLOWER_HPP</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="hash_8hpp.html">hash.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceflower.html">flower</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="classflower.html#a463ffa22a6ff93f0eea8b3cba79d5659">   17</a></span>&#160;    <span class="keyword">enum class</span> <a class="code" href="classaroma.html">aroma</a></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        WEAK,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        MODERATE,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        STRONG</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    };</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structflower_1_1color.html">   28</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structflower_1_1color.html">color</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    {</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">   30</a></span>&#160;        uint8_t <a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>=0;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">   31</a></span>&#160;        uint8_t <a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>=0;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">   32</a></span>&#160;        uint8_t <a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>=0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">   33</a></span>&#160;        <a class="code" href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">color</a>(){}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">color</a>(uint32_t c);</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structflower_1_1color.html#adbedbbd73c5a1596cd9d5020fc9b050a">   35</a></span>&#160;        <a class="code" href="structflower_1_1color.html#adbedbbd73c5a1596cd9d5020fc9b050a">color</a>(uint8_t <a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>, uint8_t <a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>, uint8_t <a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>): <a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>(<a class="code" href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">r</a>), <a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>(<a class="code" href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">g</a>), <a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>(<a class="code" href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">b</a>) {}</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="namespaceflower.html">flower</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a0390a12c3a967cf9e0d1a8a8afbca325">   44</a></span>&#160;        std::string <a class="code" href="classflower_1_1flower.html#a0390a12c3a967cf9e0d1a8a8afbca325">name</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a60efa6b6759ae53960dc4e1ee41d263a">   45</a></span>&#160;        <a class="code" href="structflower_1_1color.html">color</a> <a class="code" href="classflower_1_1flower.html#a60efa6b6759ae53960dc4e1ee41d263a">rgb</a>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a28c1a339dc53928aacea1d7256337ee7">   46</a></span>&#160;        <a class="code" href="classaroma.html">aroma</a> <a class="code" href="classflower_1_1flower.html#a28c1a339dc53928aacea1d7256337ee7">smell</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a0d91115f350f6bf8d2ad3ee1f75ebd77">   47</a></span>&#160;        std::string <a class="code" href="classflower_1_1flower.html#a0d91115f350f6bf8d2ad3ee1f75ebd77">region</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a612eed6a1ce3a7de5c0fb4d8ad23e6c9">   48</a></span>&#160;        uint8_t delimeter = <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#ac0007e5d681018506129b6dcf1456d6b">   50</a></span>&#160;        <a class="code" href="classflower_1_1flower.html#ac0007e5d681018506129b6dcf1456d6b">flower</a>(){}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="namespaceflower.html">flower</a>(<span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp;, <a class="code" href="classaroma.html">aroma</a>, <span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <a class="code" href="namespaceflower.html">flower</a>(<span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <a class="code" href="structflower_1_1color.html">color</a>&amp;, <span class="keywordtype">int</span>, <span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">   54</a></span>&#160;        std::string <a class="code" href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">GetName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name; }</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">   55</a></span>&#160;        <a class="code" href="structflower_1_1color.html">color</a> <a class="code" href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">GetColor</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> rgb; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">   56</a></span>&#160;        <a class="code" href="classaroma.html">aroma</a> <a class="code" href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">GetSmell</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> smell; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">   57</a></span>&#160;        uint8_t <a class="code" href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">GetDelimeter</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> delimeter; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a24cebce73e54dce93f545de565890e00">   58</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="classflower_1_1flower.html#a24cebce73e54dce93f545de565890e00">SetDelimeter</a>(uint8_t d) { delimeter = d;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">   59</a></span>&#160;        std::string <a class="code" href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">GetRegion</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> region; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classflower_1_1flower.html#ab7a27f84acb798a8929a7cd9502b3774">   60</a></span>&#160;        std::string <a class="code" href="classflower_1_1flower.html#ab7a27f84acb798a8929a7cd9502b3774">getKey</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> name; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keyword">friend</span> std::istream&amp; <a class="code" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">operator&gt;&gt;</a>(std::istream&amp; in, <a class="code" href="namespaceflower.html">flower</a>&amp; flwr);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    };</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">operator&lt;</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#ade63c84bf94f517eb701377737355753">operator==</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">operator!=</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">operator&lt;=</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">operator&gt;</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">operator&gt;=</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">operator&gt;=</a>(<span class="keyword">const</span> color&amp; firts, <span class="keyword">const</span> color&amp; second);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    std::ostream&amp; <a class="code" href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> color&amp; rgb);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    std::istream&amp; <a class="code" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">operator&gt;&gt;</a>(std::istream&amp; out, color&amp; rgb);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#ade63c84bf94f517eb701377737355753">operator==</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">operator!=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">operator&lt;=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">operator&gt;=</a>(<span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; firts, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; second);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    std::ostream&amp; <a class="code" href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">operator&lt;&lt;</a>(std::ostream&amp; out, <span class="keyword">const</span> <a class="code" href="namespaceflower.html">flower</a>&amp; rgb);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    std::istream&amp; <a class="code" href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">operator&gt;&gt;</a>(std::istream&amp; out, <a class="code" href="namespaceflower.html">flower</a>&amp; rgb);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::string <a class="code" href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">random_string</a>(std::string::size_type length, <span class="keywordtype">size_t</span>&amp; seed);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    color <a class="code" href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">random_color</a>(<span class="keywordtype">size_t</span>&amp; seed);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="classaroma.html">aroma</a> <a class="code" href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">random_aroma</a>(<span class="keywordtype">size_t</span>&amp; seed);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="namespaceflower.html">flower</a> <a class="code" href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">random_flower</a>(<span class="keywordtype">size_t</span>&amp; seed);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...&gt; <span class="keyword">typename</span> Collection&gt;</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html">  122</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structflower_1_1generate__flowers.html">generate_flowers</a></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#abd6f57fa366d3f7a3a48b52ede40b5db">  124</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="classflower_1_1flower.html">elem_type</a> = <a class="code" href="namespaceflower.html">flower</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">  125</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">val_type</a> = Collection&lt;flower&gt;;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#aba66c5a69e8b30add15a976ce97a342d">  126</a></span>&#160;        <a class="code" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">val_type</a> <a class="code" href="structflower_1_1generate__flowers.html#aba66c5a69e8b30add15a976ce97a342d">value</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#a454d3b37b118ea0f6c0199b5dd5cd6a8">  127</a></span>&#160;        <a class="code" href="structflower_1_1generate__flowers.html#a454d3b37b118ea0f6c0199b5dd5cd6a8">generate_flowers</a>(<span class="keywordtype">size_t</span> lenght, <span class="keywordtype">size_t</span>&amp; seed): <a class="code" href="structflower_1_1generate__flowers.html#aba66c5a69e8b30add15a976ce97a342d">value</a>((*this)(lenght, seed)) {}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#a33b410ca1d1c9d28130bb420ddd42b87">  129</a></span>&#160;        <span class="keyword">operator</span> <a class="code" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">val_type</a>()</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structflower_1_1generate__flowers.html#aba66c5a69e8b30add15a976ce97a342d">value</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="structflower_1_1generate__flowers.html#a6ff55f7094009a953ad852f065edad7c">  134</a></span>&#160;        <a class="code" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">val_type</a> <a class="code" href="structflower_1_1generate__flowers.html#a6ff55f7094009a953ad852f065edad7c">operator()</a>(<span class="keywordtype">size_t</span> lenght, <span class="keywordtype">size_t</span>&amp; seed)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;            <a class="code" href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">val_type</a> answ;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;            answ.reserve(lenght);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;            <span class="keywordflow">while</span>(lenght--)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;            {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                answ.push_back(<a class="code" href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">random_flower</a>(seed));</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;            }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;            <span class="keywordflow">return</span> answ;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    };</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;}</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif // FLOWER_HPP</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassflower_1_1flower_html_a28c1a339dc53928aacea1d7256337ee7"><div class="ttname"><a href="classflower_1_1flower.html#a28c1a339dc53928aacea1d7256337ee7">flower::flower::smell</a></div><div class="ttdeci">aroma smell</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00046">flower.hpp:46</a></div></div>
+<div class="ttc" id="ahash_8hpp_html"><div class="ttname"><a href="hash_8hpp.html">hash.hpp</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_a8b952e45e172dd0a19bea4287ab9584b"><div class="ttname"><a href="structflower_1_1color.html#a8b952e45e172dd0a19bea4287ab9584b">flower::color::r</a></div><div class="ttdeci">uint8_t r</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00030">flower.hpp:30</a></div></div>
+<div class="ttc" id="astructflower_1_1generate__flowers_html_a9f996e33867fe8fa16e2d8ffbc593c9a"><div class="ttname"><a href="structflower_1_1generate__flowers.html#a9f996e33867fe8fa16e2d8ffbc593c9a">flower::generate_flowers::val_type</a></div><div class="ttdeci">Collection&lt; flower &gt; val_type</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00125">flower.hpp:125</a></div></div>
+<div class="ttc" id="anamespaceflower_html_ade63c84bf94f517eb701377737355753"><div class="ttname"><a href="namespaceflower.html#ade63c84bf94f517eb701377737355753">flower::operator==</a></div><div class="ttdeci">bool operator==(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00027">flower.cpp:27</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a02f0bb48579c1d72f14e871251da1c66"><div class="ttname"><a href="namespaceflower.html#a02f0bb48579c1d72f14e871251da1c66">flower::random_aroma</a></div><div class="ttdeci">aroma random_aroma(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного запаха</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00219">flower.cpp:219</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a0527a43ea8f39158c631d10e146b02a1"><div class="ttname"><a href="classflower_1_1flower.html#a0527a43ea8f39158c631d10e146b02a1">flower::flower::GetRegion</a></div><div class="ttdeci">std::string GetRegion() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00059">flower.hpp:59</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a5f927ff873bf0911f0bfe804bebf6479"><div class="ttname"><a href="namespaceflower.html#a5f927ff873bf0911f0bfe804bebf6479">flower::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;input, color &amp;rgb)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00058">flower.cpp:58</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_ab7a27f84acb798a8929a7cd9502b3774"><div class="ttname"><a href="classflower_1_1flower.html#ab7a27f84acb798a8929a7cd9502b3774">flower::flower::getKey</a></div><div class="ttdeci">std::string getKey() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00060">flower.hpp:60</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_a2c47fa02ae12415289ebf90e521d4290"><div class="ttname"><a href="structflower_1_1color.html#a2c47fa02ae12415289ebf90e521d4290">flower::color::b</a></div><div class="ttdeci">uint8_t b</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00032">flower.hpp:32</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html"><div class="ttname"><a href="classflower_1_1flower.html">flower::flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00042">flower.hpp:42</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_adbedbbd73c5a1596cd9d5020fc9b050a"><div class="ttname"><a href="structflower_1_1color.html#adbedbbd73c5a1596cd9d5020fc9b050a">flower::color::color</a></div><div class="ttdeci">color(uint8_t r, uint8_t g, uint8_t b)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00035">flower.hpp:35</a></div></div>
+<div class="ttc" id="astructflower_1_1generate__flowers_html"><div class="ttname"><a href="structflower_1_1generate__flowers.html">flower::generate_flowers</a></div><div class="ttdoc">Класс-функтор для генерации массива случайных цветков. Эквиванетно generate_flowers(length,...</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00122">flower.hpp:122</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_ab8796b5b64c8a930c84644bd6c558482"><div class="ttname"><a href="structflower_1_1color.html#ab8796b5b64c8a930c84644bd6c558482">flower::color::color</a></div><div class="ttdeci">color()</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00033">flower.hpp:33</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a5c2379aaa18a4fe27fc0c52242e003ce"><div class="ttname"><a href="namespaceflower.html#a5c2379aaa18a4fe27fc0c52242e003ce">flower::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;out, const color &amp;rgb)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00036">flower.cpp:36</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a882707d517b0697eb9c9d7a0d35c2142"><div class="ttname"><a href="namespaceflower.html#a882707d517b0697eb9c9d7a0d35c2142">flower::operator!=</a></div><div class="ttdeci">bool operator!=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00031">flower.cpp:31</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a139440eaf593f6cb5f73fcaf41738143"><div class="ttname"><a href="namespaceflower.html#a139440eaf593f6cb5f73fcaf41738143">flower::random_color</a></div><div class="ttdeci">color random_color(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного цвета</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00209">flower.cpp:209</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html"><div class="ttname"><a href="structflower_1_1color.html">flower::color</a></div><div class="ttdoc">Класс, содержащий цвет в формате rgb.</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00028">flower.hpp:28</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a8a5443f335b090dfa51a7f8b8e14ad82"><div class="ttname"><a href="namespaceflower.html#a8a5443f335b090dfa51a7f8b8e14ad82">flower::random_flower</a></div><div class="ttdeci">flower random_flower(size_t &amp;seed)</div><div class="ttdoc">Генератор случайного цветка</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00229">flower.cpp:229</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a60efa6b6759ae53960dc4e1ee41d263a"><div class="ttname"><a href="classflower_1_1flower.html#a60efa6b6759ae53960dc4e1ee41d263a">flower::flower::rgb</a></div><div class="ttdeci">color rgb</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00045">flower.hpp:45</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a06bf21f75ff33aca07868cc763f9dbea"><div class="ttname"><a href="classflower_1_1flower.html#a06bf21f75ff33aca07868cc763f9dbea">flower::flower::GetSmell</a></div><div class="ttdeci">aroma GetSmell() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00056">flower.hpp:56</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a7f9709efd89f817ee83cbdff3eb1ea0f"><div class="ttname"><a href="namespaceflower.html#a7f9709efd89f817ee83cbdff3eb1ea0f">flower::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00023">flower.cpp:23</a></div></div>
+<div class="ttc" id="astructflower_1_1generate__flowers_html_a454d3b37b118ea0f6c0199b5dd5cd6a8"><div class="ttname"><a href="structflower_1_1generate__flowers.html#a454d3b37b118ea0f6c0199b5dd5cd6a8">flower::generate_flowers::generate_flowers</a></div><div class="ttdeci">generate_flowers(size_t lenght, size_t &amp;seed)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00127">flower.hpp:127</a></div></div>
+<div class="ttc" id="astructflower_1_1generate__flowers_html_aba66c5a69e8b30add15a976ce97a342d"><div class="ttname"><a href="structflower_1_1generate__flowers.html#aba66c5a69e8b30add15a976ce97a342d">flower::generate_flowers::value</a></div><div class="ttdeci">val_type value</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00126">flower.hpp:126</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a1ba490c2a077076092e99152cfa9353a"><div class="ttname"><a href="classflower_1_1flower.html#a1ba490c2a077076092e99152cfa9353a">flower::flower::GetDelimeter</a></div><div class="ttdeci">uint8_t GetDelimeter() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00057">flower.hpp:57</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a7a64b0628509278acd9a604a7be84532"><div class="ttname"><a href="classflower_1_1flower.html#a7a64b0628509278acd9a604a7be84532">flower::flower::GetColor</a></div><div class="ttdeci">color GetColor() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00055">flower.hpp:55</a></div></div>
+<div class="ttc" id="astructflower_1_1generate__flowers_html_a6ff55f7094009a953ad852f065edad7c"><div class="ttname"><a href="structflower_1_1generate__flowers.html#a6ff55f7094009a953ad852f065edad7c">flower::generate_flowers::operator()</a></div><div class="ttdeci">val_type operator()(size_t lenght, size_t &amp;seed)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00134">flower.hpp:134</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a6748e7eb1a289051a93583947041b687"><div class="ttname"><a href="namespaceflower.html#a6748e7eb1a289051a93583947041b687">flower::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00034">flower.cpp:34</a></div></div>
+<div class="ttc" id="astructflower_1_1color_html_a4f7e05f58157aae076228ed0fa89572e"><div class="ttname"><a href="structflower_1_1color.html#a4f7e05f58157aae076228ed0fa89572e">flower::color::g</a></div><div class="ttdeci">uint8_t g</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00031">flower.hpp:31</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a1c861dd57b2a0868918b73a2f26b9e6f"><div class="ttname"><a href="namespaceflower.html#a1c861dd57b2a0868918b73a2f26b9e6f">flower::random_string</a></div><div class="ttdeci">std::string random_string(std::string::size_type length, size_t &amp;seed)</div><div class="ttdoc">Генератор случайной строки</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00188">flower.cpp:188</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_ac0007e5d681018506129b6dcf1456d6b"><div class="ttname"><a href="classflower_1_1flower.html#ac0007e5d681018506129b6dcf1456d6b">flower::flower::flower</a></div><div class="ttdeci">flower()</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00050">flower.hpp:50</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a0d91115f350f6bf8d2ad3ee1f75ebd77"><div class="ttname"><a href="classflower_1_1flower.html#a0d91115f350f6bf8d2ad3ee1f75ebd77">flower::flower::region</a></div><div class="ttdeci">std::string region</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00047">flower.hpp:47</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a4514d87cb0191526db80df8533361e8f"><div class="ttname"><a href="namespaceflower.html#a4514d87cb0191526db80df8533361e8f">flower::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00032">flower.cpp:32</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a0390a12c3a967cf9e0d1a8a8afbca325"><div class="ttname"><a href="classflower_1_1flower.html#a0390a12c3a967cf9e0d1a8a8afbca325">flower::flower::name</a></div><div class="ttdeci">std::string name</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00044">flower.hpp:44</a></div></div>
+<div class="ttc" id="anamespaceflower_html_a4ef1c06fe23a35d805632569738d5ca4"><div class="ttname"><a href="namespaceflower.html#a4ef1c06fe23a35d805632569738d5ca4">flower::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const color &amp;firts, const color &amp;second)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00033">flower.cpp:33</a></div></div>
+<div class="ttc" id="anamespaceflower_html"><div class="ttname"><a href="namespaceflower.html">flower</a></div><div class="ttdef"><b>Definition:</b> <a href="flower_8cpp_source.html#l00016">flower.cpp:16</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_aae42d88e15ba566379c0cb9daa1b6c33"><div class="ttname"><a href="classflower_1_1flower.html#aae42d88e15ba566379c0cb9daa1b6c33">flower::flower::GetName</a></div><div class="ttdeci">std::string GetName() const</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00054">flower.hpp:54</a></div></div>
+<div class="ttc" id="aclassflower_1_1flower_html_a24cebce73e54dce93f545de565890e00"><div class="ttname"><a href="classflower_1_1flower.html#a24cebce73e54dce93f545de565890e00">flower::flower::SetDelimeter</a></div><div class="ttdeci">void SetDelimeter(uint8_t d)</div><div class="ttdef"><b>Definition:</b> <a href="flower_8hpp_source.html#l00058">flower.hpp:58</a></div></div>
+<div class="ttc" id="aclassaroma_html"><div class="ttname"><a href="classaroma.html">aroma</a></div><div class="ttdoc">Класс типа запаха</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

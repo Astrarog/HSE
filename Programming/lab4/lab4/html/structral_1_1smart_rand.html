@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Лабораторная №4: Шаблон класса ral::smartRand&lt; Unsigned, k1, k2, b &gt;</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Лабораторная №4
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespaceral.html">ral</a></li><li class="navelem"><a class="el" href="structral_1_1smart_rand.html">smartRand</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="structral_1_1smart_rand-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Шаблон класса ral::smartRand&lt; Unsigned, k1, k2, b &gt;</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс-функтор реазлиующий квадратичный конгруентный метод Эквивалентно smartRand(n, start)  
+ <a href="structral_1_1smart_rand.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="random_8hpp_source.html">random.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:ad49cda131511b52470ef23e691b76c4d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#ad49cda131511b52470ef23e691b76c4d">elem_type</a> = Unsigned</td></tr>
+<tr class="separator:ad49cda131511b52470ef23e691b76c4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a756af9fef45396d40f0b2dd0564e9641"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a> = std::vector&lt; <a class="el" href="structral_1_1smart_rand.html#ad49cda131511b52470ef23e691b76c4d">elem_type</a> &gt;</td></tr>
+<tr class="separator:a756af9fef45396d40f0b2dd0564e9641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a7e325fd07a6ffb6e6c3d6d93b492f8a9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#a7e325fd07a6ffb6e6c3d6d93b492f8a9">smartRand</a> (Unsigned n, Unsigned start=5)</td></tr>
+<tr class="separator:a7e325fd07a6ffb6e6c3d6d93b492f8a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cf24ccbc19e87fd8133f7eed75c3400"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#a8cf24ccbc19e87fd8133f7eed75c3400">operator val_type</a> ()</td></tr>
+<tr class="separator:a8cf24ccbc19e87fd8133f7eed75c3400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4275ddfb4f50ee069724d6b649aa71cd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#a4275ddfb4f50ee069724d6b649aa71cd">operator()</a> (Unsigned n, Unsigned start=5)</td></tr>
+<tr class="separator:a4275ddfb4f50ee069724d6b649aa71cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a848802a2d66b1847e1532c79249c3cf7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structral_1_1smart_rand.html#a848802a2d66b1847e1532c79249c3cf7">value</a></td></tr>
+<tr class="separator:a848802a2d66b1847e1532c79249c3cf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><h3>template&lt;typename Unsigned = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt;<br />
+class ral::smartRand&lt; Unsigned, k1, k2, b &gt;</h3>
+
+<p>Класс-функтор реазлиующий квадратичный конгруентный метод Эквивалентно smartRand(n, start) </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">n</td><td>&ndash; Количество генерируемых чисел </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>&ndash; начальное значение </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>массив случайных чисел </dd></dl>
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00078">78</a></p>
+</div><h2 class="groupheader">Определения типов</h2>
+<a id="ad49cda131511b52470ef23e691b76c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad49cda131511b52470ef23e691b76c4d">&#9670;&nbsp;</a></span>elem_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::<a class="el" href="structral_1_1smart_rand.html#ad49cda131511b52470ef23e691b76c4d">elem_type</a> =  Unsigned</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00080">80</a></p>
+
+</div>
+</div>
+<a id="a756af9fef45396d40f0b2dd0564e9641"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a756af9fef45396d40f0b2dd0564e9641">&#9670;&nbsp;</a></span>val_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::<a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a> =  std::vector&lt;<a class="el" href="structral_1_1smart_rand.html#ad49cda131511b52470ef23e691b76c4d">elem_type</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00081">81</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a7e325fd07a6ffb6e6c3d6d93b492f8a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e325fd07a6ffb6e6c3d6d93b492f8a9">&#9670;&nbsp;</a></span>smartRand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::<a class="el" href="structral_1_1smart_rand.html">smartRand</a> </td>
+          <td>(</td>
+          <td class="paramtype">Unsigned&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Unsigned&#160;</td>
+          <td class="paramname"><em>start</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00083">83</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a8cf24ccbc19e87fd8133f7eed75c3400"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf24ccbc19e87fd8133f7eed75c3400">&#9670;&nbsp;</a></span>operator val_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::operator <a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00086">86</a></p>
+
+</div>
+</div>
+<a id="a4275ddfb4f50ee069724d6b649aa71cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4275ddfb4f50ee069724d6b649aa71cd">&#9670;&nbsp;</a></span>operator()()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a> <a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::operator() </td>
+          <td>(</td>
+          <td class="paramtype">Unsigned&#160;</td>
+          <td class="paramname"><em>n</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Unsigned&#160;</td>
+          <td class="paramname"><em>start</em> = <code>5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00091">91</a></p>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a848802a2d66b1847e1532c79249c3cf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a848802a2d66b1847e1532c79249c3cf7">&#9670;&nbsp;</a></span>value</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Unsigned  = std::uint64_t, Unsigned k1 = 8, Unsigned k2 = 69069, Unsigned b = 313&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structral_1_1smart_rand.html#a756af9fef45396d40f0b2dd0564e9641">val_type</a> <a class="el" href="structral_1_1smart_rand.html">ral::smartRand</a>&lt; Unsigned, k1, k2, b &gt;::value</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">См. определение в файле <a class="el" href="random_8hpp_source.html">random.hpp</a> строка <a class="el" href="random_8hpp_source.html#l00082">82</a></p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li><a class="el" href="random_8hpp_source.html">random.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
