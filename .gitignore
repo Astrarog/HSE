@@ -1,5 +1,5 @@
-git_pull.bat
-git_push.bat
+*git_pull*
+*git_push*
 
 .ipynb_checkpoints
 *.log
