@@ -27,6 +27,8 @@ sigintHandler(){
 			fs = `du $filename | tail -n 1 | cut -f 1 -d$'\t'`
 			sigMess = `echo "File \"$filename\" consists of $fileSize blocks"`
 			echo "$sigMess"
+		else
+			echo "No file were given"
 		fi
 	fi
 

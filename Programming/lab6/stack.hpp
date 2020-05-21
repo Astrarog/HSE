@@ -42,32 +42,31 @@ namespace ral {
      * @brief Реализация стека через std::list
      */
     template <typename T>
-    class stack : stack_base<T>
+    class stack : public std::list<T>, public stack_base<T>
     {
-        std::list<T> data;
     public:
         stack(){}
         void pop() override
         {
-            if(data.size()==0)
+            if(this->size()==0)
             {
                 throw ListException();
             }
             else
             {
-                data.pop_front();
+                this->pop_front();
             }
         }
         void push(const T& val) override
         {
-            data.push_front(val);
+            this->push_front(val);
         }
 
         void PrintStack() const
         {
-            for (const auto& e: data)
+            for (auto pos = this->begin(); pos!=this->end(); pos = next(pos))
             {
-                std::cout << e << ' ';
+                std::cout << *pos << ' ';
             }
         }
     };
