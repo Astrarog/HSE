@@ -23,7 +23,11 @@ sigintHandler(){
 	ost=`expr $counter % 5`
 	if [ $ost -eq 0 ]
 	then
-		echo "$message"
+		if [ ! "$filename" = '' ]; then
+			fs = `du $filename | tail -n 1 | cut -f 1 -d$'\t'`
+			sigMess = `echo "File \"$filename\" consists of $fileSize blocks"`
+			echo "$sigMess"
+		fi
 	fi
 
 }
@@ -32,9 +36,8 @@ trap 'sigintHandler' 2
 
 getCorrectFileName
 
-fileSize=`wc * | tr -s ' ' | grep -e $filename | cut -f 4 -d ' '`
-totalSize=`wc * | tr -s ' ' | grep -e total | cut -f 4 -d ' '`
-
+fileSize=`du $filename | tail -n 1 | cut -f 1 -d$'\t'`
+totalSize=`du --summarize | cut -f 1 -d$'\t'`
 message=`echo "There are $fileSize block in file $filename"; echo "Totaly, there are $totalSize blocks in current directory"`
 echo "$message"
 
