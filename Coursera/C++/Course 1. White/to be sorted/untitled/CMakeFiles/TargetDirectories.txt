@@ -1,3 +1,0 @@
-C:/Projects/untitled/CMakeFiles/edit_cache.dir
-C:/Projects/untitled/CMakeFiles/untitled.dir
-C:/Projects/untitled/CMakeFiles/rebuild_cache.dir
