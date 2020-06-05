@@ -1,189 +1,99 @@
-#include <iomanip>
 #include <iostream>
-#include <map>
-#include <set>
-#include <sstream>
 #include <stdexcept>
-#include <string>
 #include <vector>
+
+#include "database.h"
+#include "date.h"
+#include "condition_parser.h"
+#include "node.h"
+#include "test_runner.h"
+
 
 using namespace std;
 
-class Date {
-public:
-  // конструктор выбрасывает исключение, если его аргументы некорректны
-  Date(int new_year, int new_month, int new_day) {
-    year = new_year;
-    if (new_month > 12 || new_month < 1) {
-      throw logic_error("Month value is invalid: " + to_string(new_month));
-    }
-    month = new_month;
-    if (new_day > 31 || new_day < 1) {
-      throw logic_error("Day value is invalid: " + to_string(new_day));
-    }
-    day = new_day;
-  }
+void TestAll();
 
-  int GetYear() const {
-    return year;
-  }
-  int GetMonth() const {
-    return month;
-  }
-  int GetDay() const {
-    return day;
-  }
+string ParseEvent(istream& is){
 
-private:
-  int year;
-  int month;
-  int day;
-};
+    string firstWord;
+    is >> firstWord;
 
-// определить сравнение для дат необходимо для использования их в качестве ключей словаря
-bool operator<(const Date& lhs, const Date& rhs) {
-  // воспользуемся тем фактом, что векторы уже можно сравнивать на <:
-  // создадим вектор из года, месяца и дня для каждой даты и сравним их
-  return vector<int>{lhs.GetYear(), lhs.GetMonth(), lhs.GetDay()} <
-      vector<int>{rhs.GetYear(), rhs.GetMonth(), rhs.GetDay()};
-}
-
-// даты будут по умолчанию выводиться в нужном формате
-ostream& operator<<(ostream& stream, const Date& date) {
-  stream << setw(4) << setfill('0') << date.GetYear() <<
-      "-" << setw(2) << setfill('0') << date.GetMonth() <<
-      "-" << setw(2) << setfill('0') << date.GetDay();
-  return stream;
-}
-
-class Database {
-public:
-  void AddEvent(const Date& date, const string& event) {
-    storage[date].insert(event);
-  }
-
-  bool DeleteEvent(const Date& date, const string& event) {
-    if (storage.count(date) > 0 && storage[date].count(event) > 0) {
-      storage[date].erase(event);
-      return true;
-    }
-    return false;
-  }
-
-  int DeleteDate(const Date& date) {
-    if (storage.count(date) == 0) {
-      return 0;
-    } else {
-      const int event_count = storage[date].size();
-      storage.erase(date);
-      return event_count;
-    }
-  }
-
-  set<string> Find(const Date& date) const {
-    if (storage.count(date) > 0) {
-      return storage.at(date);
-    } else {
-      return {};
-    }
-  }
-
-  void Print() const {
-    for (const auto& item : storage) {
-      for (const string& event : item.second) {
-        cout << item.first << " " << event << endl;
-      }
-    }
-  }
-
-private:
-  map<Date, set<string>> storage;
-};
-
-Date ParseDate(const string& date) {
-  istringstream date_stream(date);
-  bool ok = true;
-
-  int year;
-  ok = ok && (date_stream >> year);
-  ok = ok && (date_stream.peek() == '-');
-  date_stream.ignore(1);
-
-  int month;
-  ok = ok && (date_stream >> month);
-  ok = ok && (date_stream.peek() == '-');
-  date_stream.ignore(1);
-
-  int day;
-  ok = ok && (date_stream >> day);
-  ok = ok && date_stream.eof();
-
-  if (!ok) {
-    throw logic_error("Wrong date format: " + date);
-  }
-  return Date(year, month, day);
+    string otherWords;
+    getline(is, otherWords);
+    return firstWord+otherWords;
 }
 
 int main() {
-  try {
-    Database db;
+  TestAll();
 
-    string command_line;
-    while (getline(cin, command_line)) {
-      stringstream ss(command_line);
+  Database db;
 
-      string command;
-      ss >> command;
+  for (string line; getline(cin, line); ) {
+    istringstream is(line);
 
-      if (command == "Add") {
+    string command;
+    is >> command;
+    if (command == "Add") {
+      const auto date = ParseDate(is);
+      const auto event = ParseEvent(is);
+      db.Add(date, event);
+    } else if (command == "Print") {
+      db.Print(cout);
+    } else if (command == "Del") {
+      auto condition = ParseCondition(is);
+      auto predicate = [condition](const Date& date, const string& event) {
+        return condition->Evaluate(date, event);
+      };
+      int count = db.RemoveIf(predicate);
+      cout << "Removed " << count << " entries" << endl;
+    } else if (command == "Find") {
+      auto condition = ParseCondition(is);
+      auto predicate = [condition](const Date& date, const string& event) {
+        return condition->Evaluate(date, event);
+      };
 
-        string date_str, event;
-        ss >> date_str >> event;
-        const Date date = ParseDate(date_str);
-        db.AddEvent(date, event);
-
-      } else if (command == "Del") {
-
-        string date_str;
-        ss >> date_str;
-        string event;
-        if (!ss.eof()) {
-          ss >> event;
-        }
-        const Date date = ParseDate(date_str);
-        if (event.empty()) {
-          const int count = db.DeleteDate(date);
-          cout << "Deleted " << count << " events" << endl;
-        } else {
-          if (db.DeleteEvent(date, event)) {
-            cout << "Deleted successfully" << endl;
-          } else {
-            cout << "Event not found" << endl;
-          }
-        }
-
-      } else if (command == "Find") {
-
-        string date_str;
-        ss >> date_str;
-        const Date date = ParseDate(date_str);
-        for (const string& event : db.Find(date)) {
-          cout << event << endl;
-        }
-
-      } else if (command == "Print") {
-
-        db.Print();
-
-      } else if (!command.empty()) {
-
-        throw logic_error("Unknown command: " + command);
-
+      const auto entries = db.FindIf(predicate);
+      for (const auto& entry : entries) {
+        cout << entry << endl;
       }
+      cout << "Found " << entries.size() << " entries" << endl;
+    } else if (command == "Last") {
+      try {
+          cout << db.Last(ParseDate(is)) << endl;
+      } catch (invalid_argument&) {
+          cout << "No entries" << endl;
+      }
+    } else if (command.empty()) {
+      continue;
+    } else {
+      throw logic_error("Unknown command: " + command);
     }
-  } catch (const exception& e) {
-    cout << e.what() << endl;
   }
 
   return 0;
+}
+
+void TestParseEvent() {
+  {
+    istringstream is("event");
+    AssertEqual(ParseEvent(is), "event", "Parse event without leading spaces");
+  }
+  {
+    istringstream is("   sport event ");
+    AssertEqual(ParseEvent(is), "sport event ", "Parse event with leading spaces");
+  }
+  {
+    istringstream is("  first event  \n  second event");
+    vector<string> events;
+    events.push_back(ParseEvent(is));
+    events.push_back(ParseEvent(is));
+    AssertEqual(events, vector<string>{"first event  ", "second event"}, "Parse multiple events");
+  }
+}
+
+void TestAll() {
+  TestRunner tr;
+  tr.RunTest(TestParseEvent, "TestParseEvent");
+  tr.RunTest(TestParseCondition, "TestParseCondition");
+  tr.RunTest(TestDatabase, "TestDatabase");
 }
