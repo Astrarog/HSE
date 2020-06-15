@@ -1,0 +1,180 @@
+body
+{
+    font: 15px Helvetica, Arial;
+    margin: 0;
+    padding: 20px;
+}
+
+code
+{
+    background-color: #eee;
+    border-radius: 2px;
+    padding: 0 4px;
+}
+
+.global-heading
+{
+    margin: 0 0 20px;
+}
+
+.global-results
+{
+    font-size: 0;
+}
+
+.global-result
+{
+    display: inline-block;
+    width: 450px;
+    height: 450px;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #eee;
+    margin: 0 10px 0 0;
+    vertical-align: top;
+    padding: 10px;
+}
+
+.global-nav
+{
+    margin: 40px 0 0;
+}
+
+.global-prev
+{
+    margin: 0 10px 0 0;
+}
+
+.global-prev:before
+{
+    content: '← ';
+}
+
+.global-next:after
+{
+    content: ' →';
+}
+
+.global-scope
+{
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 250px;
+}
+
+.global-scope a
+{
+    text-decoration: none;
+}
+
+.global-scope_4,
+.global-scope_5,
+.global-scope_15
+{
+    display: block;
+}
+
+.global-scope_16 div
+{
+    background-color: #fff;
+}
+
+.global-scope_16 div.c2.c3.c4.c5.c6
+{
+    background-color: #fff;
+}
+
+.global-scope_4 article
+{
+    padding: 10px 0;
+}
+
+.global-scope_4 hr
+{
+    margin: 0;
+}
+
+.global-scope_10
+{
+    width: 100%;
+}
+
+.global-scope_12,
+.global-scope_13,
+.global-scope_18
+{
+    width: 330px;
+}
+
+.global-scope_18 div
+{
+    background-color: #ff6698;
+}
+
+.global-scope_17
+{
+    width: 400px;
+}
+
+.global-scope input
+{
+    outline: none;
+    margin: 10px;
+}
+
+.global-scope a
+{
+    width: 100%;
+    margin: 10px;
+}
+
+.global-scope ul
+{
+    list-style-type: none;
+    padding: 0;
+}
+
+.global-scope button
+{
+    margin: 10px;
+}
+
+.global-scope > div > img
+{
+    width: 100px;
+    height: 100px;
+}
+
+.global-scope > div,
+.global-scope > aside
+{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #eee;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.global-scope > div > div,
+.global-scope > aside > div,
+.global-scope > div > aside,
+.global-scope > aside > aside
+{
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 0 1px #eee;
+    box-sizing: border-box;
+}

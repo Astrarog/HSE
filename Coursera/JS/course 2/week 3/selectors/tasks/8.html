@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS-селекторы</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../global.css">
+    </head>
+    <body>
+        <h1 class="global-heading">&nbsp;</h1>
+        <p>Выделите только ссылки на внешние относительно my-site.ru ресурсы, используя <code>color: &lt;color&gt;</code></p>
+
+        <main class="global-results">
+            <style>
+                /* ваш код здесь... */
+            </style>
+
+            <section class="global-result">
+                <article class="global-scope">
+                    <ul>
+                        <li>
+                            <a href="http://my-site.ru">Ссылка 0</a>
+                        </li>
+                        <li>
+                            <a href="https://ya.ru" target="_blank">Ссылка 1</a>
+                        </li>
+                        <li>
+                            <a href="/http/info" download target="_top">Ссылка 2</a>
+                        </li>
+                        <li>
+                            <a href="//my-site.ru/about" download target="_top">Ссылка 3</a>
+                        </li>
+                        <li>
+                            <a href="http://vk.com" rel="external" target="_blank">Ссылка 4</a>
+                        </li>
+                        <li>
+                            <a href="//google.com" rel="external" target="_blank">Ссылка 5</a>
+                        </li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="global-result">
+                <img class="global-goal">
+            </section>
+        </main>
+
+        <nav class="global-nav">
+            <a class="global-prev">Предыдущее</a>
+            <a class="global-next">Следующее</a>
+        </nav>
+
+        <script src="../global.js"></script>
+    </body>
+</html>
