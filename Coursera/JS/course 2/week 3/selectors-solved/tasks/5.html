@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
@@ -12,8 +12,19 @@
 
         <main class="global-results">
             <style>
-                input#checkbox:checked ~ div.tab {background: #000; color: #fff; }
-                input#checkbox ~ div.tab {background: #fff; color: #000; }
+                /* your styles here */
+
+                input:checked ~ .tab
+                {
+                    background-color: #000;
+                    color: #fff;
+                }
+
+                input ~ .tab
+                {
+                    background-color: #fff;
+                    color: #000;
+                }
             </style>
 
             <section class="global-result">

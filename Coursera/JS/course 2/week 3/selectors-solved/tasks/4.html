@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
     </head>
     <body>
         <h1 class="global-heading">&nbsp;</h1>
-        <p>Решите задачу, используя <code>background: &lt;color&gt;</code> и <code>color: &lt;color&gt;</code></p>
+        <p>Решите задачу, используя <code>border-top: 1px solid #000</code></p>
 
         <main class="global-results">
             <style>
-                input#checkbox:checked ~ div.tab {background: #000; color: #fff; }
-                input#checkbox ~ div.tab {background: #fff; color: #000; }
+                /* your styles here */
+
+                article + article
+                {
+                    border-top: 1px solid #000;
+                }
             </style>
 
             <section class="global-result">
                 <article class="global-scope">
-                    <label for="checkbox">Black Theme</label>
-                    <input id="checkbox" type="checkbox"><br>
-                    <div class="tab">Text</div>
+                    <h1>Заголовок</h1>
+                    <hr>
+                    <article>Первый</article>
+                    <article>Второй</article>
+                    <article>Третий</article>
+                    <article>Четвертый</article>
+                    <article>Пятый</article>
+                    <hr>
                 </article>
             </section>
 

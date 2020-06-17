@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
@@ -11,18 +11,36 @@
         <p>Решите задачу, используя <code>background: &lt;color&gt;</code></p>
 
         <main class="global-results">
-            <section class="global-result">
-                <style>
-                    div, aside { background: #6698ff; }
-                    div.c1 { background: #ff6698; }
-                    div#id { background: #98ff66; }
-                </style>
+            <style>
+                /* your styles here */
 
+                div:first-child
+                {
+                    background-color: #ff6698;
+                }
+
+                .global-scope .c1
+                {
+                    background-color: #6698ff;
+                }
+
+                #id1
+                {
+                    background-color: #ffb366;
+                }
+
+                .c7
+                {
+                    background-color: #ff6 !important;
+                }
+            </style>
+
+            <section class="global-result">
                 <article class="global-scope">
                     <div></div>
                     <div class="c1"></div>
-                    <div id="id"></div>
-                    <aside></aside>
+                    <div id="id1" class="c2 c3 c4 c5 c6"></div>
+                    <div class="c7" style="background-color: #fff" ></div>
                 </article>
             </section>
 

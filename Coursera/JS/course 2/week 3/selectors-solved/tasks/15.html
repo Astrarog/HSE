@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS-селекторы | Решение</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../global.css">
+    </head>
+    <body>
+        <h1 class="global-heading">&nbsp;</h1>
+        <p>Выделите ссылки на скачивание zip-файлов</p>
+
+        <main class="global-results">
+            <style>
+                /* your styles here */
+
+                a[download][href$='.zip']:after
+                {
+                    content: ' ↓';
+                }
+            </style>
+
+            <section class="global-result">
+                <article class="global-scope">
+                    <ul>
+                       <li>
+                        <a href="archive.zip.ncrd" download target="_top">Ссылка 0</a>
+                      </li>
+                      <li>
+                        <a href="ya.ru" target="_blank">Ссылка 1</a>
+                      </li>
+                      <li>
+                        <a href target="_blank">Ссылка 2</a><br>
+                      </li>
+                      <li>
+                        <a href="archive.zip" download target="_top">Ссылка 3</a>
+                      </li>
+                      <li>
+                        <a href="archive2.zip" download target="_top">Ссылка 4</a>
+                      </li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="global-result">
+                <img class="global-goal">
+            </section>
+        </main>
+
+        <nav class="global-nav">
+            <a class="global-prev">Предыдущее</a>
+            <a class="global-next">Следующее</a>
+        </nav>
+
+        <script src="../global.js"></script>
+    </body>
+</html>

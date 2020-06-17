@@ -1,26 +1,34 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
     </head>
     <body>
         <h1 class="global-heading">&nbsp;</h1>
-        <p>Решите задачу, используя <code>background: &lt;color&gt;</code> и <code>color: &lt;color&gt;</code></p>
+        <p>Решите задачу, используя <code>color: &lt;color&gt;</code></p>
 
         <main class="global-results">
             <style>
-                input#checkbox:checked ~ div.tab {background: #000; color: #fff; }
-                input#checkbox ~ div.tab {background: #fff; color: #000; }
+                /* your styles here */
+
+                .title::first-letter
+                {
+                    color: #ff6698;
+                }
+
+                .description::first-line
+                {
+                    color: #6698ff;
+                }
             </style>
 
             <section class="global-result">
                 <article class="global-scope">
-                    <label for="checkbox">Black Theme</label>
-                    <input id="checkbox" type="checkbox"><br>
-                    <div class="tab">Text</div>
+                    <p class="title">Яндекс</p>
+                    <p class="description"> российская транснациональная компания,<br>владеющая одноимённой системой поиска в Сети, интернет-порталами и службами в нескольких странах.</p>
                 </article>
             </section>
 

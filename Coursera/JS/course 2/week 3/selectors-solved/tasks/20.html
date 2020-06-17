@@ -1,42 +1,41 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
     </head>
     <body>
         <h1 class="global-heading">&nbsp;</h1>
-        <p>Решите задачу, используя <code>background: &lt;color&gt;</code> и <code>border: 2px solid #000</code></p>
+        <p><strong>Необязательная задача.</strong> Выделите все внутренние элементы там, где их больше 2, используя <code>background: &lt;color&gt;</code> и самую сильную магию</p>
 
         <main class="global-results">
             <style>
-                div div { background: #6698ff;}
-                .global-scope > div { border: 2px solid #000}
+                /* your styles here */
+
+                .red-gt2 div:nth-last-child(n+3),
+                .red-gt2 div:nth-last-child(n+3) ~ div
+                {
+                    background: #ff6698;
+                }
             </style>
 
             <section class="global-result">
                 <article class="global-scope">
-                    <div>
+                    <div class="red-gt2">
                         <div></div>
+                    </div>
+                    <div class="red-gt2">
+                        <div></div>
+                        <div></div>
+                    </div>
+                    <div class="red-gt2">
                         <div></div>
                         <div></div>
                         <div></div>
                     </div>
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
-                    <div>
+                    <div class="red-gt2">
                         <div></div>
                         <div></div>
                         <div></div>

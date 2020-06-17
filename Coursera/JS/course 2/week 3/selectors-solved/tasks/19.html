@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
     </head>
     <body>
         <h1 class="global-heading">&nbsp;</h1>
-        <p>Решите задачу, используя <code>background: &lt;color&gt;</code> и <code>border: 2px solid #000</code></p>
+        <p>Решите задачу, используя <code>background: &lt;color&gt;</code></p>
 
         <main class="global-results">
             <style>
-                div div { background: #6698ff;}
-                .global-scope > div { border: 2px solid #000}
+                /* your styles here */
+
+                div
+                {
+                    background-color: #ffb366;
+                }
+
+                div:empty
+                {
+                    background-color: #fff;
+                }
+
+                div:first-child div:last-child
+                {
+                    background-color: #98ff66;
+                }
+
+                div:last-child div:first-child
+                {
+                    background-color: #ff6;
+                }
+
+                div:nth-child(2) div:nth-child(2n)
+                {
+                    background-color: #ff6698;
+                }
+
+                div:nth-child(3) div:nth-child(2n+1)
+                {
+                    background-color: #6698ff;
+                }
             </style>
 
             <section class="global-result">

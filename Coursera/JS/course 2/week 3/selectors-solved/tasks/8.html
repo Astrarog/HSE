@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>CSS-селекторы</title>
+        <title>CSS-селекторы | Решение</title>
         <meta charset="utf-8">
 
         <link rel="stylesheet" type="text/css" href="../global.css">
@@ -12,10 +12,14 @@
 
         <main class="global-results">
             <style>
+                /* your styles here */
+
                 a[href^='//']:not([href*='my-site.ru']),
                 a[href^='http://']:not([href*='my-site.ru']),
                 a[href^='https://']:not([href*='my-site.ru'])
-                {color: #ff6698;}/* ваш код здесь... */
+                {
+                    color: #ff6698;
+                }
             </style>
 
             <section class="global-result">

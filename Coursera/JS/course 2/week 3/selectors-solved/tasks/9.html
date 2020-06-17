@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CSS-селекторы | Решение</title>
+        <meta charset="utf-8">
+
+        <link rel="stylesheet" type="text/css" href="../global.css">
+    </head>
+    <body>
+        <h1 class="global-heading">&nbsp;</h1>
+        <p>Решите задачу, используя <code>color: &lt;color&gt;</code> и <code>opacity: &lt;value&gt;</code></p>
+
+        <main class="global-results">
+            <style>
+                /* your styles here */
+
+                .link:not([href]):hover
+                {
+                    opacity: .5;
+                }
+
+                .link[href]
+                {
+                    color: #6698ff;
+                }
+
+                .link[href]:visited
+                {
+                    color: #ffb366;
+                }
+
+                .link[href]:hover
+                {
+                    color: #ff6698;
+                }
+
+                .link[href]:active
+                {
+                    color: #98ff66;
+                }
+            </style>
+
+            <section class="global-result">
+                <article class="global-scope">
+                    <a class="link" href="https://ya.ru">link</a>
+                    <a class="link">pseudolink</a>
+                </article>
+            </section>
+
+            <section class="global-result">
+                <img class="global-goal">
+            </section>
+        </main>
+
+        <nav class="global-nav">
+            <a class="global-prev">Предыдущее</a>
+            <a class="global-next">Следующее</a>
+        </nav>
+
+        <script src="../global.js"></script>
+    </body>
+</html>
