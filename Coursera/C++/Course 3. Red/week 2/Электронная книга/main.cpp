@@ -8,22 +8,6 @@ using namespace std;
 class ReadingManager {
 public:
   ReadingManager()
-<<<<<<< HEAD
-      : users_and_pages_(),
-        rating (1001) {}
-
-  void Read(int user_id, int page_count) {
-    if (users_and_pages_.count(user_id) == 0) {
-      AddUser(user_id);
-    }
-    int last_value=users_and_pages_[user_id];
-    users_and_pages_[user_id] = page_count;
-
-    for (int i=(last_value + 1); i<=page_count; ++i)
-    {
-        ++ (rating[i]);
-    }
-=======
       : user_page_counts_(MAX_USER_COUNT_ + 1, 0),
         sorted_users_(),
         user_positions_(MAX_USER_COUNT_ + 1, -1),
@@ -63,7 +47,6 @@ public:
         cout << rating[i] << ' ';
     }
     cout << '\n';
->>>>>>> b0cd0e9e13adb337ef73f7cfb1f9ecfd0da77faf
   }
 
   double Cheer(int user_id) const
@@ -77,25 +60,6 @@ public:
     {
       return 1;
     }
-<<<<<<< HEAD
-    const int page_count = users_and_pages_.at(user_id);
-
-    return (user_count - rating[page_count]) * 1.0 / (user_count - 1);
-  }
-
-private:
-  map<int, int> users_and_pages_; // позиции в векторе sorted_users_
-
-  vector<int> rating;
-
-  int GetUserCount() const {
-      return users_and_pages_.size();
-    }
-  void AddUser(int user_id) {
-    users_and_pages_[user_id] = 0;
-  }
-
-=======
     const int page_count = user_page_counts_[user_id];
     int rat = rating[page_count];
     if (rat == 0)
@@ -137,7 +101,6 @@ private:
     swap(sorted_users_[lhs_position], sorted_users_[rhs_position]);
     swap(user_positions_[lhs_id], user_positions_[rhs_id]);
   }
->>>>>>> b0cd0e9e13adb337ef73f7cfb1f9ecfd0da77faf
 };
 
 
