@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 		sleep(1);
         }
         char* sh_addr;
-        sh_addr = (char *) shmat(sh_id, NULL, 0);
+        sh_addr = (char *) shmat(sh_id, 0, 0);
         if( sh_addr == (char *) -1)
         {
                 perror("\e[31m[ERROR] Error while attaching shared memory. Try Again.\n");
