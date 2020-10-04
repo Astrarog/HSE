@@ -10,6 +10,9 @@ git_push.bat
 build*
 CMakeLists.txt.user
 
+# Vagrant files
+.vagrant/
+
 # User-specific files
 *.rsuser
 *.suo
