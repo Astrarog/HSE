@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 	key_t ipckey = ftok("/home/explorer/lab2/lab.cfg", id);
 
 	int  sem_id;
-	if( (sem_id = semget(ipckey, 1, IPC_CREAT|IPC_EXCL|0666)) == -1)
+	if( (sem_id = semget(ipckey, 3, IPC_CREAT|IPC_EXCL|0666)) == -1)
 	{
                 perror("\e[31m[ERROR] Error while creating semaphore set. Try nother ID.\n");
 		exit(1);
@@ -30,9 +30,10 @@ int main(int argc, char* argv[])
 	union semun arg;
 	arg.val = 0;
 	semctl(sem_id, 0, SETVAL, arg);
+	semctl(sem_id, 1, SETVAL, arg);
+	semctl(sem_id, 2, SETVAL, arg);
 
 	printf("Semaphore set created. ID: %d\n", sem_id);
-
 
 
 	int sh_id;
@@ -54,7 +55,7 @@ int main(int argc, char* argv[])
 
 
 
-	if(semop(sem_id, wait_for_resourses, 1) == -1)
+	if(semop(sem_id, wait_for_ctl, 1) == -1)
 	{
 		perror("\e[31m[ERROR] Error in waiting for resources. Aborted.\n");
 		exit(4);
@@ -79,7 +80,7 @@ int main(int argc, char* argv[])
 	strncpy(sh_addr, data, lenght);
         sh_addr[lenght] = '\0';
 
-	if(semop(sem_id, give_resourses, 1)==-1)
+	if(semop(sem_id, give_to_read, 1)==-1)
         {
                 perror("\e[31m[ERROR] Error while free for resources. Aborted.\n");
                 exit(5);

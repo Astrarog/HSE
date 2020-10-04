@@ -17,7 +17,14 @@ union semun {
 };
 
 
+const struct sembuf wait_for_ctl[1] = {{0,-1,0}};
+const struct sembuf give_resourses_to_server[1] = {{0,1,0}};
 
-struct sembuf wait_for_resourses[1] = {{0,-1,0}};
-struct sembuf give_resourses[1] = {{0,1,0}};
+const struct sembuf wait_for_client[1] = {{1,-1,0}};
+const struct sembuf client_request[2] = {{2,1,0}, {1,1,0}};
+
+const struct sembuf give_to_read[1] = {{2,-1,0}};
+const struct sembuf wait_for_read[1] = {{2,0,0}};
+
+
 

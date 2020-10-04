@@ -41,13 +41,28 @@ int main(int argc, char* argv[])
         }
 
 	printf("Shared memory found and attached. ID: %d\n", sh_id);
-
-	if(semop(sem_id, client_request, 2) == -1)
+		
+	if(semop(sem_id, wait_for_client, 1) == -1)
         {       
                 perror("\e[31m[ERROR] Error in waiting for resources. Aborted.\n");
                 exit(4);
         }
 
+	FILE* stream = popen("ls | tr '\n' ' '", "r");
+
+	char* data;
+	size_t lenght = streamread(stream, &data);
+	
+	pclose(stream);
+
+	strncpy(sh_addr, data, lenght);
+	sh_addr[lenght] = '\0';   	
+	printf("Data was send. Waiting for the answer.\n");
+	if(semop(sem_id, give_resourses_to_server, 1)==-1)
+	{
+		perror("\e[31m[ERROR] Error while free for resources. Aborted.\n");
+                exit(5);	
+	}
 	if(semop(sem_id, wait_for_read, 1) == -1)
         {       
                 perror("\e[31m[ERROR] Error in waiting for resources. Aborted.\n");
@@ -67,6 +82,11 @@ int main(int argc, char* argv[])
 
 	printf("Last attached time \e[7m%ld\n", last_att_time);
 
+	semctl(sem_id, 0, IPC_RMID);
+	printf("\e[7m\e[38;5;82m[INFO] Semaphores set removed.\n");
+	shmctl(sh_id, IPC_RMID, NULL);
+	shmdt(sh_addr);
+	printf("\e[7m\e[38;5;82m[INFO] Shared memory removed.\n");
 	printf("\e[7m\e[38;5;82m[INFO] Job's done aborting...\n");
 }
 
