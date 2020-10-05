@@ -27,10 +27,10 @@ $exit
 ```run-perf.sh``` is a scrtipt based on **iperf** test that measure network perfomance.
 Parameters changed as follows.
 
-Changed parametr | Begin value | End value | Step
------------- | -------------
-TCP window size (Kb) | 1 | 301 | 5
-Link delay (ms) | 1 | 1026 | 5
+|Changed parametr     | Begin value | End value | Step |
+|-------------------- |:-----------:|:---------:|:----:|
+|TCP window size (Kb) | 1 			| 301 		| 5    |
+|Link delay (ms) 	  | 1 			| 1026 		| 5    |
 
 Resulted **bandwidth** data is saved in ```~/share/data.csv``` file.
 
