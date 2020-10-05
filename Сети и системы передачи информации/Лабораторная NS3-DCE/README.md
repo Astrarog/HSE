@@ -20,7 +20,7 @@ Shared folder ```<lab_dir>/share``` is also created and conntected to ```~/share
 #### 4. Connect to VM and launch perfomance scrtipt
 ```bash
 vagrant ssh
-$run-perf.sh
+$./run-perf.sh
 $exit
 ```
 
