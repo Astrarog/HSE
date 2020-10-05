@@ -15,6 +15,8 @@ We will suppose that it is cloned into ```<lab_dir>```
 cd <lab_dir>
 vagrant up
 ```
+This will create a VM with needed environment.
+Shared folder ```<lab_dir>/share``` is also created and conntected to ```~/share``` in guest VM.
 #### 4. Connect to VM and launch perfomance scrtipt
 ```bash
 vagrant ssh
@@ -22,11 +24,21 @@ $run-perf.sh
 $exit
 ```
 
-```run-perf.sh``` is a scrtipt that measure perfomance for all TCP window size values from 1 to 301  (step 5)
-and all link delay values from 1 to 1026 (step 5). Than it saves all data in file ```~/share/data.csv```.
-```~/share``` is a shared folder conntected to ```<lab_dir>```.
+```run-perf.sh``` is a scrtipt based on **iperf** test that measure network perfomance.
+Parameters changed as follows.
+
+Changed parametr | Begin value | End value | Step
+------------ | -------------
+TCP window size (Kb) | 1 | 301 | 5
+Link delay (ms) | 1 | 1026 | 5
+
+Resulted **bandwidth** data is saved in ```~/share/data.csv``` file.
+
 
 #### 5. Destroy VM
-```vagrant destroy```
+
+```bash 
+vagrant destroy
+```
 
 #### 6. Make graphics and Interpret the results
