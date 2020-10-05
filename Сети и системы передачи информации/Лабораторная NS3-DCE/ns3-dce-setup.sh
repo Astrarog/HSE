@@ -15,6 +15,8 @@ bake.py build -vvv
 
 # finish
 
+mv /home/vagrant/dce-iperf.cc /home/vagrant/dce/source/ns-3-dce/example/dce-iperf.cc
+
 whoami
 printenv
 
