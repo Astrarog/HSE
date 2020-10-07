@@ -1,12 +1,12 @@
 #!/bin/bash
 out_file='/home/vagrant/share/data.csv'
 
-echo 'Window Size,Link delay, Bandwidth' > data.csv
+echo 'Link delay,Window size,Bandwidth' > data.csv
 
 status_path='/home/vagrant/dce/source/ns-3-dce/files-1/var/log/*/status'
 stdout_path='/home/vagrant/dce/source/ns-3-dce/files-1/var/log/*/stdout'
 
-max_progress=$((60 * 205))
+max_progress=$((61 * 206))
 progress=0
 
 echo "Perfomance test started. Progress:"
@@ -45,4 +45,8 @@ do
 	done
 done
 
-mv data.csv out_file
+echo -ne "[${hashes}${space}] (${percent}%) ${dots}${dot_space}\r"
+
+echo "Test done. Aborting."
+
+mv data.csv $out_file

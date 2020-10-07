@@ -35,10 +35,22 @@ Parameters changed as follows.
 Resulted **bandwidth** data is saved in ```~/share/data.csv``` file.
 
 
-#### 5. Destroy VM
+#### 5. Destroy VM and visualise data
 
+VM image can be destroyed via the command:
 ```bash 
 vagrant destroy
 ```
 
+After this done data can be represented as 3D plot.
+JupyterNotebook scrtipt for this task is provided in 
+```<lab_dir>/visualisation/BandwithVisualisation.ipynb```
+
 #### 6. Make graphics and Interpret the results
+![Bandwidth graphics 1](visualisation/Bandwidth_1.png)
+![Bandwidth graphics 2](visualisation/Bandwidth_2.png)
+
+The growth of link delay can be resisted with moderate increase of window size, as can be seen in graphics.
+Nevertheless, a massive increase of window size is frequenlty followed by a drop in bandwidth regardless of link delay mostly.
+
+**As a result, with increase of link delay the window size impact on the bandwidth goes up.**

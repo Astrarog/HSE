@@ -9,10 +9,10 @@ Vagrant.configure("2") do |config|
     server.vm.box = "ubuntu/trusty64"
     	
 	# copying perfomance test source code
-	config.vm.provision "file", source: "./dce-iperf.cc", destination: "/home/vagrant/dce-iperf.cc"
+	config.vm.provision "file", source: "impor/dce-iperf.cc", destination: "/home/vagrant/dce-iperf.cc"
 	
 	# copying perfomance test startup file
-	config.vm.provision "file", source: "./run-perf.sh", destination: "/home/vagrant/run-perf.sh"
+	config.vm.provision "file", source: "impor/run-perf.sh", destination: "/home/vagrant/run-perf.sh"
 	config.vm.provision "shell", privileged: true, inline: "chmod 777 /home/vagrant/run-perf.sh"
 	
 	# shared folder creation
