@@ -1,0 +1,3 @@
+[submodule "СКЗИ/malloc"]
+	path = СКЗИ/malloc
+	url = https://github.com/hse-malloc/malloc.git
