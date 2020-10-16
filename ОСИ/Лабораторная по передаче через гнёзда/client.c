@@ -34,14 +34,18 @@ int main(int argc, char* argv[])
 	socklen_t c_name_len = strlen(client_name);
         strncpy(client.sun_path, client_name, c_name_len);
 	client.sun_path[c_name_len] = '\0';
+	
+	s_name_len += 2;
+	c_name_len += 2;
 
-	if(bind(sock_fd, (struct sockaddr *)&client, c_name_len) == -1)
+	if(bind(sock_fd, (struct sockaddr *)&client, c_name_len ) == -1)
 	{
 		perror("[INFO] Can't bind client socket. Aborted.");
 		close(sock_fd);
 		unlink(client_name);
 		exit(5);
 	}
+	
 	// rcvfrom
 	char data[256];
 	socklen_t rcv_data_len;
@@ -55,7 +59,8 @@ int main(int argc, char* argv[])
                 exit(2);
         }
 
-	data[rcv_data_len] = '\0';
+	data[rcv_len] = '\0';
+	printf("[INFO] Recieving request of %ld bytes\n", rcv_len);
 	printf("Data received: %s\n", data);
 	// command
 	char* command = concat(concat("ps u ", data), "| grep explorer | awk '{print $2}' | tr '\n' ' '");
@@ -67,7 +72,10 @@ int main(int argc, char* argv[])
 	pclose(stream);
 	
 	resp_data[resp_len] = '\0';
+	
+	printf("[INFO] Sending response of %ld bytes\n", resp_len);
 
+	printf("Data sent: %s\n", resp_data);
 	//sendto
 	ssize_t send_len = sendto(sock_fd, resp_data, resp_len , 0, (struct sockaddr *)&server, s_name_len);
         if(send_len == -1)

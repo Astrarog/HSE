@@ -13,5 +13,5 @@ struct my_msgbuf
         char text[];
 };
 
-const char server_name[UNIX_PATH_MAX] = "./sock_lab_server";
-const char client_name[UNIX_PATH_MAX] = "./sock_lab_client";
+const char server_name[UNIX_PATH_MAX] = "./s_lab_server";
+const char client_name[UNIX_PATH_MAX] = "./s_lab_client";

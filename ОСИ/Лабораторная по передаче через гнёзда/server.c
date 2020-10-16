@@ -28,20 +28,28 @@ int main(int argc, char* argv[])
         strncpy(server.sun_path, server_name, s_name_len);
         server.sun_path[s_name_len] = '\0';
 
-
         struct sockaddr_un client;
         client.sun_family = AF_UNIX;
         socklen_t c_name_len = strlen(client_name);
         strncpy(client.sun_path, client_name, c_name_len);
         client.sun_path[c_name_len] = '\0';
 
-	if(bind(sock_fd, (struct sockaddr *)&server, s_name_len) == -1)
+	s_name_len += 2;
+	c_name_len += 2;
+
+	if(bind(sock_fd, (struct sockaddr *)&server, s_name_len ) == -1)
         {
                 perror("[INFO] Can't bind server socket. Aborted.");
 		close(sock_fd);
 		unlink(server_name);
                 exit(5);
         }
+	
+	// wait for client to exist
+	while(access(client_name, F_OK) == -1)
+	{
+		sleep(1);
+	}
 
 	//command
 	
@@ -54,7 +62,7 @@ int main(int argc, char* argv[])
 	pclose(stream);
 	
 	//sendto
-	printf("[INFO] Sending request of size %ld bytes", req_len);
+	printf("[INFO] Sending request of size %ld bytes\n", req_len);
 
 	ssize_t send_len = sendto(sock_fd, req_data, req_len , 0, (struct sockaddr *)&client, c_name_len );
 	if(send_len == -1)
@@ -65,13 +73,13 @@ int main(int argc, char* argv[])
 		exit(2);
 	}
 
-
+	printf("Requested PIDs: %s\n", req_data);
 	//rcvfrom
 
 	char rcv_data[256];
 	socklen_t rcv_data_len;
 	ssize_t rcv_len = recvfrom(sock_fd, &rcv_data, sizeof(rcv_data), 0, (struct sockaddr *)&client, &rcv_data_len);
-	printf("[INFO] Receiving response of size %ld bytes", rcv_len);
+	printf("[INFO] Receiving response of size %ld bytes\n", rcv_len);
 	if(rcv_len == -1)
         {
                 perror("\e[31m[ERROR] Can't receive response. Try again later. Aborted.\n");
@@ -80,7 +88,9 @@ int main(int argc, char* argv[])
                 exit(3);
         }
 	
-	printf("Resulted PIDs: %s\n", req_data);
+	printf("Resulted PIDs: %s\n", rcv_data);
+	close(sock_fd);
+	unlink(server_name);
 	printf("[INFO] Job's done. Aborting.\n");
 	return 0;
 }
