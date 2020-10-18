@@ -1,6 +1,9 @@
 [submodule "СКЗИ/malloc"]
 	path = СКЗИ/malloc
-	url = https://github.com/hse-malloc/malloc.git
+	url = git@github.com:hse-malloc/malloc.git
 [submodule "Сети и системы передачи информации/Лабораторная VyOS OSPF"]
 	path = Сети и системы передачи информации/Лабораторная VyOS OSPF
 	url = git@github.com:Astrarog/hse-vyos-ospf.git
+[submodule "Тервер и матстат/Statistics HW"]
+	path = Тервер и матстат/Statistics HW
+	url = git@github.com:Astrarog/stat.git
