@@ -7,3 +7,6 @@
 [submodule "Тервер и матстат/Statistics HW"]
 	path = Тервер и матстат/Statistics HW
 	url = git@github.com:Astrarog/stat.git
+[submodule "СТПиОИ/Сериализация - Персистентный мир"]
+	path = СТПиОИ/Сериализация - Персистентный мир
+	url = git@github.com:Astrarog/hse-serialization.git
