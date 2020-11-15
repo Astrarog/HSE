@@ -10,3 +10,6 @@
 [submodule "СТПиОИ/Сериализация - Персистентный мир"]
 	path = СТПиОИ/Сериализация - Персистентный мир
 	url = git@github.com:Astrarog/hse-serialization.git
+[submodule "Сети и системы передачи информации/Лабораторная NS3-DCE"]
+	path = Сети и системы передачи информации/Лабораторная NS3-DCE
+	url = git@github.com:Astrarog/hse-ns3-dce.git
