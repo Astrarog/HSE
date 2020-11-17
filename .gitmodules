@@ -13,3 +13,6 @@
 [submodule "Сети и системы передачи информации/Лабораторная NS3-DCE"]
 	path = Сети и системы передачи информации/Лабораторная NS3-DCE
 	url = git@github.com:Astrarog/hse-ns3-dce.git
+[submodule "Сети и системы передачи информации/Лабораторная GoBGP"]
+	path = Сети и системы передачи информации/Лабораторная GoBGP
+	url = git@github.com:Astrarog/hse-gobgp-bgp.git
