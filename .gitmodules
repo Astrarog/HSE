@@ -16,6 +16,3 @@
 [submodule "Сети и системы передачи информации/Лабораторная GoBGP"]
 	path = Сети и системы передачи информации/Лабораторная GoBGP
 	url = git@github.com:Astrarog/hse-gobgp-bgp.git
-[submodule "МЗИвКФСиБД"]
-	path = МЗИвКФСиБД
-	url = git@github.com:Astrarog/hse-bank-security.git
