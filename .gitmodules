@@ -19,3 +19,6 @@
 [submodule "МЗИвКФСиБД/Антифрод"]
 	path = МЗИвКФСиБД/Антифрод
 	url = git@github.com:Astrarog/hse-bank-security.git
+[submodule "Криптографические методы ЗИ"]
+	path = Криптографические методы ЗИ
+	url = git@github.com:Astrarog/hse-crypto-methods.git
