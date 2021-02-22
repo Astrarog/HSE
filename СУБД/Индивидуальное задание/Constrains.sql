@@ -41,25 +41,51 @@ GO
 ALTER TABLE [Контракты] ADD
 	CONSTRAINT [Контракты_при_удалении_Киностудии] FOREIGN KEY ([Код_киностудии]) REFERENCES [Киностудия]([Код_киностудии])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL ,
+		ON UPDATE CASCADE,
 	CONSTRAINT [Контракты_при_удалении_Актёра] FOREIGN KEY ([Код_актёра]) REFERENCES [Актёр]([Код_актёра])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL
+		ON UPDATE CASCADE
 
 ALTER TABLE [Актёр_Фильм] ADD
 	CONSTRAINT [А_при_АФ_удалении] FOREIGN KEY ([Код_актёра]) REFERENCES [Актёр]([Код_актёра])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL ,
+		ON UPDATE CASCADE,
 	CONSTRAINT [Ф_при_АФ_удалении] FOREIGN KEY ([Код_фильма]) REFERENCES [Фильм]([Код_фильма])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL
+		ON UPDATE CASCADE
 
 ALTER TABLE [Киностудия_Фильм] ADD
 	CONSTRAINT [К_при_КФ_удалении] FOREIGN KEY ([Код_киностудии]) REFERENCES [Киностудия]([Код_киностудии])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL ,
+		ON UPDATE CASCADE,
 	CONSTRAINT [Ф_при_КФ_удалении] FOREIGN KEY ([Код_фильма]) REFERENCES [Фильм]([Код_фильма])
 		ON DELETE SET NULL
-		ON UPDATE SET NULL
--- TO DO: TRIGGERS --
+		ON UPDATE CASCADE
+GO
+
+CREATE TRIGGER [NULL_проверка_после_удаления_Актёра]
+ON [dbo].[Актёр] AFTER DELETE 
+AS
+BEGIN
+	DELETE FROM [Актёр_Фильм] WHERE [Код_актёра] IS NULL AND [Код_фильма] IS NULL
+	DELETE FROM [Контракты] WHERE [Код_актёра] IS NULL AND [Код_киностудии] IS NULL
+END
+GO
+
+CREATE TRIGGER [NULL_проверка_после_удаления_Фильма]
+ON [dbo].[Фильм] AFTER DELETE 
+AS
+BEGIN
+	DELETE FROM [Актёр_Фильм] WHERE [Код_актёра] IS NULL AND [Код_фильма] IS NULL
+	DELETE FROM [Киностудия_Фильм] WHERE [Код_киностудии] IS NULL AND [Код_киностудии] IS NULL
+END
+GO
+
+CREATE TRIGGER [NULL_проверка_после_удаления_Киностудии]
+ON [dbo].[Киностудия] AFTER DELETE 
+AS
+BEGIN
+	DELETE FROM [Контракты] WHERE [Код_актёра] IS NULL AND [Код_киностудии] IS NULL
+	DELETE FROM [Киностудия_Фильм] WHERE [Код_киностудии] IS NULL AND [Код_киностудии] IS NULL
+END
 GO
