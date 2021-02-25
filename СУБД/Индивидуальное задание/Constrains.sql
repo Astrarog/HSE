@@ -29,7 +29,7 @@ ALTER TABLE [Фильм] ADD
 ALTER TABLE [Киностудия] ADD 
 	CONSTRAINT [Киностудия_основана_или_скоро_будет] CHECK ([Дата_основания] IS NUll OR YEAR([Дата_основания]) < YEAR(GETDATE())+20),
 	CONSTRAINT [Киностудия_появилась_после_появления_фильмов] CHECK ([Дата_основания] IS NULL OR YEAR([Дата_основания]) > 1800),
-	CONSTRAINT [Название_Киностудии_не_пусто] CHECK (dbo.notNullAndNotEmpty([Название]) = 1
+	CONSTRAINT [Название_Киностудии_не_пусто] CHECK (dbo.notNullAndNotEmpty([Название]) = 1)
 
 GO
 
