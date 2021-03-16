@@ -22,3 +22,6 @@
 [submodule "Криптографические методы ЗИ"]
 	path = Криптографические методы ЗИ
 	url = git@github.com:Astrarog/hse-crypto-methods.git
+[submodule "СТПиОИ/Асинхронность - Telnet(like)"]
+	path = СТПиОИ/Асинхронность - Telnet(like)
+	url = git@github.com:Astrarog/hse-asio.git
