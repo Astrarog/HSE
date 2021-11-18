@@ -25,3 +25,6 @@
 [submodule "СТПиОИ/Асинхронность - Telnet(like)"]
 	path = СТПиОИ/Асинхронность - Telnet(like)
 	url = git@github.com:Astrarog/hse-asio.git
+[submodule "Параллельные вычисления"]
+	path = Параллельные вычисления
+	url = git@github.com:Astrarog/hse-parallel.git
