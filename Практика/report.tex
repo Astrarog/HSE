@@ -8,7 +8,16 @@
 \usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
 \usepackage{icomma} 				% "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
 \usepackage{hyperref}				% кликабельные ссылки
-\usepackage{mathrsfs}
+\usepackage{soulutf8} 				% Модификаторы начертания
+\usepackage{mathrsfs}				% теоремы
+\usepackage{tabularx}				% X таблицы
+\usepackage[backend=biber,
+			bibencoding=utf8,
+			bibstyle=numeric,
+			sorting=none]			% цитирование в порядке появляения в тексте
+		{biblatex}					% библиография
+
+\addbibresource{sources.bib}
 
 \theoremstyle{definition}
 \newtheorem{defn}{Определение}
@@ -35,11 +44,46 @@
 \title{ОТЧЕТ о прохождении производственной практики}
 \date{2021 г.}
 
-%\interfootnotelinepenalty=10000
-
 \begin{document} % Конец преамбулы, начало текста.
 	
-	\maketitle
+	\thispagestyle{empty}
+	\begin{center}
+		Федеральное государственное автономное учреждение \\ высшего профессионального образования \\
+
+		НАЦИОНАЛЬНЫЙ ИССЛЕДОВАТЕЛЬСКИЙ УНИВЕРСИТЕТ \\ <<ВЫСШАЯ ШКОЛА ЭКОНОМИКИ>> \\
+		\vspace{2ex}
+		Образовательная программа «Компьютерная безопасность» \\
+	\end{center}
+%	\begin{flushright}
+%		\noindent
+%		\textit{Фамилия Имя Отчество}
+%		\\
+%		\textit{студент факультета экономики \\(группа 211И)}
+%	\end{flushright}
+	\begin{center}
+		\vspace{15ex}
+		\textbf{\so{ОТЧЁТ} \\ о прохождении производственной практики}
+	\end{center}
+
+	\vspace{10ex}
+
+	\textbf{Студент:} Астраханцев Р.Г. СКБ 171 \underline{\hspace{5em} \vspace{-1mm}} 
+		
+	\textbf{Руководитель практики студента:} Нестеренко А.Ю. \underline{\hspace{5em} \vspace{-1mm}}  
+		
+	\textbf{Руководитель практики от НИУ ВШЭ:} Лось А.Б. \underline{\hspace{5em}  \vspace{-1mm}} 
+
+	\vspace{8ex}
+	\hspace{0.4\linewidth} \textbf{Практика пройдена с оценкой \underline{\hspace{5em} \vspace{-1mm}} }
+
+	\vspace{5ex}
+	\hspace{0.4\linewidth} \textbf{Дата \underline{\hspace{8em} \vspace{-1mm}} }
+
+	\begin{center}
+		
+		\vfill
+		\textbf{Москва, 2021}
+	\end{center}
 	
 	\newpage
 	\tableofcontents
@@ -191,33 +235,7 @@
 	
 	
 	\newpage
-	\renewcommand{\refname}{БИБЛИОГРАФИЧЕСКИЙ СПИСОК}
-	\begin{thebibliography}{9}
-		\bibitem{paper1}
-		Jean-Philippe Aumasson, Adrian Hamelink, Omer Shlomovits: \emph{A Survey of ECDSA Threshold Signing}. IACR Cryptol. ePrint Arch. 2020: 1390 (2020) 
-		
-		\bibitem{paper2}		
-		A. Yao. \emph{How to generate and exchange secrets}. In 27th FOCS, 162—167, 1986.
-	
-		\bibitem{paper3}		
-		G Tillem, O Burundukov.: \emph{Threshold Signatures using Secure Multiparty Computa-tion}
-		
-		\bibitem{paper4}
-		Donald Beaver: \emph{Efficient multiparty protocols using circuit randomization}. In CRYPTO, 1991.
-		
-		\bibitem{paper5} 
-		Judit Bar-Ilan and Donald Beaver: \emph{Non-cryptographic faulttolerant computing in constant number of rounds of interaction}. In ACM Symposium on Principles of Distributed Computing. Association for Compting Machinery, 1989. 
-		
-		\bibitem{paper6}
-		Springer, Heidelberg (1999) Pullonen, P.: \emph{Actively secure two-party computa-tion: efficient beaver triple generation}
-		
-		\bibitem{paper7}
-		Rosario Gennaro and Steven Goldfeder: \emph{Fast multiparty threshold ECDSA with fast trustless setup}. IACR Cryptol. ePrint Arch., 2019:114, 2019.
-		
-		\bibitem{paper8}
-		Damgård, I. B., \& Koprowski, M. (2000): \emph{Practical Threshold RSA Signatures Without a Trusted Dealer}. BRICS Report Series, 7(30).
-		
-	\end{thebibliography}
+	\printbibliography[title={БИБЛИОГРАФИЧЕСКИЙ СПИСОК}]
 	
 	\newpage
 	\section*{ПРИЛОЖЕНИЯ}
