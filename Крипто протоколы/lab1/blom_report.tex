@@ -1,0 +1,119 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{enumitem}  				% смена типа символя у enumerate
+\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
+\usepackage{icomma} 				% "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+\usepackage{hyperref}				% кликабельные ссылки
+\usepackage{soulutf8} 				% Модификаторы начертания
+\usepackage{listings}				% Листинг исходного кода
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\allowdisplaybreaks
+
+%\sloppy
+
+\title{Реализация Схемы Блома распределения ключей }
+\author{Роман Астраханцев, СКБ-171}
+
+\begin{document}
+	\maketitle
+	
+	\section{Написание программы}
+	Была написана программа на языке программирования Python, которая вычисляет ключевые элементы по схеме Блома для $n$ участников, при которой обеспечивается стойкость к $m$ компрометациям, $1\le m \le n-2$. Величины $p, n, m$ задаются пользователем с консоли, $r_1=1, \dots, r_n=n$. Элементы симметричной матрицы коэффициентов $A$ исходного многочлена $f(x,y) = \sum_{i=0}^{m} \sum_{j=0}^{m} a_{i j} x^i y^j$ инициализируются случайно (как элементы $\mathbb{Z}_p$) при запуске программы. Текст программы может быть найден в приложении \ref{program}.
+	
+	\section{Расчёт ключевых значений}
+	
+	Студент выполнял вариант № k=4.
+
+	\subsection{p=73, m=1, n=15}
+	
+	\[
+	A = \begin{pmatrix}
+		62 & 51 \\
+		51 & 27 
+	\end{pmatrix}
+	\]
+	
+	\begin{align*}	
+		g_1(x)  &= 40 + 5 x  \\
+		g_2(x)  &= 18 + 32 x \\
+		g_3(x)  &= 69 + 59 x \\
+		g_4(x)  &= 47 + 13 x \\
+		g_5(x)  &= 25 + 40 x \\
+		g_6(x)  &= 3 + 67 x  \\
+		g_7(x)  &= 54 + 21 x \\
+		g_8(x)  &= 32 + 48 x \\
+		g_9(x)  &= 10 + 2 x  \\
+		g_{10}(x) &= 61 + 29 x \\
+		g_{11}(x) &= 39 + 56 x \\
+		g_{12}(x) &= 17 + 10 x \\
+		g_{13}(x) &= 68 + 37 x \\
+		g_{14}(x) &= 46 + 64 x \\
+		g_{15}(x) &= 24 + 18 x
+	\end{align*}	
+		
+	\subsection{p=139, m=2, n=10}
+	
+	\[
+	A = \begin{pmatrix}
+		116 & 131 & 35 \\
+		131 & 84  & 83 \\
+		35  & 83  & 26
+	\end{pmatrix}
+	\]
+	
+	\begin{align*}	
+		g_1(x) &= 4 + 20 x + 5 x^2      \\
+		g_2(x) &= 101 + 75 x + 27 x^2   \\
+		g_3(x) &= 129 + 18 x + 101 x^2  \\
+		g_4(x) &= 88 + 127 x + 88 x^2   \\
+		g_5(x) &= 117 + 124 x + 127 x^2 \\
+		g_6(x) &= 77 + 9 x + 79 x^2	    \\
+		g_7(x) &= 107 + 60 x + 83 x^2   \\
+		g_8(x) &= 68 + 138 x            \\
+		g_9(x) &= 99 + 104 x + 108 x^2  \\
+		g_{10}(x) &= 61 + 97 x + 129 x^2
+	\end{align*}
+	
+	\newpage
+	\stepcounter{section}
+	\renewcommand\thesubsection{\Asbuk{subsection}}
+	
+	\section*{ПРИЛОЖЕНИЯ}
+		\subsection{Текст программы} \label{program}
+	
+\lstinputlisting[language=Python]{blom.py}
+	
+		
+\end{document}
