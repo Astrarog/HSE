@@ -1,0 +1,125 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+\usepackage{enumitem}  				% смена типа символя у enumerate
+\usepackage{amsmath,amsfonts,amssymb,amsthm,epsfig,epstopdf,titling,url,array}
+\usepackage{icomma} 				% "Умная" запятая: $0,2$ --- число, $0, 2$ --- перечисление
+\usepackage{hyperref}				% кликабельные ссылки
+\usepackage{soulutf8} 				% Модификаторы начертания
+\usepackage{listings}				% Листинг исходного кода
+\usepackage{array,tabularx,tabulary,booktabs} % Дополнительная работа с таблицами
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\allowdisplaybreaks
+
+\sloppy
+
+\title{Реализация Схемы Блома распределения ключей }
+\author{Роман Астраханцев, СКБ-171}
+
+\begin{document}
+	\maketitle
+	
+	\section{Написание программы}
+	Была написана программа на языке программирования Python, которая реализует схему разделения секрета Щамира для $n$ участников, при которой обеспечивается востановление секрета любыми $t$ участниками, $1\le t \le n$. Величины $p, n, t$ задаются пользователем с консоли, $r_1~=~1, \dots, r_n~=~n$. Коэффициенты $a_i$ исходного многочлена $f(x) = \sum_{i=0}^{t-1} a_{i} x^i$ инициализируются случайно (как элементы $\mathbb{Z}_p$) при запуске программы. Текст программы может быть найден в приложении~\ref{program}.
+	
+	\section{Расчёт ключевых значений}
+	
+	Студент выполнял вариант № k=4.
+
+	\subsection{p=73, t=7, n=15}
+	
+	\[ f(x) = 17 + 54 x + 52 x^2 + 14 x^3 + 13 x^4 + 70 x^5 + 55 x^6  \]
+	
+	\[
+	\begin{array}{ccc}	
+		
+		s_1 = 56	& 		s_6 = 55	&		s_{11} = 24 \\
+		s_2 = 62	&		s_7 = 46	&		s_{12} = 58 \\
+		s_3 = 53	&		s_8 = 35	&		s_{13} = 6  \\
+		s_4 = 29	&		s_9 = 64	&		s_{14} = 28 \\
+		s_5 = 62	&		s_{10} = 39 &		s_{15} = 60 
+
+	\end{array}		
+	\]
+	
+	
+	\[
+	\begin{array}{ccccccc}	
+		\omega_1 = 7 & \omega_2 = 52 & \omega_3 = 35 & \omega_4 = 38 & \omega_5 = 21 & \omega_6 = 66 & \omega_7 = 1
+	\end{array}		
+	\]
+	
+	\[
+		s = \sum_{i=1}^{t} s_i \omega_i = 56\cdot 7 + 62 \cdot 52 + 53 \cdot 35 + 29 \cdot 38 + 62 \cdot 21 + 55 \cdot 66 + 46 \cdot 1 \mod p = 17
+	\]
+		
+	\subsection{p=139, t=5, n=10}
+	
+	\[
+	f(x) = 131 + 6 x + 77 x^2 + 127 x^3 + 63 x^4
+	\]
+	
+	\[
+\begin{array}{cc}	
+	
+	s_1 = 126	&	s_6 = 124 \\
+	s_2 = 112	&	s_7 = 0	  \\
+	s_3 = 61	&	s_8 = 0	  \\
+	s_4 = 67	&	s_9 = 133 \\
+	s_5 = 68	&	s_{10} = 113
+	
+\end{array}		
+\]
+	
+	\[
+	\begin{array}{ccccc}	
+		\omega_1 = 5 & \omega_2 = 129 & \omega_3 = 10 & \omega_4 = 134 & \omega_5 = 1
+	\end{array}		
+	\]
+	
+	\[
+		s = \sum_{i=1}^{t} s_i \omega_i = 126\cdot 5 + 112 \cdot 129 + 61 \cdot 10 + 67 \cdot 134 + 68 \cdot 1 \mod p = 131
+	\]
+	
+	\newpage
+	\stepcounter{section}
+	\renewcommand\thesubsection{\Asbuk{subsection}}
+	
+	\section*{ПРИЛОЖЕНИЯ}
+		\subsection{Текст программы} \label{program}
+	
+\lstinputlisting[language=Python]{shamir.py}
+	
+		
+\end{document}
