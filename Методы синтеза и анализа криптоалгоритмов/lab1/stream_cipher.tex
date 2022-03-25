@@ -313,10 +313,8 @@ $x \oplus y \oplus z$ & 1 & 1 & 1 & 0 &    0 &    0 &  1/4 \\ \hline
 		\end{center}
 	\end{table}
 
-	TO DO
-
-	В итоге получаем, что булева функция	
-	\[ \tilde{g}(x,y,z) = x \oplus y \oplus z \]
+	Коэффициент Уолша-Адамара на нулевом наборе переменных будет $1 - 2 \cdot (1/2) = 0$. В итоге получаем, что булева функция	
+	\[ \tilde{g}(x,y,z) = y \oplus \left(y \oplus z\right) \oplus  \left(x \oplus y \oplus 1 \right) \oplus \left(x \oplus y \oplus z\right)  = y \oplus 1\]
 	является наилучшим линейным приближением булефой фукнции $g$. Посчитаем вероятность того, что значения этих функций совпали.
 	
 	\[ p(g=\tilde{g}) = \frac{3}{4} \]
