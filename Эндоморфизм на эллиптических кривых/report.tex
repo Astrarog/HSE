@@ -21,6 +21,10 @@
 			linesnumbered,
 			vlined]
 		{algorithm2e}				% красивые алгоритмы
+		
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
 
 \sloppy
 
@@ -36,6 +40,18 @@
 \theoremstyle{definition}
 \newtheorem{defn}{Определение}
 
+\newtheoremstyle{underline}% name
+{}        % Space above, empty = `usual value'
+{}              % Space below
+{}              % Body font
+{\parindent}    % Indent amount (empty = no indent, \parindent = para indent)
+{}              % Thm head font
+{.}             % Punctuation after thm head
+{0.8ex}         % Space after thm head: \newline = linebreak
+{\textit{{\underline{\thmname{#1}\thmnumber{ #2}}}\thmnote{(#3)}}}  % Thm head spec
+
+\theoremstyle{underline}
+\newtheorem{example}{Пример}
 
 \let\oldsection\section
 \makeatletter
@@ -51,6 +67,9 @@
 		{\oldsection{#3}}}% \section{..}
 }
 \makeatother
+
+
+
 
 \author{Астраханцев Роман Геннадьевич}
 \title{ОТЧЕТ о прохождении производственной практики}
@@ -123,9 +142,93 @@
 	\newpage
 	
 	\section{Идея применения эффектиных эндоморфизмов}
-		
-	\section{Примеры эффективных эндоморфизмов}
+	
+	Под $E$ будем понимать эллипитческую кривую определённую над конечным полем $\mathbb{F}_q$. Точку на бесконечности будем обозначать как $\mathcal{O}$. Группу точек кривой $E$, рациональных над $\mathbb{F}_{q^n}, n \geqslant 1$, будем обозначать как $E(\mathbb{F}_{q^n})$.
+	
+	\begin{defn}\label{def:endo}
+	\emph{Эндоморфизмом} эллиптической кривой $E$ будем называть любое \emph{регулярное} (пиблжиаемое рациональными функциями) отоборажение $\phi:~E~\rightarrow~E $, удовлетворяющее соотношению $\phi(\mathcal{O}) = \mathcal{O}$.
+	\end{defn}
 
+	В некоторых случаях отобржаение $\phi$ эквивалентно умножению на некоторое целое число $\lambda$ по модулю $n$, поэтому $\phi(P) = \lambda P$, что может быть полезно в вычислении точки $k P$. Иными словами, если мы можем эффективно представить $k = k_1 + k_2 \lambda \pmod{n}$, где $k_1, k_2 \in [0, \ceil{\sqrt{n}}]$, то мы получим.
+
+	\begin{equation} \label{eq:decomp}
+		\begin{aligned}
+			kP &= (k_1 + k_2 \lambda) P = \\
+			   &= k_1 P + (k_2 \lambda) P = \\
+   			   &= k_1 P + k_2 (\lambda P) = \\
+   			   &= k_1 P + k_2 \phi(P) \\
+		\end{aligned}
+	\end{equation}
+	
+	Теперь разложение \ref{eq:decomp} можно эффективно вычислить используя алгоритмы типа "множественного экспоненциирования" \cite{moller2001algorithms}, которые специализрованные на вычилении выражения $k_1 P + k_2 Q$, где $P, Q \in E$.
+	
+	В силу выбранных ограничений на уполовинивание бинарных разложений $k_1$ и $k_2$ удалось избавиться от большинства увдоений точек. Итоговая сложность алгоритма без анализа ускорения от алгоритма "множественного экспоненциирования" составляет $\leqslant (\log_2 k) / 4$ удвоений точек.
+	
+	Стоит отметить, что можно добиться ещё большего ускорения в случае, когда применение преобразования эндоморфизма быстрее, чем увдоение точки. Так, например, в оконных методах при вычилении выражения $k_1 P + k_2 Q$ формируются таблицы с точками $\epsilon P$ и $\epsilon Q$ для маленьких значений $\epsilon$. Условие $Q=\phi (P)$ позволяет нам при вычислении таблиц использовать $\epsilon Q = \epsilon \phi (P) = \phi (\epsilon P)$. Это избавит от необходимости вычилять $\epsilon Q$ классическим способом, а использовать более эффективный.
+	
+	
+	\newpage	
+	\section{Примеры эффективных эндоморфизмов}
+	
+	Приведём примеры эллиптических кривых и эффиктивно вычислимых на них эндоморфизмов. 
+	
+	\begin{example}
+		Пусть $m\in \mathbb{Z}$. Отображение $\phi: E \rightarrow E$ такое, что для любой точки $P \in E$ по определению $\phi(P) = m P$ является эндоморфизмом.
+	\end{example}
+	
+	\begin{example}
+		Пусть $E$ - эллипитческая кривая, определённая над конечным полем $\mathbb{F}_q$. Отображение $\phi: E \rightarrow E$, которое действует по правилу  \[(x, y) \mapsto (x^q, y^q)\] и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом и называется эндомофризмом Фробениуса. Вычиление такого эндоморфизма является быстрой операцией.
+	\end{example}
+
+	\begin{example}
+		Пусть $p \equiv 1 \pmod{4}$ -- простое число, а $E$ - эллиптическая кривая, определённая над $\mathbb{F}_p$. Пусть $E$ задаётся уравнением 
+	
+		\begin{equation}
+			y^2 = x^3 + a x.
+		\end{equation}
+		Пусть $\alpha \in \mathbb{F}_p$ -- элемент порядка 4. Тогда отображение $\phi: E \rightarrow E$, которое действует по правилу  
+		\[ (x, y) \mapsto (-x, \alpha y) \] 
+		и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Если $P \in E(\mathbb{F}_p)$ -- точка порядка $n$, то тогда $\phi$ действует на $\langle P\rangle$ как умножение на число $\lambda$, удовлетворяющему уравнению $\lambda^2 \equiv -1 \pmod{n}$. Иными словами $\forall Q \in \langle P\rangle$ $\phi(Q) = \lambda Q$.
+	
+	\end{example}
+
+	\begin{example}
+		Пусть $p \equiv 1 \pmod{3}$ -- простое число, а $E$ - эллиптическая кривая, определённая над $\mathbb{F}_p$. Пусть $E$ задаётся уравнением 
+		
+		\begin{equation}
+			y^2 = x^3 + b.
+		\end{equation}
+		Пусть $\beta \in \mathbb{F}_p$ -- элемент порядка 3. Тогда отображение $\phi: E \rightarrow E$, которое действует по правилу  
+		\[(x, y) \mapsto (\beta x, y)\]
+		 и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Если $P \in E(\mathbb{F}_p)$ -- точка порядка $n$, то тогда $\phi$ действует на $\langle P\rangle$ как умножение на число $\lambda$, удовлетворяющему уравнению $\lambda^2 + \lambda \equiv -1 \pmod{n}$. Иными словами $\forall Q \in \langle P\rangle$ $\phi(Q) = \lambda Q$.
+		
+	\end{example}
+
+	\begin{example}
+		Пусть $p>3$ -- простое число, такое, что $-7$ является полным квадратом в $\mathbb{F}_p$, пусть $\omega = (1+\sqrt{-7})/2$ и $a = (\omega - 3)/4 $. Пусть эллиптическая кривая $E$, определённая над $\mathbb{F}_p$ задаётся уравнением
+	
+		\begin{equation}
+			y^2 = x^3 - \frac{3}{4} x^2 - 2 x - 1.
+		\end{equation}
+		Тогда отображение $\phi: E \rightarrow E$, которое действует по правилу 
+		\[ (x, y) \mapsto \left(\omega^{-2} \frac{x^2 - \omega}{x - a}, \omega^{-3} y \frac{x^2 - 2 a x + \omega}{(x - a)^2}\right) \]
+		и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Затраты на его вычисление немного больше, чем удвоение точки.
+	
+	\end{example}
+
+	\begin{example}
+		Пусть $p>3$ -- простое число, такое, что $-2$ является полным квадратом в $\mathbb{F}_p$. Пусть эллиптическая кривая $E$, определённая над $\mathbb{F}_p$ задаётся уравнением
+		
+		\begin{equation}
+			y^2 = 4x^3 -30 x - 28.
+		\end{equation}
+		Тогда отображение $\phi: E \rightarrow E$, которое действует по правилу 
+		\[ (x, y) \mapsto \left(- \frac{2x^2 + 4x + 9}{4(x + 2)}, -y \frac{2x^2 + 8x - 1}{4 \sqrt{-2} (x + 2)^2}\right) \]
+		и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Затраты на его вычисление немного больше, чем удвоение точки.
+		
+	\end{example}
+	
+	\newpage
 	\section{Декомпозиция $k$}
 
 	\section*{ЗАКЛЮЧЕНИЕ}
