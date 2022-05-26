@@ -224,13 +224,36 @@
 		\end{equation}
 		Тогда отображение $\phi: E \rightarrow E$, которое действует по правилу 
 		\[ (x, y) \mapsto \left(- \frac{2x^2 + 4x + 9}{4(x + 2)}, -y \frac{2x^2 + 8x - 1}{4 \sqrt{-2} (x + 2)^2}\right) \]
-		и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Затраты на его вычисление немного больше, чем удвоение точки.
+		и $\mathcal{O} \mapsto \mathcal{O}$, является эндоморфизмом. Затраты на его вычисление немного больше, чем удвоение точки. 
 		
 	\end{example}
 	
 	\newpage
 	\section{Декомпозиция $k$}
+	
+	Важным вопросом в применении данного подхода будет разложение числа $k$ по известным $n, \lambda$ на соотношение $k \equiv k_1 + k_2 \lambda \pmod{p}$, то есть найти маленькие значения $k_1$ и $k_2$. Это означет, что вектор $(k_1, k_2) \in \mathbb{Z} \times \mathbb{Z}$ должен иметь небольшую Евклидову норму.
+	
+	Рассмотрим гомоморфизм $f: \mathbb{Z} \times \mathbb{Z} \rightarrow \mathbb{Z}_n$, который задаётся формулой $(x, y)  \mapsto (x + \lambda y \mod n) $. Задача состоит в том, чтобы найти \emph{маленький} вектор $u \in  \mathbb{Z} \times \mathbb{Z}$ такой, что $f(u)=k$. Стоит заметить, что задача заключается именно в нахождении короткого вектора, ведь $u=(k, 0)$ удовлетворяет условию $f(u)=k$.
+	
+	Для начала найдём два линейно независимых вектора $v_1, v_2 \in \mathbb{Z} \times \mathbb{Z}$  такие, что $f(v_1)=f(v_2)=0$. Для этого рассмотрим последовательности, которые возникают в ходе работы расширенного алгоритма Евклида при нахождении НОД$(n, \lambda)=1$. В ходе работы алгоритма возникает последовательность уравнений 
+	
+	\begin{equation} \label{extEuclid}
+		s_i n + t_i \lambda = r_i, \text{ для } i=0,1,2,...,
+	\end{equation}
+	
+	где $s_0=1, t_0=0, r_0=n, s_1=0, t_1=1, r_1=\lambda$, и $r_i \geqslant 0$ $\forall i$. Известно, что последовательности $\{s_i\}, \{t_i\}, \{r_i\}$ обладают следубщими свойствами
+	
+	\begin{enumerate}[label=\arabic*),topsep=0pt,itemsep=-0.5ex,partopsep=1ex,parsep=1ex]
+		\item $r_i > r_{i+1} \geqslant 0 \ \forall i \geqslant 0$
+		\item $|s_i| < |s_{i+1}| \ \forall i \geqslant 1$
+		\item $|t_i| < |t_{i+1}| \ \forall i \geqslant 0$
+		\item \label{magic} $r_{i-1}|t_i| + r_i|t_{i-1}| = n \ \forall i \geqslant 1$ 
+	\end{enumerate}
 
+	Пусть $m$ -- это наибольший индекс, при котором $r_m > \sqrt{n}$. Тогда в силу свойства \ref{magic} имеем $|t_{m+1}| < \sqrt{n}$. 
+	
+	Выберем $v_1=(r_{m+1}, -t_{m+1})$, тогда в силу \eqref{extEuclid} выполнено $f(v_1)=0$. А поскольку $|t_{m+1}| < \sqrt{n}$ и $|r_{m+1}| < \sqrt{n}$ (в сиду выбора $m$), то $||v_1|| \leqslant \sqrt{2n}$.
+	
 	\section*{ЗАКЛЮЧЕНИЕ}
 	
 	
